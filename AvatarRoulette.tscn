@@ -1,0 +1,34 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://AvatarRoulette.gd" type="Script" id=1]
+[ext_resource path="res://gfx/bgs/paper_01.jpg" type="Texture" id=2]
+[ext_resource path="res://gfx/avatar/av-cabezas-1.png" type="Texture" id=3]
+[ext_resource path="res://gfx/avatar/av-cabezas-2.png" type="Texture" id=4]
+[ext_resource path="res://gfx/avatar/av-cabezas-3.png" type="Texture" id=5]
+[ext_resource path="res://gfx/avatar/av-cabezas-4.png" type="Texture" id=6]
+[ext_resource path="res://gfx/avatar/av-cabezas-5.png" type="Texture" id=7]
+[ext_resource path="res://gfx/avatar/av-cabezas-6.png" type="Texture" id=8]
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ) ],
+"loop": true,
+"name": "default",
+"speed": 2.0
+} ]
+
+[node name="AvatarRoulette" type="Node"]
+script = ExtResource( 1 )
+
+[node name="Fondo" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 2 )
+
+[node name="Cabeza" type="AnimatedSprite" parent="."]
+position = Vector2( 1065.67, 518.576 )
+frames = SubResource( 3 )
+frame = 4
+
+[node name="DebugTimer" type="Timer" parent="."]
+[connection signal="timeout" from="DebugTimer" to="." method="_on_DebugTimer_timeout"]
