@@ -1,12 +1,15 @@
 extends Node
 
 var timeToStart = 9
+var helpTime = 4
+var curhand = 1
 var timerScale = 1
 var playerPressedStatus = [false, false, false, false]
 var playerReleasedStatus = [false, false, false, false]
 var playerTimers = [0, 0, 0, 0]
 var playerAnimations = []
 var playerButtons = []
+var ayudas = []
 onready var seconds = $Seconds
 onready var timerText = $TimerUI/TimerText
 
@@ -14,7 +17,6 @@ onready var player1 = $Players/Player1
 onready var player2 = $Players/Player2
 onready var player3 = $Players/Player3
 onready var player4 = $Players/Player4
-
 
 
 func _ready():
@@ -30,6 +32,14 @@ func _ready():
 	
 	playerAnimations = [$PlayerAnimations/Player1Animation, $PlayerAnimations/Player1Animation2, $PlayerAnimations/Player1Animation3, $PlayerAnimations/Player1Animation4]
 	playerButtons = [player1, player2, player3, player4]
+	ayudas = [$Ayudas/Mano1, $Ayudas/Mano2, $Ayudas/Mano3, $Ayudas/Mano4]
+	
+	$CountDown.start(helpTime)
+	
+	for i in ayudas.size():
+		ayudas[i].play()
+		
+	$CountDown.connect("timeout", self, "disableHelp")
 	
 	for i in playerButtons.size():
 		playerButtons[i].connect("pressed", self, "playAnimationPlayer", [i])
@@ -37,7 +47,10 @@ func _ready():
 		 
 	
 func _process(delta):
-	$DebugTimer.text = str([playerAnimations[0].is_playing(), playerAnimations[1].is_playing(), playerAnimations[2].is_playing(), playerAnimations[3].is_playing() ])
+	pass
+	
+func disableHelp():
+	$Ayudas.visible = false
 	
 func _input(event):
 	if event is InputEventScreenTouch:
@@ -48,13 +61,14 @@ func _input(event):
 				seconds.start(1)
 		
 func playAnimationPlayer(player):
-	print("new method")
 	playerAnimations[player].play("unfold")		
 
 func animateTimer():
 	var initialRotation = timerText.rect_rotation
 	$TimerUI/TimerTween.interpolate_property(timerText, "rect_rotation", initialRotation, initialRotation + 180, 0.5, Tween.TRANS_CIRC, Tween.EASE_OUT_IN)
+	$TimerUI/CircleTween.interpolate_property($TimerUI/TimerCircle, "rotation_degree", 10, 20, 0.6, Tween.TRANS_CIRC, Tween.EASE_OUT_IN)
 	$TimerUI/TimerTween.start()
+	$TimerUI/CircleTween.start()
 
 func checkPressed():
 	playerPressedStatus = [player1.is_pressed(), player2.is_pressed(), player3.is_pressed(), player4.is_pressed()]
@@ -72,6 +86,7 @@ func _on_Seconds_timeout():
 		get_tree().change_scene("res://AvatarRoulette.tscn")
 	else:
 		updateLabel(str(timeToStart))
+		$Sounds/CountDown.play()
 		timeToStart -= 1
 		
 func playerRelease(player):

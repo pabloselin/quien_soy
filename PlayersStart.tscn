@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://PlayersStart.gd" type="Script" id=1]
 [ext_resource path="res://gfx/bgs/paper_01.jpg" type="Texture" id=2]
@@ -8,8 +8,11 @@
 [ext_resource path="res://gfx/sprites/unfold_04.png" type="Texture" id=6]
 [ext_resource path="res://gfx/sprites/unfold_05.png" type="Texture" id=7]
 [ext_resource path="res://gfx/sprites/unfold_06b.png" type="Texture" id=8]
-[ext_resource path="res://fonts/Chewy-Regular.ttf" type="DynamicFontData" id=9]
-[ext_resource path="res://sfx/325221__psychopancake__crushing-paper-slow.wav" type="AudioStream" id=10]
+[ext_resource path="res://gfx/sprites/centercircle.png" type="Texture" id=9]
+[ext_resource path="res://fonts/Chewy-Regular.ttf" type="DynamicFontData" id=10]
+[ext_resource path="res://sfx/325221__psychopancake__crushing-paper-slow.wav" type="AudioStream" id=11]
+[ext_resource path="res://sfx/Coin01-converted.ogg" type="AudioStream" id=12]
+[ext_resource path="res://gfx/sprites/mano.png" type="Texture" id=13]
 
 [sub_resource type="SpriteFrames" id=3]
 animations = [ {
@@ -48,7 +51,15 @@ size = 120
 outline_size = 6
 outline_color = Color( 0.243137, 0.211765, 0.172549, 1 )
 use_filter = true
-font_data = ExtResource( 9 )
+font_data = ExtResource( 10 )
+
+[sub_resource type="SpriteFrames" id=7]
+animations = [ {
+"frames": [ ExtResource( 13 ), null ],
+"loop": true,
+"name": "pulse",
+"speed": 3.0
+} ]
 
 [node name="PlayersStart" type="Node"]
 script = ExtResource( 1 )
@@ -83,7 +94,7 @@ normal = ExtResource( 3 )
 
 [node name="ShakePlayer" type="Tween" parent="."]
 
-[node name="PlayerAnimations" type="Node" parent="."]
+[node name="PlayerAnimations" type="Node2D" parent="."]
 
 [node name="Player1Animation2" type="AnimatedSprite" parent="PlayerAnimations"]
 modulate = Color( 0.364706, 0.784314, 0.27451, 1 )
@@ -118,11 +129,18 @@ anchor_bottom = 1.0
 margin_top = -52.0
 
 [node name="TimerUI" type="Control" parent="."]
-editor/display_folded = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 
+[node name="TimerCircle" type="Sprite" parent="TimerUI"]
+modulate = Color( 0, 0.623529, 1, 0.501961 )
+position = Vector2( 1075.38, 541.115 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 9 )
+
 [node name="TimerTween" type="Tween" parent="TimerUI"]
+
+[node name="CircleTween" type="Tween" parent="TimerUI"]
 
 [node name="TimerText" type="Label" parent="TimerUI"]
 anchor_left = 0.5
@@ -142,8 +160,42 @@ text = "10"
 align = 1
 valign = 1
 
-[node name="PlayerSounds" type="Node" parent="."]
+[node name="Sounds" type="Node" parent="."]
 
-[node name="Player1Sound" type="AudioStreamPlayer" parent="PlayerSounds"]
-stream = ExtResource( 10 )
+[node name="Player1Sound" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource( 11 )
+
+[node name="CountDown" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource( 12 )
+
+[node name="Ayudas" type="Node2D" parent="."]
+position = Vector2( -13.6992, 34.2478 )
+
+[node name="Mano1" type="AnimatedSprite" parent="Ayudas"]
+position = Vector2( 485.505, 883.414 )
+scale = Vector2( 0.4, 0.4 )
+frames = SubResource( 7 )
+animation = "pulse"
+
+[node name="Mano2" type="AnimatedSprite" parent="Ayudas"]
+position = Vector2( 495.78, 133.387 )
+scale = Vector2( 0.4, 0.4 )
+frames = SubResource( 7 )
+animation = "pulse"
+flip_v = true
+
+[node name="Mano3" type="AnimatedSprite" parent="Ayudas"]
+position = Vector2( 1718.43, 119.688 )
+scale = Vector2( 0.4, 0.4 )
+frames = SubResource( 7 )
+animation = "pulse"
+flip_h = true
+flip_v = true
+
+[node name="Mano4" type="AnimatedSprite" parent="Ayudas"]
+position = Vector2( 1732.13, 886.839 )
+scale = Vector2( 0.4, 0.4 )
+frames = SubResource( 7 )
+animation = "pulse"
+flip_h = true
 [connection signal="timeout" from="Seconds" to="." method="_on_Seconds_timeout"]
