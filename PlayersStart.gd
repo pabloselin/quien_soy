@@ -9,10 +9,9 @@ var playerReleasedStatus = [false, false, false, false]
 var playerTimers = [0, 0, 0, 0]
 var playerAnimations = []
 var playerButtons = []
-var ayudas = []
 onready var seconds = $Seconds
 onready var timerText = $TimerUI/TimerText
-
+onready var ayudas = weakref($Ayudas)
 onready var player1 = $Players/Player1
 onready var player2 = $Players/Player2
 onready var player3 = $Players/Player3
@@ -32,12 +31,9 @@ func _ready():
 	
 	playerAnimations = [$PlayerAnimations/Player1Animation, $PlayerAnimations/Player1Animation2, $PlayerAnimations/Player1Animation3, $PlayerAnimations/Player1Animation4]
 	playerButtons = [player1, player2, player3, player4]
-	ayudas = [$Ayudas/Mano1, $Ayudas/Mano2, $Ayudas/Mano3, $Ayudas/Mano4]
+	
 	
 	$CountDown.start(helpTime)
-	
-	for i in ayudas.size():
-		ayudas[i].play()
 		
 	$CountDown.connect("timeout", self, "disableHelp")
 	
@@ -50,7 +46,8 @@ func _process(delta):
 	pass
 	
 func disableHelp():
-	$Ayudas.visible = false
+	if ayudas.get_ref():
+		$Ayudas.queue_free()
 	
 func _input(event):
 	if event is InputEventScreenTouch:

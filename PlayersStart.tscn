@@ -1,7 +1,7 @@
 [gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://PlayersStart.gd" type="Script" id=1]
-[ext_resource path="res://gfx/bgs/paper_01.jpg" type="Texture" id=2]
+[ext_resource path="res://gfx/bgs/paper_lines.jpg" type="Texture" id=2]
 [ext_resource path="res://gfx/sprites/unfold_01.png" type="Texture" id=3]
 [ext_resource path="res://gfx/sprites/unfold_02.png" type="Texture" id=4]
 [ext_resource path="res://gfx/sprites/unfold_03.png" type="Texture" id=5]
@@ -12,7 +12,24 @@
 [ext_resource path="res://fonts/Chewy-Regular.ttf" type="DynamicFontData" id=10]
 [ext_resource path="res://sfx/325221__psychopancake__crushing-paper-slow.wav" type="AudioStream" id=11]
 [ext_resource path="res://sfx/Coin01-converted.ogg" type="AudioStream" id=12]
-[ext_resource path="res://gfx/sprites/mano.png" type="Texture" id=13]
+[ext_resource path="res://sfx/02 - Wara.ogg" type="AudioStream" id=13]
+[ext_resource path="res://ui/TouchIt.tscn" type="PackedScene" id=14]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ) ],
+"loop": false,
+"name": "unfold",
+"speed": 18.0
+} ]
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ) ],
+"loop": false,
+"name": "unfold",
+"speed": 18.0
+} ]
 
 [sub_resource type="SpriteFrames" id=3]
 animations = [ {
@@ -30,46 +47,24 @@ animations = [ {
 "speed": 18.0
 } ]
 
-[sub_resource type="SpriteFrames" id=5]
-animations = [ {
-"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ) ],
-"loop": false,
-"name": "unfold",
-"speed": 18.0
-} ]
-
-[sub_resource type="SpriteFrames" id=6]
-animations = [ {
-"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ) ],
-"loop": false,
-"name": "unfold",
-"speed": 18.0
-} ]
-
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=5]
 size = 120
 outline_size = 6
 outline_color = Color( 0.243137, 0.211765, 0.172549, 1 )
 use_filter = true
 font_data = ExtResource( 10 )
 
-[sub_resource type="SpriteFrames" id=7]
-animations = [ {
-"frames": [ ExtResource( 13 ), null ],
-"loop": true,
-"name": "pulse",
-"speed": 3.0
-} ]
-
 [node name="PlayersStart" type="Node"]
 script = ExtResource( 1 )
 
 [node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color( 0.905882, 0.913725, 0.85098, 1 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 texture = ExtResource( 2 )
 
 [node name="Players" type="Node" parent="."]
+editor/display_folded = true
 
 [node name="Player1" type="TouchScreenButton" parent="Players"]
 modulate = Color( 0.635294, 0.192157, 1, 0 )
@@ -95,30 +90,31 @@ normal = ExtResource( 3 )
 [node name="ShakePlayer" type="Tween" parent="."]
 
 [node name="PlayerAnimations" type="Node2D" parent="."]
+editor/display_folded = true
 
 [node name="Player1Animation2" type="AnimatedSprite" parent="PlayerAnimations"]
 modulate = Color( 0.364706, 0.784314, 0.27451, 1 )
 position = Vector2( 1616.5, 271.982 )
-frames = SubResource( 3 )
+frames = SubResource( 1 )
 animation = "unfold"
 flip_v = true
 
 [node name="Player1Animation3" type="AnimatedSprite" parent="PlayerAnimations"]
 modulate = Color( 0.756863, 0.368627, 0.898039, 1 )
 position = Vector2( 541.115, 802.824 )
-frames = SubResource( 4 )
+frames = SubResource( 2 )
 animation = "unfold"
 
 [node name="Player1Animation4" type="AnimatedSprite" parent="PlayerAnimations"]
 modulate = Color( 0.301961, 0.733333, 0.968627, 1 )
 position = Vector2( 1626.77, 809.673 )
-frames = SubResource( 5 )
+frames = SubResource( 3 )
 animation = "unfold"
 
 [node name="Player1Animation" type="AnimatedSprite" parent="PlayerAnimations"]
 modulate = Color( 0.827451, 0.290196, 0.290196, 1 )
 position = Vector2( 544.54, 271.982 )
-frames = SubResource( 6 )
+frames = SubResource( 4 )
 animation = "unfold"
 flip_v = true
 
@@ -129,6 +125,7 @@ anchor_bottom = 1.0
 margin_top = -52.0
 
 [node name="TimerUI" type="Control" parent="."]
+editor/display_folded = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 
@@ -154,7 +151,7 @@ margin_bottom = 77.5
 grow_horizontal = 2
 grow_vertical = 2
 rect_pivot_offset = Vector2( 40.6051, 77.5 )
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 5 )
 custom_colors/font_color = Color( 0.572549, 0.52549, 0.470588, 1 )
 text = "10"
 align = 1
@@ -167,35 +164,15 @@ stream = ExtResource( 11 )
 
 [node name="CountDown" type="AudioStreamPlayer" parent="Sounds"]
 stream = ExtResource( 12 )
+pitch_scale = 0.7
 
-[node name="Ayudas" type="Node2D" parent="."]
-position = Vector2( -13.6992, 34.2478 )
+[node name="Music" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource( 13 )
+volume_db = -20.0
 
-[node name="Mano1" type="AnimatedSprite" parent="Ayudas"]
-position = Vector2( 485.505, 883.414 )
+[node name="Ayudas" type="Node" parent="."]
+
+[node name="TouchIt" parent="Ayudas" instance=ExtResource( 14 )]
+position = Vector2( 547.886, 845.688 )
 scale = Vector2( 0.4, 0.4 )
-frames = SubResource( 7 )
-animation = "pulse"
-
-[node name="Mano2" type="AnimatedSprite" parent="Ayudas"]
-position = Vector2( 495.78, 133.387 )
-scale = Vector2( 0.4, 0.4 )
-frames = SubResource( 7 )
-animation = "pulse"
-flip_v = true
-
-[node name="Mano3" type="AnimatedSprite" parent="Ayudas"]
-position = Vector2( 1718.43, 119.688 )
-scale = Vector2( 0.4, 0.4 )
-frames = SubResource( 7 )
-animation = "pulse"
-flip_h = true
-flip_v = true
-
-[node name="Mano4" type="AnimatedSprite" parent="Ayudas"]
-position = Vector2( 1732.13, 886.839 )
-scale = Vector2( 0.4, 0.4 )
-frames = SubResource( 7 )
-animation = "pulse"
-flip_h = true
 [connection signal="timeout" from="Seconds" to="." method="_on_Seconds_timeout"]

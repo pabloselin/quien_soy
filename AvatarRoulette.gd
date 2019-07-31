@@ -9,3 +9,4 @@ func _ready():
 
 func _on_DebugTimer_timeout():
 	get_tree().change_scene("res://PlayersStart.tscn")
+

@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Intro.gd" type="Script" id=1]
-[ext_resource path="res://gfx/bgs/paper_01.jpg" type="Texture" id=2]
+[ext_resource path="res://gfx/bgs/paper_lines.jpg" type="Texture" id=2]
 [ext_resource path="res://gfx/avatar/av-cabezas-1.png" type="Texture" id=3]
 [ext_resource path="res://gfx/avatar/av-cabezas-2.png" type="Texture" id=4]
+[ext_resource path="res://sfx/02 - Wara.ogg" type="AudioStream" id=5]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Tilt"
@@ -94,3 +95,6 @@ stretch_mode = 6
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Tilt = SubResource( 1 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
