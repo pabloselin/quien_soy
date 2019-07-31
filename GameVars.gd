@@ -8,7 +8,7 @@ var gameSize = Vector2(ProjectSettings.get_setting("display/window/size/width"),
 
 var activePlayerZoom = Vector2(0.5, 0.5)
 var initialZoom = Vector2(1, 1)
-
+var initialCameraPosition = Vector2(0, 0)
 # Player positions based on screen size
 var playerPositions = {
 	"player1": Vector2(0, 0),
