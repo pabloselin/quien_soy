@@ -1,15 +1,17 @@
 extends Node
 
-var timeToStart = 9
+var timeToStart = 5
 var helpTime = 4
 var curhand = 1
 var timerScale = 1
 var playerPressedStatus = [false, false, false, false]
+var playerUnfoldedStatus = [false, false, false, false]
 var playerReleasedStatus = [false, false, false, false]
 var playerTimers = [0, 0, 0, 0]
 var playerAnimations = []
 var playerButtons = []
-onready var seconds = $Seconds
+
+onready var seconds = $TimerUI/Seconds
 onready var timerText = $TimerUI/TimerText
 onready var ayudas = weakref($Ayudas)
 onready var player1 = $Players/Player1
@@ -17,6 +19,8 @@ onready var player2 = $Players/Player2
 onready var player3 = $Players/Player3
 onready var player4 = $Players/Player4
 
+signal player_unfolded
+signal player_folded
 
 func _ready():
 	# Position and rotate the players
@@ -29,22 +33,48 @@ func _ready():
 	player3.position = GameVars.playerPositions["player3"]
 	player4.position = GameVars.playerPositions["player4"]
 	
-	playerAnimations = [$PlayerAnimations/Player1Animation, $PlayerAnimations/Player1Animation2, $PlayerAnimations/Player1Animation3, $PlayerAnimations/Player1Animation4]
+	playerAnimations = [$Players/PlayerAnimations/Player1Animation, $Players/PlayerAnimations/Player1Animation2, $Players/PlayerAnimations/Player1Animation3, $Players/PlayerAnimations/Player1Animation4]
 	playerButtons = [player1, player2, player3, player4]
 	
 	
-	$CountDown.start(helpTime)
+	$TimerUI/CountDown.start(helpTime)
 		
-	$CountDown.connect("timeout", self, "disableHelp")
+	$TimerUI/CountDown.connect("timeout", self, "disableHelp")
+	
+	connect("player_folded", self, "playerFolded")
+	connect("player_unfolded", self, "playerUnfolded")
 	
 	for i in playerButtons.size():
 		playerButtons[i].connect("pressed", self, "playAnimationPlayer", [i])
-		playerButtons[i].connect("released", self, "playerRelease", [i])
+		#playerButtons[i].connect("released", self, "playerRelease", [i])
+		#playerAnimations[i].connect("frame_changed", self, "playerFinishUpdate", [i])
+		playerAnimations[i].connect("animation_finished", self, "playerAssignTurn", [i])
+		#playerAnimations[i].connect("player_unfolded", self, "playerUnfolded", [i])
+		#playerAnimations[i].connect("player_folded", self, "playerFolded", [i])
 		 
 	
 func _process(delta):
 	pass
 	
+#func playerFinishUpdate(player):
+#	var frame = playerAnimations[player].frame
+#	var animationLength = playerAnimations[player].frames.get_frame_count("unfold")
+#	if frame == animationLength - 1:
+#		playerUnfoldedStatus[player] = true
+#		emit_signal("player_unfolded", player)
+#	elif frame == animationLength - 2:
+#		emit_signal("player_folded", player)
+#		playerUnfoldedStatus[player] = false
+
+#func playerUnfolded(player):
+#	print("player unfolded: ", player)
+#
+#func playerFolded(player):
+#	print("player folded: ", player)
+
+func playerAssignTurn(player):
+	GameVars.activePlayers[player] = true
+
 func disableHelp():
 	if ayudas.get_ref():
 		$Ayudas.queue_free()
@@ -55,17 +85,19 @@ func _input(event):
 		var updatedPlayer = playerPressedStatus.find(true)
 		if updatedPlayer != -1:
 			if(seconds.is_stopped()):
+				updateLabel(str(timeToStart))
 				seconds.start(1)
 		
 func playAnimationPlayer(player):
-	playerAnimations[player].play("unfold")		
+	playerAnimations[player].play("unfold")
 
 func animateTimer():
 	var initialRotation = timerText.rect_rotation
 	$TimerUI/TimerTween.interpolate_property(timerText, "rect_rotation", initialRotation, initialRotation + 180, 0.5, Tween.TRANS_CIRC, Tween.EASE_OUT_IN)
-	$TimerUI/CircleTween.interpolate_property($TimerUI/TimerCircle, "rotation_degree", 10, 20, 0.6, Tween.TRANS_CIRC, Tween.EASE_OUT_IN)
-	$TimerUI/TimerTween.start()
+	$TimerUI/CircleTween.interpolate_property($TimerUI/TimerCircle, "scale", Vector2(0.5, 0.5), Vector2(0.6, 0.6), 1, Tween.TRANS_BOUNCE, Tween.EASE_IN_OUT)
 	$TimerUI/CircleTween.start()
+	$TimerUI/TimerTween.start()
+	
 
 func checkPressed():
 	playerPressedStatus = [player1.is_pressed(), player2.is_pressed(), player3.is_pressed(), player4.is_pressed()]
@@ -78,13 +110,14 @@ func updateLabel(text):
 	timerText.text = text
 
 func _on_Seconds_timeout():
-	if timeToStart < 0:
-		GameVars.activePlayers = checkPressed()
-		get_tree().change_scene("res://AvatarRoulette.tscn")
+	if timeToStart < 1:
+		#GameVars.activePlayers = checkPressed()
+		get_tree().change_scene("res://PlayersAssigned.tscn")
 	else:
+		#$Sounds/CountDown.play()
 		updateLabel(str(timeToStart))
-		$Sounds/CountDown.play()
 		timeToStart -= 1
+		
 		
 func playerRelease(player):
 	playerAnimations[player].play("unfold", true)

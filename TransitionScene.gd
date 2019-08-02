@@ -1,7 +1,9 @@
 extends Control
 
 func _ready():
-	$AnimationPlayer.play("CamaraZoom")
+	$TestPlayersBottom.text = GameVars.transitionMessage
+	$TestPlayersTop.text = GameVars.transitionMessage
+	$SceneDuration.start(3)
 
-func apply_text(text):
-	$Texto.text = text
+func _on_SceneDuration_timeout():
+	get_tree().change_scene(GameVars.nextScene)

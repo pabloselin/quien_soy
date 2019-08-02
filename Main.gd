@@ -13,6 +13,7 @@ func zoomToPlayer(player):
 	tween.interpolate_property(camara, "zoom", Vector2(1, 1), GameVars.activePlayerZoom, 0.7, Tween.TRANS_LINEAR, Tween.EASE_IN)
 	tween.interpolate_property(camara, "position", camara.position, GameVars.playerPositions[player], 0.3, Tween.TRANS_LINEAR, Tween.EASE_IN)
 	tween.start()
+	currentPlayer = player
 	
 # Zooms back to main view	
 func zoomToMain():
@@ -31,4 +32,4 @@ func _on_CameraTween_tween_all_completed():
 		zoomToPlayer(players[currentPlayer])
 	else:
 		currentPlayer = 0
-		zoomToPlayer(players[currentPlayer])		
+		zoomToPlayer(players[currentPlayer])

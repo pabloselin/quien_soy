@@ -16,3 +16,11 @@ var playerPositions = {
 	"player3": Vector2(0, gameSize[1] / 2),
 	"player4": Vector2(gameSize[0] / 2, gameSize[1] / 2)
 }
+
+var transitionMessage = "Put some text in the scene"
+var nextScene = "res://Main.tscn"
+
+func nextScene(message, scene):
+	transitionMessage = message
+	nextScene = scene
+	get_tree().change_scene("res://TransitionScene.gd")

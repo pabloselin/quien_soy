@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Vallenato.ogg-6bc67d219ded60030f2468886a83cc8c.oggstr"
+
+[deps]
+
+source_file="res://sfx/Vallenato.ogg"
+dest_files=[ "res://.import/Vallenato.ogg-6bc67d219ded60030f2468886a83cc8c.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

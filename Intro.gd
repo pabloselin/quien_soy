@@ -7,4 +7,6 @@ func _ready():
 
 func _input(event):
 	if screenButton.is_pressed():
-		get_tree().change_scene("res://PlayersStart.tscn")
+		GameVars.transitionMessage = "Jugadores"
+		GameVars.nextScene = "res://PlayersStart.tscn"
+		get_tree().change_scene("res://TransitionScene.tscn")

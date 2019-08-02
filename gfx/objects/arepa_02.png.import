@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/bg_test_01.jpg-700482a081d52c561ee42276eaa818a3.stex"
+path="res://.import/arepa_02.png-dce5c002f144dc5f55189f4c08712838.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://gfx/bg_test_01.jpg"
-dest_files=[ "res://.import/bg_test_01.jpg-700482a081d52c561ee42276eaa818a3.stex" ]
+source_file="res://gfx/objects/arepa_02.png"
+dest_files=[ "res://.import/arepa_02.png-dce5c002f144dc5f55189f4c08712838.stex" ]
 
 [params]
 

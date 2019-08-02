@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://PlayersStart.tscn" type="PackedScene" id=1]
+[ext_resource path="res://PlayersAssigned.gd" type="Script" id=2]
+[ext_resource path="res://objects/ObjectPlayer.tscn" type="PackedScene" id=3]
+
+[node name="PlayersAssigned" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+
+[node name="Node" type="Node" parent="Players" index="5"]
+
+[node name="ObjectPlayer" parent="Players/Node" index="0" instance=ExtResource( 3 )]
+visible = false
+position = Vector2( 573.201, 273.983 )
+
+[node name="ObjectPlayer2" parent="Players/Node" index="1" instance=ExtResource( 3 )]
+visible = false
+position = Vector2( 1629.48, 259.563 )
+
+[node name="ObjectPlayer3" parent="Players/Node" index="2" instance=ExtResource( 3 )]
+visible = false
+position = Vector2( 537.151, 800.319 )
+
+[node name="ObjectPlayer4" parent="Players/Node" index="3" instance=ExtResource( 3 )]
+visible = false
+position = Vector2( 1643.9, 811.133 )
+
+[node name="TimerUI" parent="." index="3"]
+visible = false
+
+[node name="TouchIt" parent="Ayudas" index="0"]
+visible = false

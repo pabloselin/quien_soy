@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Main.gd" type="Script" id=1]
-[ext_resource path="res://gfx/bgs/paper_01.jpg" type="Texture" id=2]
+[ext_resource path="res://gfx/bgs/paper_lines_02.jpg" type="Texture" id=2]
 [ext_resource path="res://fonts/Chewy-Regular.ttf" type="DynamicFontData" id=3]
 
 [sub_resource type="DynamicFont" id=1]
@@ -13,12 +13,15 @@ font_data = ExtResource( 3 )
 script = ExtResource( 1 )
 
 [node name="TextureRect" type="TextureRect" parent="."]
-margin_left = -799.384
-margin_top = -524.749
-margin_right = 1360.62
-margin_bottom = 555.251
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -916.58
+margin_top = -1942.6
+margin_right = -526.58
+margin_bottom = 277.397
 rect_scale = Vector2( 1.72184, 1.92179 )
 texture = ExtResource( 2 )
+stretch_mode = 1
 
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0
@@ -33,6 +36,7 @@ margin_right = 592.27
 margin_bottom = 559.102
 rect_rotation = 180.0
 custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "1"
 
 [node name="Label2" type="Label" parent="."]
@@ -42,6 +46,7 @@ margin_right = 1666.29
 margin_bottom = 568.911
 rect_rotation = 180.0
 custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "2"
 
 [node name="Label3" type="Label" parent="."]
@@ -50,6 +55,7 @@ margin_top = 750.342
 margin_right = 600.845
 margin_bottom = 956.342
 custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "3"
 
 [node name="Label4" type="Label" parent="."]
@@ -58,5 +64,6 @@ margin_top = 745.438
 margin_right = 1650.34
 margin_bottom = 951.438
 custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "4"
 [connection signal="tween_all_completed" from="CameraTween" to="." method="_on_CameraTween_tween_all_completed"]
