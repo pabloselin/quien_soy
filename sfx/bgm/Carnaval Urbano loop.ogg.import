@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Carnaval Urbano loop.ogg-5adc443325cc39d5d938bd8559d8e747.oggstr"
+
+[deps]
+
+source_file="res://sfx/bgm/Carnaval Urbano loop.ogg"
+dest_files=[ "res://.import/Carnaval Urbano loop.ogg-5adc443325cc39d5d938bd8559d8e747.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

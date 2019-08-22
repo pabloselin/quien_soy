@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Afro Andino loop.ogg-84c3f825c84f87233d27c4c11e1181ab.oggstr"
+
+[deps]
+
+source_file="res://sfx/bgm/Afro Andino loop.ogg"
+dest_files=[ "res://.import/Afro Andino loop.ogg-84c3f825c84f87233d27c4c11e1181ab.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

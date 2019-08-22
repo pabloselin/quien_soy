@@ -16,12 +16,13 @@ _global_script_class_icons={
 [application]
 
 config/name="Abya Yala"
-run/main_scene="res://Intro.tscn"
+run/main_scene="res://AbyaYalaWrapper.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
 GameVars="*res://GameVars.gd"
+Utils="*res://Utils.gd"
 
 [display]
 

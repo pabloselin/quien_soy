@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/silbido subiendo3.wav-0089f42fca826c53d9b2f75dd3bed0b0.sample"
+
+[deps]
+
+source_file="res://sfx/silbido subiendo3.wav"
+dest_files=[ "res://.import/silbido subiendo3.wav-0089f42fca826c53d9b2f75dd3bed0b0.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

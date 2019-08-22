@@ -1,30 +1,26 @@
 extends Sprite
 
+var objects = [
+	"arepa_02.png",
+	"arepa_01.png",
+	"arepa_03.png",
+	"botella_01.png",
+	"botella_02.png",
+	"bote_01.png",
+	"bote_02.png",
+	"cangrejo_01.png",
+	"cangrejo_02.png"
+]
+
 # Assigns random sprite
-var objects = []
 
 func _ready():
-	objects = list_files_in_directory("res://gfx/objects")
-	randomize()
-	var randomInt = randi() % objects.size()
-	var randobject = objects[randomInt]
-	var item = load("res://gfx/objects/" + randobject)
-	print(str(objects.size()))
-	get_node(".").texture = item
-
-func list_files_in_directory(path):
-    var files = []
-    var dir = Directory.new()
-    dir.open(path)
-    dir.list_dir_begin()
-
-    while true:
-        var file = dir.get_next()
-        if file == "":
-            break
-        elif not file.begins_with(".") and file.ends_with(".png"):
-            files.append(file)
-
-    dir.list_dir_end()
-
-    return files
+	#var objects = GameVars.playerObjects
+	if objects.size() > 0:
+		randomize()
+		var randomInt = randi() % objects.size()
+		var randobject = objects[randomInt]
+		var item = load("res://gfx/player_objects/" + randobject)
+		# Removes used object so it doesn't repeat
+		objects.remove(randomInt)
+		get_node(".").texture = item

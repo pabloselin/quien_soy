@@ -6,7 +6,7 @@ func _ready():
 	$AnimationPlayer.play("Tilt")
 
 func _input(event):
-	if screenButton.is_pressed():
+	if event is InputEventScreenTouch:
 		GameVars.transitionMessage = "Jugadores"
 		GameVars.nextScene = "res://PlayersStart.tscn"
 		get_tree().change_scene("res://TransitionScene.tscn")

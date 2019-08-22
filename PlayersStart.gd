@@ -1,15 +1,12 @@
 extends Node
 
 var timeToStart = 5
-var helpTime = 4
-var curhand = 1
+var helpTime = 12
 var timerScale = 1
-var playerPressedStatus = [false, false, false, false]
-var playerUnfoldedStatus = [false, false, false, false]
-var playerReleasedStatus = [false, false, false, false]
-var playerTimers = [0, 0, 0, 0]
 var playerAnimations = []
+var playerObjects = []
 var playerButtons = []
+var colorkeys = ["purple", "green", "lightblue", "red"]
 
 onready var seconds = $TimerUI/Seconds
 onready var timerText = $TimerUI/TimerText
@@ -34,46 +31,31 @@ func _ready():
 	player4.position = GameVars.playerPositions["player4"]
 	
 	playerAnimations = [$Players/PlayerAnimations/Player1Animation, $Players/PlayerAnimations/Player1Animation2, $Players/PlayerAnimations/Player1Animation3, $Players/PlayerAnimations/Player1Animation4]
+	playerObjects = [$Players/PlayerObjects/ObjectPlayer1, $Players/PlayerObjects/ObjectPlayer2, $Players/PlayerObjects/ObjectPlayer3, $Players/PlayerObjects/ObjectPlayer4]
 	playerButtons = [player1, player2, player3, player4]
 	
+	for i in playerObjects.size():
+		Utils.updatePlayerObject(i, "object", playerObjects[i].texture.get_path())
 	
-	$TimerUI/CountDown.start(helpTime)
-		
-	$TimerUI/CountDown.connect("timeout", self, "disableHelp")
+	$Ayudas/MoveHand.play("moveAround")
 	
 	connect("player_folded", self, "playerFolded")
 	connect("player_unfolded", self, "playerUnfolded")
 	
 	for i in playerButtons.size():
 		playerButtons[i].connect("pressed", self, "playAnimationPlayer", [i])
-		#playerButtons[i].connect("released", self, "playerRelease", [i])
-		#playerAnimations[i].connect("frame_changed", self, "playerFinishUpdate", [i])
 		playerAnimations[i].connect("animation_finished", self, "playerAssignTurn", [i])
-		#playerAnimations[i].connect("player_unfolded", self, "playerUnfolded", [i])
-		#playerAnimations[i].connect("player_folded", self, "playerFolded", [i])
-		 
+
+func showItemUnfolded(player):
+	pass
 	
 func _process(delta):
 	pass
-	
-#func playerFinishUpdate(player):
-#	var frame = playerAnimations[player].frame
-#	var animationLength = playerAnimations[player].frames.get_frame_count("unfold")
-#	if frame == animationLength - 1:
-#		playerUnfoldedStatus[player] = true
-#		emit_signal("player_unfolded", player)
-#	elif frame == animationLength - 2:
-#		emit_signal("player_folded", player)
-#		playerUnfoldedStatus[player] = false
 
-#func playerUnfolded(player):
-#	print("player unfolded: ", player)
-#
-#func playerFolded(player):
-#	print("player folded: ", player)
-
-func playerAssignTurn(player):
-	GameVars.activePlayers[player] = true
+func playerAssignTurn(playerkey):
+	Utils.updatePlayerObject(playerkey, "active", true)
+	playerObjects[playerkey].visible = true
+	playerAssignColor(playerkey)
 
 func disableHelp():
 	if ayudas.get_ref():
@@ -81,15 +63,21 @@ func disableHelp():
 	
 func _input(event):
 	if event is InputEventScreenTouch:
-		checkPressed()
-		var updatedPlayer = playerPressedStatus.find(true)
-		if updatedPlayer != -1:
-			if(seconds.is_stopped()):
-				updateLabel(str(timeToStart))
-				seconds.start(1)
+		disableHelp()
+		if(seconds.is_stopped()):
+			updateLabel(str(timeToStart))
+			seconds.start(1)
 		
-func playAnimationPlayer(player):
-	playerAnimations[player].play("unfold")
+func playAnimationPlayer(playerkey):
+	playerAnimations[playerkey].play("unfold")
+	
+func playerAssignColor(playerkey):
+	randomize()
+	var randomColor = randi() % colorkeys.size()
+	var playerColor = GameVars.colors[colorkeys[randomColor]]
+	playerAnimations[playerkey].modulate = playerColor
+	colorkeys.remove(randomColor)
+	Utils.updatePlayerObject(playerkey, "color", playerColor)
 
 func animateTimer():
 	var initialRotation = timerText.rect_rotation
@@ -97,11 +85,7 @@ func animateTimer():
 	$TimerUI/CircleTween.interpolate_property($TimerUI/TimerCircle, "scale", Vector2(0.5, 0.5), Vector2(0.6, 0.6), 1, Tween.TRANS_BOUNCE, Tween.EASE_IN_OUT)
 	$TimerUI/CircleTween.start()
 	$TimerUI/TimerTween.start()
-	
-
-func checkPressed():
-	playerPressedStatus = [player1.is_pressed(), player2.is_pressed(), player3.is_pressed(), player4.is_pressed()]
-	$DebugTimer.text = str(playerPressedStatus)
+	$Sounds/CountDown.play()
 
 func updateLabel(text):
 	timerText.rect_pivot_offset = timerText.rect_size / 2
@@ -111,16 +95,8 @@ func updateLabel(text):
 
 func _on_Seconds_timeout():
 	if timeToStart < 1:
-		#GameVars.activePlayers = checkPressed()
-		get_tree().change_scene("res://PlayersAssigned.tscn")
+		GameVars.playerItems = playerObjects
+		get_tree().change_scene("res://PlayerTurns.tscn")
 	else:
-		#$Sounds/CountDown.play()
 		updateLabel(str(timeToStart))
 		timeToStart -= 1
-		
-		
-func playerRelease(player):
-	playerAnimations[player].play("unfold", true)
-	checkPressed()
-	if(playerPressedStatus.find(true) == -1):
-		seconds.stop()

@@ -1,18 +1,19 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://PlayersStart.gd" type="Script" id=1]
-[ext_resource path="res://gfx/bgs/paper_lines_02.jpg" type="Texture" id=2]
+[ext_resource path="res://sceneBackgrounds/AnimatedTileBackground.tscn" type="PackedScene" id=2]
 [ext_resource path="res://gfx/sprites/unfold_01.png" type="Texture" id=3]
 [ext_resource path="res://gfx/sprites/unfold_02.png" type="Texture" id=4]
 [ext_resource path="res://gfx/sprites/unfold_03.png" type="Texture" id=5]
 [ext_resource path="res://gfx/sprites/unfold_04.png" type="Texture" id=6]
 [ext_resource path="res://gfx/sprites/unfold_05.png" type="Texture" id=7]
 [ext_resource path="res://gfx/sprites/unfold_06.png" type="Texture" id=8]
-[ext_resource path="res://ui/TimerUI.tscn" type="PackedScene" id=9]
-[ext_resource path="res://sfx/325221__psychopancake__crushing-paper-slow.wav" type="AudioStream" id=10]
-[ext_resource path="res://sfx/Coin01-converted.ogg" type="AudioStream" id=11]
-[ext_resource path="res://sfx/bgm/Tumbe.ogg" type="AudioStream" id=12]
-[ext_resource path="res://ui/TouchIt.tscn" type="PackedScene" id=13]
+[ext_resource path="res://objects/ObjectPlayer.tscn" type="PackedScene" id=9]
+[ext_resource path="res://ui/TimerUI.tscn" type="PackedScene" id=10]
+[ext_resource path="res://sfx/325221__psychopancake__crushing-paper-slow.wav" type="AudioStream" id=11]
+[ext_resource path="res://sfx/clock1.wav" type="AudioStream" id=12]
+[ext_resource path="res://sfx/bgm/Tumbe.ogg" type="AudioStream" id=13]
+[ext_resource path="res://ui/TouchIt.tscn" type="PackedScene" id=14]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -46,17 +47,42 @@ animations = [ {
 "speed": 18.0
 } ]
 
-[node name="PlayersStart" type="Node"]
-script = ExtResource( 1 )
+[sub_resource type="Animation" id=5]
+resource_name = "moveAround"
+length = 6.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("TouchIt:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 1, 1.5, 2, 2.5, 2.9, 3.5, 4, 4.6, 5, 6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 540, 845.688 ), Vector2( 1660, 845 ), Vector2( 1660, 845 ), Vector2( 1650, 250 ), Vector2( 1650, 250 ), Vector2( 547, 260 ), Vector2( 547, 260 ), Vector2( 547.886, 260 ), Vector2( 547.886, 845.688 ), Vector2( 547.886, 845.688 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("TouchIt:rotation_degrees")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 2, 2.5, 4.6, 5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, -180.0, -180.0, 0.0 ]
+}
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="PlayersStart" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -248.266
-margin_top = -267.793
-margin_right = 141.734
-margin_bottom = 1952.21
-texture = ExtResource( 2 )
+script = ExtResource( 1 )
+
+[node name="GridContainer" parent="." instance=ExtResource( 2 )]
+modulate = Color( 1, 0.662745, 0, 0.235294 )
 
 [node name="Players" type="Node" parent="."]
 
@@ -81,30 +107,45 @@ normal = ExtResource( 3 )
 editor/display_folded = true
 
 [node name="Player1Animation2" type="AnimatedSprite" parent="Players/PlayerAnimations"]
-modulate = Color( 0.364706, 0.784314, 0.27451, 1 )
 position = Vector2( 1616.5, 271.982 )
 frames = SubResource( 1 )
 animation = "unfold"
 flip_v = true
 
 [node name="Player1Animation3" type="AnimatedSprite" parent="Players/PlayerAnimations"]
-modulate = Color( 0.756863, 0.368627, 0.898039, 1 )
 position = Vector2( 541.115, 802.824 )
 frames = SubResource( 2 )
 animation = "unfold"
 
 [node name="Player1Animation4" type="AnimatedSprite" parent="Players/PlayerAnimations"]
-modulate = Color( 0.301961, 0.733333, 0.968627, 1 )
 position = Vector2( 1626.77, 809.673 )
 frames = SubResource( 3 )
 animation = "unfold"
 
 [node name="Player1Animation" type="AnimatedSprite" parent="Players/PlayerAnimations"]
-modulate = Color( 0.827451, 0.290196, 0.290196, 1 )
 position = Vector2( 544.54, 271.982 )
 frames = SubResource( 4 )
 animation = "unfold"
 flip_v = true
+
+[node name="PlayerObjects" type="Node2D" parent="Players"]
+editor/display_folded = true
+
+[node name="ObjectPlayer1" parent="Players/PlayerObjects" instance=ExtResource( 9 )]
+visible = false
+position = Vector2( 555.112, 267.793 )
+
+[node name="ObjectPlayer2" parent="Players/PlayerObjects" instance=ExtResource( 9 )]
+visible = false
+position = Vector2( 1637.44, 270.582 )
+
+[node name="ObjectPlayer3" parent="Players/PlayerObjects" instance=ExtResource( 9 )]
+visible = false
+position = Vector2( 552.323, 803.379 )
+
+[node name="ObjectPlayer4" parent="Players/PlayerObjects" instance=ExtResource( 9 )]
+visible = false
+position = Vector2( 1643.02, 811.747 )
 
 [node name="DebugTimer" type="Label" parent="."]
 anchor_top = 1.0
@@ -112,29 +153,32 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = -52.0
 
-[node name="TimerUI" parent="." instance=ExtResource( 9 )]
+[node name="TimerUI" parent="." instance=ExtResource( 10 )]
 
 [node name="Seconds" type="Timer" parent="TimerUI"]
 
 [node name="CountDown" type="Timer" parent="TimerUI"]
 
 [node name="Sounds" type="Node" parent="."]
-editor/display_folded = true
 
 [node name="Player1Sound" type="AudioStreamPlayer" parent="Sounds"]
-stream = ExtResource( 10 )
+stream = ExtResource( 11 )
 
 [node name="CountDown" type="AudioStreamPlayer" parent="Sounds"]
-stream = ExtResource( 11 )
+stream = ExtResource( 12 )
 pitch_scale = 0.7
 
 [node name="Music" type="AudioStreamPlayer" parent="Sounds"]
-stream = ExtResource( 12 )
+stream = ExtResource( 13 )
 autoplay = true
 
 [node name="Ayudas" type="Node" parent="."]
 
-[node name="TouchIt" parent="Ayudas" instance=ExtResource( 13 )]
+[node name="TouchIt" parent="Ayudas" instance=ExtResource( 14 )]
+modulate = Color( 0, 1, 0.156863, 1 )
 position = Vector2( 547.886, 845.688 )
 scale = Vector2( 0.4, 0.4 )
+
+[node name="MoveHand" type="AnimationPlayer" parent="Ayudas"]
+anims/moveAround = SubResource( 5 )
 [connection signal="timeout" from="TimerUI/Seconds" to="." method="_on_Seconds_timeout"]

@@ -8,9 +8,7 @@ size = 120
 use_filter = true
 font_data = ExtResource( 2 )
 
-[node name="TimerUI" type="Control"]
-anchor_right = 1.0
-anchor_bottom = 1.0
+[node name="TimerUI" type="Node"]
 
 [node name="TimerCircle" type="Sprite" parent="."]
 modulate = Color( 0, 0.623529, 1, 0.501961 )

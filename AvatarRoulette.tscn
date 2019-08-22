@@ -1,53 +1,57 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://AvatarRoulette.gd" type="Script" id=1]
-[ext_resource path="res://gfx/bgs/paper_lines.jpg" type="Texture" id=2]
-[ext_resource path="res://gfx/avatar/av-cabezas-1.png" type="Texture" id=3]
-[ext_resource path="res://gfx/avatar/av-cabezas-2.png" type="Texture" id=4]
-[ext_resource path="res://gfx/avatar/av-cabezas-3.png" type="Texture" id=5]
-[ext_resource path="res://gfx/avatar/av-cabezas-4.png" type="Texture" id=6]
-[ext_resource path="res://gfx/avatar/av-cabezas-5.png" type="Texture" id=7]
-[ext_resource path="res://gfx/avatar/av-cabezas-6.png" type="Texture" id=8]
-[ext_resource path="res://gfx/bgs/paper_hole_avatar.png" type="Texture" id=9]
-[ext_resource path="res://avatars/Cabeza1.tscn" type="PackedScene" id=10]
-
-[sub_resource type="SpriteFrames" id=1]
-animations = [ {
-"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ) ],
-"loop": true,
-"name": "default",
-"speed": 2.0
-} ]
+[ext_resource path="res://sceneBackgrounds/AnimatedTileBackground.tscn" type="PackedScene" id=2]
+[ext_resource path="res://gfx/bgs/paper_lines.jpg" type="Texture" id=3]
+[ext_resource path="res://avatars/PartRotator.tscn" type="PackedScene" id=4]
+[ext_resource path="res://sfx/bgm/Vallenato.ogg" type="AudioStream" id=5]
 
 [node name="AvatarRoulette" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_horizontal_guides_": [ 93.4816, 969.836 ],
-"_edit_vertical_guides_": [ 1085.53, 1258.14, 2103.51 ]
+"_edit_vertical_guides_": [ 1085.53, 1258.14, 2103.51, 1716.31 ]
 }
 
-[node name="Fondo" type="TextureRect" parent="."]
-modulate = Color( 0.764706, 0.764706, 0.764706, 1 )
-anchor_right = 1.0
-anchor_bottom = 1.0
-texture = ExtResource( 2 )
+[node name="Fondo" parent="." instance=ExtResource( 2 )]
 
-[node name="Cabeza" type="AnimatedSprite" parent="."]
-modulate = Color( 1, 1, 1, 0.901961 )
-position = Vector2( 541.761, 527.749 )
-frames = SubResource( 1 )
-frame = 4
+[node name="paper_lines" type="Sprite" parent="."]
+position = Vector2( 635.727, 543.161 )
+scale = Vector2( 0.395745, 1 )
+texture = ExtResource( 3 )
 
 [node name="DebugTimer" type="Timer" parent="."]
 
-[node name="TextureRect" type="TextureRect" parent="."]
-visible = false
-margin_right = 40.0
-margin_bottom = 40.0
-texture = ExtResource( 9 )
+[node name="ResultZone" type="Node2D" parent="."]
+position = Vector2( 1714.81, 502.111 )
 
-[node name="ResultZone" type="Node" parent="."]
+[node name="Label" type="Label" parent="ResultZone"]
+margin_left = -79.2808
+margin_top = -20.5543
+margin_right = 9.71924
+margin_bottom = -6.55426
+text = "DEBUG PARTS"
 
-[node name="Cabeza1" parent="." instance=ExtResource( 10 )]
-position = Vector2( 1602.22, 513.42 )
+[node name="FinalFeet" type="Node2D" parent="ResultZone"]
+position = Vector2( 6.84961, 284.257 )
+scale = Vector2( 0.6, 0.6 )
+
+[node name="FinalTorso" type="Node2D" parent="ResultZone"]
+scale = Vector2( 0.6, 0.6 )
+
+[node name="FinalHead" type="Node2D" parent="ResultZone"]
+position = Vector2( -10.2739, -277.407 )
+scale = Vector2( 0.6, 0.6 )
+
+[node name="PartRotator" parent="." instance=ExtResource( 4 )]
+position = Vector2( 593.137, 490.366 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+volume_db = -12.117
+autoplay = true
 [connection signal="timeout" from="DebugTimer" to="." method="_on_DebugTimer_timeout"]
+[connection signal="buildAvatar" from="PartRotator" to="." method="_on_PartRotator_buildAvatar"]
+[connection signal="registeredPart" from="PartRotator" to="." method="_on_PartRotator_registeredPart"]

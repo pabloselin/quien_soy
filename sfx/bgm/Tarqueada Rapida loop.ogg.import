@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Tarqueada Rapida loop.ogg-5dab4adc57d47c469b1ce0f1c2f7e4d1.oggstr"
+
+[deps]
+
+source_file="res://sfx/bgm/Tarqueada Rapida loop.ogg"
+dest_files=[ "res://.import/Tarqueada Rapida loop.ogg-5dab4adc57d47c469b1ce0f1c2f7e4d1.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

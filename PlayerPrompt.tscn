@@ -1,0 +1,1907 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://PlayerPrompt.gd" type="Script" id=1]
+[ext_resource path="res://ui/PointHand.tscn" type="PackedScene" id=2]
+
+[node name="PlayerPrompt" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+
+[node name="GridContainer" type="GridContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -627.737
+margin_top = -622.833
+margin_right = -583.737
+margin_bottom = -586.833
+rect_pivot_offset = Vector2( 1102, 558 )
+columns = 20
+
+[node name="PointHand" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 180.0
+margin_bottom = 220.0
+
+[node name="PointHand2" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 184.0
+margin_right = 364.0
+margin_bottom = 220.0
+
+[node name="PointHand3" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 368.0
+margin_right = 548.0
+margin_bottom = 220.0
+
+[node name="PointHand4" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 552.0
+margin_right = 732.0
+margin_bottom = 220.0
+
+[node name="PointHand5" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 736.0
+margin_right = 916.0
+margin_bottom = 220.0
+
+[node name="PointHand6" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 920.0
+margin_right = 1100.0
+margin_bottom = 220.0
+
+[node name="PointHand7" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1104.0
+margin_right = 1284.0
+margin_bottom = 220.0
+
+[node name="PointHand8" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1288.0
+margin_right = 1468.0
+margin_bottom = 220.0
+
+[node name="PointHand9" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1472.0
+margin_right = 1652.0
+margin_bottom = 220.0
+
+[node name="PointHand10" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1656.0
+margin_right = 1836.0
+margin_bottom = 220.0
+
+[node name="PointHand11" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1840.0
+margin_right = 2020.0
+margin_bottom = 220.0
+
+[node name="PointHand12" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 2024.0
+margin_right = 2204.0
+margin_bottom = 220.0
+
+[node name="PointHand13" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 2208.0
+margin_right = 2388.0
+margin_bottom = 220.0
+
+[node name="PointHand14" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 2392.0
+margin_right = 2572.0
+margin_bottom = 220.0
+
+[node name="PointHand15" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 2576.0
+margin_right = 2756.0
+margin_bottom = 220.0
+
+[node name="PointHand16" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 2760.0
+margin_right = 2940.0
+margin_bottom = 220.0
+
+[node name="PointHand17" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 2944.0
+margin_right = 3124.0
+margin_bottom = 220.0
+
+[node name="PointHand18" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 3128.0
+margin_right = 3308.0
+margin_bottom = 220.0
+
+[node name="PointHand19" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 3312.0
+margin_right = 3492.0
+margin_bottom = 220.0
+
+[node name="PointHand20" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 3496.0
+margin_right = 3676.0
+margin_bottom = 220.0
+
+[node name="PointHand21" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 224.0
+margin_right = 180.0
+margin_bottom = 444.0
+
+[node name="PointHand22" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 184.0
+margin_top = 224.0
+margin_right = 364.0
+margin_bottom = 444.0
+
+[node name="PointHand23" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 368.0
+margin_top = 224.0
+margin_right = 548.0
+margin_bottom = 444.0
+
+[node name="PointHand24" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 552.0
+margin_top = 224.0
+margin_right = 732.0
+margin_bottom = 444.0
+
+[node name="PointHand25" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 736.0
+margin_top = 224.0
+margin_right = 916.0
+margin_bottom = 444.0
+
+[node name="PointHand26" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 920.0
+margin_top = 224.0
+margin_right = 1100.0
+margin_bottom = 444.0
+
+[node name="PointHand27" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1104.0
+margin_top = 224.0
+margin_right = 1284.0
+margin_bottom = 444.0
+
+[node name="PointHand28" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1288.0
+margin_top = 224.0
+margin_right = 1468.0
+margin_bottom = 444.0
+
+[node name="PointHand29" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1472.0
+margin_top = 224.0
+margin_right = 1652.0
+margin_bottom = 444.0
+
+[node name="PointHand30" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1656.0
+margin_top = 224.0
+margin_right = 1836.0
+margin_bottom = 444.0
+
+[node name="PointHand31" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1840.0
+margin_top = 224.0
+margin_right = 2020.0
+margin_bottom = 444.0
+
+[node name="PointHand32" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 2024.0
+margin_top = 224.0
+margin_right = 2204.0
+margin_bottom = 444.0
+
+[node name="PointHand33" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 2208.0
+margin_top = 224.0
+margin_right = 2388.0
+margin_bottom = 444.0
+
+[node name="PointHand34" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 2392.0
+margin_top = 224.0
+margin_right = 2572.0
+margin_bottom = 444.0
+
+[node name="PointHand35" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 2576.0
+margin_top = 224.0
+margin_right = 2756.0
+margin_bottom = 444.0
+
+[node name="PointHand36" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 2760.0
+margin_top = 224.0
+margin_right = 2940.0
+margin_bottom = 444.0
+
+[node name="PointHand37" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 2944.0
+margin_top = 224.0
+margin_right = 3124.0
+margin_bottom = 444.0
+
+[node name="PointHand38" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 3128.0
+margin_top = 224.0
+margin_right = 3308.0
+margin_bottom = 444.0
+
+[node name="PointHand39" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 3312.0
+margin_top = 224.0
+margin_right = 3492.0
+margin_bottom = 444.0
+
+[node name="PointHand40" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 3496.0
+margin_top = 224.0
+margin_right = 3676.0
+margin_bottom = 444.0
+
+[node name="PointHand41" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 448.0
+margin_right = 180.0
+margin_bottom = 668.0
+
+[node name="PointHand42" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 184.0
+margin_top = 448.0
+margin_right = 364.0
+margin_bottom = 668.0
+
+[node name="PointHand43" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 368.0
+margin_top = 448.0
+margin_right = 548.0
+margin_bottom = 668.0
+
+[node name="PointHand44" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 552.0
+margin_top = 448.0
+margin_right = 732.0
+margin_bottom = 668.0
+
+[node name="PointHand45" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 736.0
+margin_top = 448.0
+margin_right = 916.0
+margin_bottom = 668.0
+
+[node name="PointHand46" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 920.0
+margin_top = 448.0
+margin_right = 1100.0
+margin_bottom = 668.0
+
+[node name="PointHand47" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1104.0
+margin_top = 448.0
+margin_right = 1284.0
+margin_bottom = 668.0
+
+[node name="PointHand48" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1288.0
+margin_top = 448.0
+margin_right = 1468.0
+margin_bottom = 668.0
+
+[node name="PointHand49" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1472.0
+margin_top = 448.0
+margin_right = 1652.0
+margin_bottom = 668.0
+
+[node name="PointHand50" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1656.0
+margin_top = 448.0
+margin_right = 1836.0
+margin_bottom = 668.0
+
+[node name="PointHand51" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1840.0
+margin_top = 448.0
+margin_right = 2020.0
+margin_bottom = 668.0
+
+[node name="PointHand52" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 2024.0
+margin_top = 448.0
+margin_right = 2204.0
+margin_bottom = 668.0
+
+[node name="PointHand53" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 2208.0
+margin_top = 448.0
+margin_right = 2388.0
+margin_bottom = 668.0
+
+[node name="PointHand54" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 2392.0
+margin_top = 448.0
+margin_right = 2572.0
+margin_bottom = 668.0
+
+[node name="PointHand55" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 2576.0
+margin_top = 448.0
+margin_right = 2756.0
+margin_bottom = 668.0
+
+[node name="PointHand56" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 2760.0
+margin_top = 448.0
+margin_right = 2940.0
+margin_bottom = 668.0
+
+[node name="PointHand57" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 2944.0
+margin_top = 448.0
+margin_right = 3124.0
+margin_bottom = 668.0
+
+[node name="PointHand58" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 3128.0
+margin_top = 448.0
+margin_right = 3308.0
+margin_bottom = 668.0
+
+[node name="PointHand59" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 3312.0
+margin_top = 448.0
+margin_right = 3492.0
+margin_bottom = 668.0
+
+[node name="PointHand60" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 3496.0
+margin_top = 448.0
+margin_right = 3676.0
+margin_bottom = 668.0
+
+[node name="PointHand61" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 672.0
+margin_right = 180.0
+margin_bottom = 892.0
+
+[node name="PointHand62" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 184.0
+margin_top = 672.0
+margin_right = 364.0
+margin_bottom = 892.0
+
+[node name="PointHand63" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 368.0
+margin_top = 672.0
+margin_right = 548.0
+margin_bottom = 892.0
+
+[node name="PointHand64" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 552.0
+margin_top = 672.0
+margin_right = 732.0
+margin_bottom = 892.0
+
+[node name="PointHand65" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 736.0
+margin_top = 672.0
+margin_right = 916.0
+margin_bottom = 892.0
+
+[node name="PointHand66" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 920.0
+margin_top = 672.0
+margin_right = 1100.0
+margin_bottom = 892.0
+
+[node name="PointHand67" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1104.0
+margin_top = 672.0
+margin_right = 1284.0
+margin_bottom = 892.0
+
+[node name="PointHand68" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1288.0
+margin_top = 672.0
+margin_right = 1468.0
+margin_bottom = 892.0
+
+[node name="PointHand69" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1472.0
+margin_top = 672.0
+margin_right = 1652.0
+margin_bottom = 892.0
+
+[node name="PointHand70" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1656.0
+margin_top = 672.0
+margin_right = 1836.0
+margin_bottom = 892.0
+
+[node name="PointHand71" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1840.0
+margin_top = 672.0
+margin_right = 2020.0
+margin_bottom = 892.0
+
+[node name="PointHand72" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 2024.0
+margin_top = 672.0
+margin_right = 2204.0
+margin_bottom = 892.0
+
+[node name="PointHand73" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 2208.0
+margin_top = 672.0
+margin_right = 2388.0
+margin_bottom = 892.0
+
+[node name="PointHand74" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 2392.0
+margin_top = 672.0
+margin_right = 2572.0
+margin_bottom = 892.0
+
+[node name="PointHand75" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 2576.0
+margin_top = 672.0
+margin_right = 2756.0
+margin_bottom = 892.0
+
+[node name="PointHand76" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 2760.0
+margin_top = 672.0
+margin_right = 2940.0
+margin_bottom = 892.0
+
+[node name="PointHand77" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 2944.0
+margin_top = 672.0
+margin_right = 3124.0
+margin_bottom = 892.0
+
+[node name="PointHand78" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 3128.0
+margin_top = 672.0
+margin_right = 3308.0
+margin_bottom = 892.0
+
+[node name="PointHand79" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 3312.0
+margin_top = 672.0
+margin_right = 3492.0
+margin_bottom = 892.0
+
+[node name="PointHand80" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 3496.0
+margin_top = 672.0
+margin_right = 3676.0
+margin_bottom = 892.0
+
+[node name="PointHand81" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 896.0
+margin_right = 180.0
+margin_bottom = 1116.0
+
+[node name="PointHand82" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 184.0
+margin_top = 896.0
+margin_right = 364.0
+margin_bottom = 1116.0
+
+[node name="PointHand83" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 368.0
+margin_top = 896.0
+margin_right = 548.0
+margin_bottom = 1116.0
+
+[node name="PointHand84" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 552.0
+margin_top = 896.0
+margin_right = 732.0
+margin_bottom = 1116.0
+
+[node name="PointHand85" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 736.0
+margin_top = 896.0
+margin_right = 916.0
+margin_bottom = 1116.0
+
+[node name="PointHand86" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 920.0
+margin_top = 896.0
+margin_right = 1100.0
+margin_bottom = 1116.0
+
+[node name="PointHand87" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1104.0
+margin_top = 896.0
+margin_right = 1284.0
+margin_bottom = 1116.0
+
+[node name="PointHand88" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1288.0
+margin_top = 896.0
+margin_right = 1468.0
+margin_bottom = 1116.0
+
+[node name="PointHand89" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1472.0
+margin_top = 896.0
+margin_right = 1652.0
+margin_bottom = 1116.0
+
+[node name="PointHand90" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1656.0
+margin_top = 896.0
+margin_right = 1836.0
+margin_bottom = 1116.0
+
+[node name="PointHand91" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1840.0
+margin_top = 896.0
+margin_right = 2020.0
+margin_bottom = 1116.0
+
+[node name="PointHand92" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 2024.0
+margin_top = 896.0
+margin_right = 2204.0
+margin_bottom = 1116.0
+
+[node name="PointHand93" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 2208.0
+margin_top = 896.0
+margin_right = 2388.0
+margin_bottom = 1116.0
+
+[node name="PointHand94" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 2392.0
+margin_top = 896.0
+margin_right = 2572.0
+margin_bottom = 1116.0
+
+[node name="PointHand95" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 2576.0
+margin_top = 896.0
+margin_right = 2756.0
+margin_bottom = 1116.0
+
+[node name="PointHand96" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 2760.0
+margin_top = 896.0
+margin_right = 2940.0
+margin_bottom = 1116.0
+
+[node name="PointHand97" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 2944.0
+margin_top = 896.0
+margin_right = 3124.0
+margin_bottom = 1116.0
+
+[node name="PointHand98" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 3128.0
+margin_top = 896.0
+margin_right = 3308.0
+margin_bottom = 1116.0
+
+[node name="PointHand99" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 3312.0
+margin_top = 896.0
+margin_right = 3492.0
+margin_bottom = 1116.0
+
+[node name="PointHand100" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 3496.0
+margin_top = 896.0
+margin_right = 3676.0
+margin_bottom = 1116.0
+
+[node name="PointHand101" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 1120.0
+margin_right = 180.0
+margin_bottom = 1340.0
+
+[node name="PointHand102" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 184.0
+margin_top = 1120.0
+margin_right = 364.0
+margin_bottom = 1340.0
+
+[node name="PointHand103" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 368.0
+margin_top = 1120.0
+margin_right = 548.0
+margin_bottom = 1340.0
+
+[node name="PointHand104" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 552.0
+margin_top = 1120.0
+margin_right = 732.0
+margin_bottom = 1340.0
+
+[node name="PointHand105" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 736.0
+margin_top = 1120.0
+margin_right = 916.0
+margin_bottom = 1340.0
+
+[node name="PointHand106" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 920.0
+margin_top = 1120.0
+margin_right = 1100.0
+margin_bottom = 1340.0
+
+[node name="PointHand107" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1104.0
+margin_top = 1120.0
+margin_right = 1284.0
+margin_bottom = 1340.0
+
+[node name="PointHand108" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1288.0
+margin_top = 1120.0
+margin_right = 1468.0
+margin_bottom = 1340.0
+
+[node name="PointHand109" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1472.0
+margin_top = 1120.0
+margin_right = 1652.0
+margin_bottom = 1340.0
+
+[node name="PointHand110" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1656.0
+margin_top = 1120.0
+margin_right = 1836.0
+margin_bottom = 1340.0
+
+[node name="PointHand111" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1840.0
+margin_top = 1120.0
+margin_right = 2020.0
+margin_bottom = 1340.0
+
+[node name="PointHand112" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 2024.0
+margin_top = 1120.0
+margin_right = 2204.0
+margin_bottom = 1340.0
+
+[node name="PointHand113" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 2208.0
+margin_top = 1120.0
+margin_right = 2388.0
+margin_bottom = 1340.0
+
+[node name="PointHand114" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 2392.0
+margin_top = 1120.0
+margin_right = 2572.0
+margin_bottom = 1340.0
+
+[node name="PointHand115" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 2576.0
+margin_top = 1120.0
+margin_right = 2756.0
+margin_bottom = 1340.0
+
+[node name="PointHand116" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 2760.0
+margin_top = 1120.0
+margin_right = 2940.0
+margin_bottom = 1340.0
+
+[node name="PointHand117" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 2944.0
+margin_top = 1120.0
+margin_right = 3124.0
+margin_bottom = 1340.0
+
+[node name="PointHand118" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 3128.0
+margin_top = 1120.0
+margin_right = 3308.0
+margin_bottom = 1340.0
+
+[node name="PointHand119" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 3312.0
+margin_top = 1120.0
+margin_right = 3492.0
+margin_bottom = 1340.0
+
+[node name="PointHand120" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 3496.0
+margin_top = 1120.0
+margin_right = 3676.0
+margin_bottom = 1340.0
+
+[node name="PointHand121" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 1344.0
+margin_right = 180.0
+margin_bottom = 1564.0
+
+[node name="PointHand122" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 184.0
+margin_top = 1344.0
+margin_right = 364.0
+margin_bottom = 1564.0
+
+[node name="PointHand123" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 368.0
+margin_top = 1344.0
+margin_right = 548.0
+margin_bottom = 1564.0
+
+[node name="PointHand124" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 552.0
+margin_top = 1344.0
+margin_right = 732.0
+margin_bottom = 1564.0
+
+[node name="PointHand125" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 736.0
+margin_top = 1344.0
+margin_right = 916.0
+margin_bottom = 1564.0
+
+[node name="PointHand126" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 920.0
+margin_top = 1344.0
+margin_right = 1100.0
+margin_bottom = 1564.0
+
+[node name="PointHand127" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1104.0
+margin_top = 1344.0
+margin_right = 1284.0
+margin_bottom = 1564.0
+
+[node name="PointHand128" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1288.0
+margin_top = 1344.0
+margin_right = 1468.0
+margin_bottom = 1564.0
+
+[node name="PointHand129" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1472.0
+margin_top = 1344.0
+margin_right = 1652.0
+margin_bottom = 1564.0
+
+[node name="PointHand130" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1656.0
+margin_top = 1344.0
+margin_right = 1836.0
+margin_bottom = 1564.0
+
+[node name="PointHand131" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1840.0
+margin_top = 1344.0
+margin_right = 2020.0
+margin_bottom = 1564.0
+
+[node name="PointHand132" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 2024.0
+margin_top = 1344.0
+margin_right = 2204.0
+margin_bottom = 1564.0
+
+[node name="PointHand133" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 2208.0
+margin_top = 1344.0
+margin_right = 2388.0
+margin_bottom = 1564.0
+
+[node name="PointHand134" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 2392.0
+margin_top = 1344.0
+margin_right = 2572.0
+margin_bottom = 1564.0
+
+[node name="PointHand135" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 2576.0
+margin_top = 1344.0
+margin_right = 2756.0
+margin_bottom = 1564.0
+
+[node name="PointHand136" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 2760.0
+margin_top = 1344.0
+margin_right = 2940.0
+margin_bottom = 1564.0
+
+[node name="PointHand137" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 2944.0
+margin_top = 1344.0
+margin_right = 3124.0
+margin_bottom = 1564.0
+
+[node name="PointHand138" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 3128.0
+margin_top = 1344.0
+margin_right = 3308.0
+margin_bottom = 1564.0
+
+[node name="PointHand139" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 3312.0
+margin_top = 1344.0
+margin_right = 3492.0
+margin_bottom = 1564.0
+
+[node name="PointHand140" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 3496.0
+margin_top = 1344.0
+margin_right = 3676.0
+margin_bottom = 1564.0
+
+[node name="PointHand141" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 1568.0
+margin_right = 180.0
+margin_bottom = 1788.0
+
+[node name="PointHand142" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 184.0
+margin_top = 1568.0
+margin_right = 364.0
+margin_bottom = 1788.0
+
+[node name="PointHand143" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 368.0
+margin_top = 1568.0
+margin_right = 548.0
+margin_bottom = 1788.0
+
+[node name="PointHand144" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 552.0
+margin_top = 1568.0
+margin_right = 732.0
+margin_bottom = 1788.0
+
+[node name="PointHand145" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 736.0
+margin_top = 1568.0
+margin_right = 916.0
+margin_bottom = 1788.0
+
+[node name="PointHand146" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 920.0
+margin_top = 1568.0
+margin_right = 1100.0
+margin_bottom = 1788.0
+
+[node name="PointHand147" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1104.0
+margin_top = 1568.0
+margin_right = 1284.0
+margin_bottom = 1788.0
+
+[node name="PointHand148" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1288.0
+margin_top = 1568.0
+margin_right = 1468.0
+margin_bottom = 1788.0
+
+[node name="PointHand149" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1472.0
+margin_top = 1568.0
+margin_right = 1652.0
+margin_bottom = 1788.0
+
+[node name="PointHand150" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1656.0
+margin_top = 1568.0
+margin_right = 1836.0
+margin_bottom = 1788.0
+
+[node name="PointHand151" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1840.0
+margin_top = 1568.0
+margin_right = 2020.0
+margin_bottom = 1788.0
+
+[node name="PointHand152" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 2024.0
+margin_top = 1568.0
+margin_right = 2204.0
+margin_bottom = 1788.0
+
+[node name="PointHand153" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 2208.0
+margin_top = 1568.0
+margin_right = 2388.0
+margin_bottom = 1788.0
+
+[node name="PointHand154" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 2392.0
+margin_top = 1568.0
+margin_right = 2572.0
+margin_bottom = 1788.0
+
+[node name="PointHand155" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 2576.0
+margin_top = 1568.0
+margin_right = 2756.0
+margin_bottom = 1788.0
+
+[node name="PointHand156" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 2760.0
+margin_top = 1568.0
+margin_right = 2940.0
+margin_bottom = 1788.0
+
+[node name="PointHand157" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 2944.0
+margin_top = 1568.0
+margin_right = 3124.0
+margin_bottom = 1788.0
+
+[node name="PointHand158" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 3128.0
+margin_top = 1568.0
+margin_right = 3308.0
+margin_bottom = 1788.0
+
+[node name="PointHand159" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 3312.0
+margin_top = 1568.0
+margin_right = 3492.0
+margin_bottom = 1788.0
+
+[node name="PointHand160" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 3496.0
+margin_top = 1568.0
+margin_right = 3676.0
+margin_bottom = 1788.0
+
+[node name="PointHand161" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 1792.0
+margin_right = 180.0
+margin_bottom = 2012.0
+
+[node name="PointHand162" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 184.0
+margin_top = 1792.0
+margin_right = 364.0
+margin_bottom = 2012.0
+
+[node name="PointHand163" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 368.0
+margin_top = 1792.0
+margin_right = 548.0
+margin_bottom = 2012.0
+
+[node name="PointHand164" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 552.0
+margin_top = 1792.0
+margin_right = 732.0
+margin_bottom = 2012.0
+
+[node name="PointHand165" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 736.0
+margin_top = 1792.0
+margin_right = 916.0
+margin_bottom = 2012.0
+
+[node name="PointHand166" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 920.0
+margin_top = 1792.0
+margin_right = 1100.0
+margin_bottom = 2012.0
+
+[node name="PointHand167" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1104.0
+margin_top = 1792.0
+margin_right = 1284.0
+margin_bottom = 2012.0
+
+[node name="PointHand168" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1288.0
+margin_top = 1792.0
+margin_right = 1468.0
+margin_bottom = 2012.0
+
+[node name="PointHand169" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1472.0
+margin_top = 1792.0
+margin_right = 1652.0
+margin_bottom = 2012.0
+
+[node name="PointHand170" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1656.0
+margin_top = 1792.0
+margin_right = 1836.0
+margin_bottom = 2012.0
+
+[node name="PointHand171" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1840.0
+margin_top = 1792.0
+margin_right = 2020.0
+margin_bottom = 2012.0
+
+[node name="PointHand172" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 2024.0
+margin_top = 1792.0
+margin_right = 2204.0
+margin_bottom = 2012.0
+
+[node name="PointHand173" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 2208.0
+margin_top = 1792.0
+margin_right = 2388.0
+margin_bottom = 2012.0
+
+[node name="PointHand174" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 2392.0
+margin_top = 1792.0
+margin_right = 2572.0
+margin_bottom = 2012.0
+
+[node name="PointHand175" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 2576.0
+margin_top = 1792.0
+margin_right = 2756.0
+margin_bottom = 2012.0
+
+[node name="PointHand176" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 2760.0
+margin_top = 1792.0
+margin_right = 2940.0
+margin_bottom = 2012.0
+
+[node name="PointHand177" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 2944.0
+margin_top = 1792.0
+margin_right = 3124.0
+margin_bottom = 2012.0
+
+[node name="PointHand178" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 3128.0
+margin_top = 1792.0
+margin_right = 3308.0
+margin_bottom = 2012.0
+
+[node name="PointHand179" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 3312.0
+margin_top = 1792.0
+margin_right = 3492.0
+margin_bottom = 2012.0
+
+[node name="PointHand180" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 3496.0
+margin_top = 1792.0
+margin_right = 3676.0
+margin_bottom = 2012.0
+
+[node name="PointHand181" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 2016.0
+margin_right = 180.0
+margin_bottom = 2236.0
+
+[node name="PointHand182" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 184.0
+margin_top = 2016.0
+margin_right = 364.0
+margin_bottom = 2236.0
+
+[node name="PointHand183" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 368.0
+margin_top = 2016.0
+margin_right = 548.0
+margin_bottom = 2236.0
+
+[node name="PointHand184" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 552.0
+margin_top = 2016.0
+margin_right = 732.0
+margin_bottom = 2236.0
+
+[node name="PointHand185" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 736.0
+margin_top = 2016.0
+margin_right = 916.0
+margin_bottom = 2236.0
+
+[node name="PointHand186" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 920.0
+margin_top = 2016.0
+margin_right = 1100.0
+margin_bottom = 2236.0
+
+[node name="PointHand187" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1104.0
+margin_top = 2016.0
+margin_right = 1284.0
+margin_bottom = 2236.0
+
+[node name="PointHand188" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1288.0
+margin_top = 2016.0
+margin_right = 1468.0
+margin_bottom = 2236.0
+
+[node name="PointHand189" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1472.0
+margin_top = 2016.0
+margin_right = 1652.0
+margin_bottom = 2236.0
+
+[node name="PointHand190" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1656.0
+margin_top = 2016.0
+margin_right = 1836.0
+margin_bottom = 2236.0
+
+[node name="PointHand191" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1840.0
+margin_top = 2016.0
+margin_right = 2020.0
+margin_bottom = 2236.0
+
+[node name="PointHand192" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 2024.0
+margin_top = 2016.0
+margin_right = 2204.0
+margin_bottom = 2236.0
+
+[node name="PointHand193" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 2208.0
+margin_top = 2016.0
+margin_right = 2388.0
+margin_bottom = 2236.0
+
+[node name="PointHand194" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 2392.0
+margin_top = 2016.0
+margin_right = 2572.0
+margin_bottom = 2236.0
+
+[node name="PointHand195" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 2576.0
+margin_top = 2016.0
+margin_right = 2756.0
+margin_bottom = 2236.0
+
+[node name="PointHand196" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 2760.0
+margin_top = 2016.0
+margin_right = 2940.0
+margin_bottom = 2236.0
+
+[node name="PointHand197" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 2944.0
+margin_top = 2016.0
+margin_right = 3124.0
+margin_bottom = 2236.0
+
+[node name="PointHand198" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 3128.0
+margin_top = 2016.0
+margin_right = 3308.0
+margin_bottom = 2236.0
+
+[node name="PointHand199" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 3312.0
+margin_top = 2016.0
+margin_right = 3492.0
+margin_bottom = 2236.0
+
+[node name="PointHand200" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 3496.0
+margin_top = 2016.0
+margin_right = 3676.0
+margin_bottom = 2236.0
+
+[node name="PointHand201" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 2240.0
+margin_right = 180.0
+margin_bottom = 2460.0
+
+[node name="PointHand202" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 184.0
+margin_top = 2240.0
+margin_right = 364.0
+margin_bottom = 2460.0
+
+[node name="PointHand203" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 368.0
+margin_top = 2240.0
+margin_right = 548.0
+margin_bottom = 2460.0
+
+[node name="PointHand204" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 552.0
+margin_top = 2240.0
+margin_right = 732.0
+margin_bottom = 2460.0
+
+[node name="PointHand205" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 736.0
+margin_top = 2240.0
+margin_right = 916.0
+margin_bottom = 2460.0
+
+[node name="PointHand206" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 920.0
+margin_top = 2240.0
+margin_right = 1100.0
+margin_bottom = 2460.0
+
+[node name="PointHand207" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1104.0
+margin_top = 2240.0
+margin_right = 1284.0
+margin_bottom = 2460.0
+
+[node name="PointHand208" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1288.0
+margin_top = 2240.0
+margin_right = 1468.0
+margin_bottom = 2460.0
+
+[node name="PointHand209" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1472.0
+margin_top = 2240.0
+margin_right = 1652.0
+margin_bottom = 2460.0
+
+[node name="PointHand210" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1656.0
+margin_top = 2240.0
+margin_right = 1836.0
+margin_bottom = 2460.0
+
+[node name="PointHand211" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1840.0
+margin_top = 2240.0
+margin_right = 2020.0
+margin_bottom = 2460.0
+
+[node name="PointHand212" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 2024.0
+margin_top = 2240.0
+margin_right = 2204.0
+margin_bottom = 2460.0
+
+[node name="PointHand213" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 2208.0
+margin_top = 2240.0
+margin_right = 2388.0
+margin_bottom = 2460.0
+
+[node name="PointHand214" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 2392.0
+margin_top = 2240.0
+margin_right = 2572.0
+margin_bottom = 2460.0
+
+[node name="PointHand215" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 2576.0
+margin_top = 2240.0
+margin_right = 2756.0
+margin_bottom = 2460.0
+
+[node name="PointHand216" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 2760.0
+margin_top = 2240.0
+margin_right = 2940.0
+margin_bottom = 2460.0
+
+[node name="PointHand217" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 2944.0
+margin_top = 2240.0
+margin_right = 3124.0
+margin_bottom = 2460.0
+
+[node name="PointHand218" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 3128.0
+margin_top = 2240.0
+margin_right = 3308.0
+margin_bottom = 2460.0
+
+[node name="PointHand219" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 3312.0
+margin_top = 2240.0
+margin_right = 3492.0
+margin_bottom = 2460.0
+
+[node name="PointHand220" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 3496.0
+margin_top = 2240.0
+margin_right = 3676.0
+margin_bottom = 2460.0
+
+[node name="PointHand221" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 2464.0
+margin_right = 180.0
+margin_bottom = 2684.0
+
+[node name="PointHand222" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 184.0
+margin_top = 2464.0
+margin_right = 364.0
+margin_bottom = 2684.0
+
+[node name="PointHand223" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 368.0
+margin_top = 2464.0
+margin_right = 548.0
+margin_bottom = 2684.0
+
+[node name="PointHand224" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 552.0
+margin_top = 2464.0
+margin_right = 732.0
+margin_bottom = 2684.0
+
+[node name="PointHand225" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 736.0
+margin_top = 2464.0
+margin_right = 916.0
+margin_bottom = 2684.0
+
+[node name="PointHand226" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 920.0
+margin_top = 2464.0
+margin_right = 1100.0
+margin_bottom = 2684.0
+
+[node name="PointHand227" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1104.0
+margin_top = 2464.0
+margin_right = 1284.0
+margin_bottom = 2684.0
+
+[node name="PointHand228" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1288.0
+margin_top = 2464.0
+margin_right = 1468.0
+margin_bottom = 2684.0
+
+[node name="PointHand229" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1472.0
+margin_top = 2464.0
+margin_right = 1652.0
+margin_bottom = 2684.0
+
+[node name="PointHand230" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1656.0
+margin_top = 2464.0
+margin_right = 1836.0
+margin_bottom = 2684.0
+
+[node name="PointHand231" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1840.0
+margin_top = 2464.0
+margin_right = 2020.0
+margin_bottom = 2684.0
+
+[node name="PointHand232" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 2024.0
+margin_top = 2464.0
+margin_right = 2204.0
+margin_bottom = 2684.0
+
+[node name="PointHand233" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 2208.0
+margin_top = 2464.0
+margin_right = 2388.0
+margin_bottom = 2684.0
+
+[node name="PointHand234" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 2392.0
+margin_top = 2464.0
+margin_right = 2572.0
+margin_bottom = 2684.0
+
+[node name="PointHand235" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 2576.0
+margin_top = 2464.0
+margin_right = 2756.0
+margin_bottom = 2684.0
+
+[node name="PointHand236" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 2760.0
+margin_top = 2464.0
+margin_right = 2940.0
+margin_bottom = 2684.0
+
+[node name="PointHand237" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 2944.0
+margin_top = 2464.0
+margin_right = 3124.0
+margin_bottom = 2684.0
+
+[node name="PointHand238" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 3128.0
+margin_top = 2464.0
+margin_right = 3308.0
+margin_bottom = 2684.0
+
+[node name="PointHand239" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 3312.0
+margin_top = 2464.0
+margin_right = 3492.0
+margin_bottom = 2684.0
+
+[node name="PointHand240" parent="GridContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 3496.0
+margin_top = 2464.0
+margin_right = 3676.0
+margin_bottom = 2684.0
