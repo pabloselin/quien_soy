@@ -1,20 +1,11 @@
 extends Node
 
-var torsos = [preload("res://avatars/body/Body_01.tscn"),preload("res://avatars/body/Body_02.tscn"),preload("res://avatars/body/Body_03.tscn"),preload("res://avatars/body/Body_04.tscn"),preload("res://avatars/body/Body_05.tscn"),preload("res://avatars/body/Body_06.tscn")]
-var feet = [preload("res://avatars/feet/Feet_01.tscn"),preload("res://avatars/feet/Feet_02.tscn"),preload("res://avatars/feet/Feet_03.tscn"),preload("res://avatars/feet/Feet_04.tscn"),preload("res://avatars/feet/Feet_05.tscn"),preload("res://avatars/feet/Feet_06.tscn")]
-var heads = [preload("res://avatars/head/Head_01.tscn"),preload("res://avatars/head/Head_02.tscn"),preload("res://avatars/head/Head_03.tscn"),preload("res://avatars/head/Head_04.tscn"),preload("res://avatars/head/Head_05.tscn"),preload("res://avatars/head/Head_06.tscn")]
-
 var bodySeconds = 10
 var parts = ["head", "torso", "feet"]
 var currentpart = parts[0]
 
 func _ready():
-	pass
-
-func _on_DebugTimer_timeout():
-	get_tree().change_scene("res://Main.tscn")
-
-
+	$PlayerLabel.text = str(GameVars.currentPlayer)
 
 func _on_PartRotator_registeredPart():
 	var head = GameVars.playerProps[GameVars.currentPlayer]["head"]
@@ -28,10 +19,16 @@ func _on_PartRotator_buildAvatar():
 	var finalfeet = GameVars.playerProps[GameVars.currentPlayer]["feet"]
 	
 	if finalhead != null and finaltorso != null and finalfeet != null:
-		var instanceHead =  heads[finalhead].instance()
-		var instanceTorso = torsos[finaltorso].instance()
-		var instanceFeet = feet[finalfeet].instance()
+		var instanceHead =  GameVars.heads[finalhead].instance()
+		var instanceTorso = GameVars.torsos[finaltorso].instance()
+		var instanceFeet = GameVars.feet[finalfeet].instance()
 		
 		$ResultZone/FinalHead.add_child(instanceHead)
 		$ResultZone/FinalTorso.add_child(instanceTorso)
 		$ResultZone/FinalFeet.add_child(instanceFeet)
+		$FinalAvatarTimer.start(3)
+		
+
+
+func _on_FinalAvatarTimer_timeout():
+	get_tree().change_scene("res://PlayerTurns.tscn")

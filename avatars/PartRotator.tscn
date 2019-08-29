@@ -2,7 +2,7 @@
 
 [ext_resource path="res://PartRotator.gd" type="Script" id=1]
 [ext_resource path="res://fonts/Chewy-Regular.ttf" type="DynamicFontData" id=2]
-[ext_resource path="res://sfx/tambor2.wav" type="AudioStream" id=3]
+[ext_resource path="res://sfx/clcok3.wav" type="AudioStream" id=3]
 
 [sub_resource type="DynamicFont" id=1]
 size = 72

@@ -104,7 +104,6 @@ position = Vector2( 335.269, 223.512 )
 normal = ExtResource( 3 )
 
 [node name="PlayerAnimations" type="Node2D" parent="Players"]
-editor/display_folded = true
 
 [node name="Player1Animation2" type="AnimatedSprite" parent="Players/PlayerAnimations"]
 position = Vector2( 1616.5, 271.982 )
@@ -160,6 +159,7 @@ margin_top = -52.0
 [node name="CountDown" type="Timer" parent="TimerUI"]
 
 [node name="Sounds" type="Node" parent="."]
+editor/display_folded = true
 
 [node name="Player1Sound" type="AudioStreamPlayer" parent="Sounds"]
 stream = ExtResource( 11 )
@@ -173,6 +173,7 @@ stream = ExtResource( 13 )
 autoplay = true
 
 [node name="Ayudas" type="Node" parent="."]
+editor/display_folded = true
 
 [node name="TouchIt" parent="Ayudas" instance=ExtResource( 14 )]
 modulate = Color( 0, 1, 0.156863, 1 )

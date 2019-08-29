@@ -1,10 +1,19 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://AvatarRoulette.gd" type="Script" id=1]
 [ext_resource path="res://sceneBackgrounds/AnimatedTileBackground.tscn" type="PackedScene" id=2]
 [ext_resource path="res://gfx/bgs/paper_lines.jpg" type="Texture" id=3]
 [ext_resource path="res://avatars/PartRotator.tscn" type="PackedScene" id=4]
 [ext_resource path="res://sfx/bgm/Vallenato.ogg" type="AudioStream" id=5]
+[ext_resource path="res://fonts/Chewy-Regular.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://ui/CurrentCamera.tscn" type="PackedScene" id=7]
+
+[sub_resource type="DynamicFont" id=1]
+size = 120
+outline_size = 4
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = ExtResource( 6 )
 
 [node name="AvatarRoulette" type="Control"]
 anchor_right = 1.0
@@ -21,8 +30,6 @@ __meta__ = {
 position = Vector2( 635.727, 543.161 )
 scale = Vector2( 0.395745, 1 )
 texture = ExtResource( 3 )
-
-[node name="DebugTimer" type="Timer" parent="."]
 
 [node name="ResultZone" type="Node2D" parent="."]
 position = Vector2( 1714.81, 502.111 )
@@ -50,8 +57,21 @@ position = Vector2( 593.137, 490.366 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 5 )
-volume_db = -12.117
+volume_db = -15.0
 autoplay = true
-[connection signal="timeout" from="DebugTimer" to="." method="_on_DebugTimer_timeout"]
+
+[node name="FinalAvatarTimer" type="Timer" parent="."]
+
+[node name="PlayerLabel" type="Label" parent="."]
+margin_left = 1277.45
+margin_top = 876.745
+margin_right = 2022.45
+margin_bottom = 1031.75
+custom_fonts/font = SubResource( 1 )
+text = "[CurrentPlayer]"
+
+[node name="CurrentCamera" parent="." instance=ExtResource( 7 )]
+rotation = 0.0
 [connection signal="buildAvatar" from="PartRotator" to="." method="_on_PartRotator_buildAvatar"]
 [connection signal="registeredPart" from="PartRotator" to="." method="_on_PartRotator_registeredPart"]
+[connection signal="timeout" from="FinalAvatarTimer" to="." method="_on_FinalAvatarTimer_timeout"]

@@ -13,5 +13,22 @@ func getActivePlayers():
 		var curplayer = "player" + str(i+1)
 		if GameVars.playerProps[curplayer]["active"] == true:
 			activePlayers.push_back(curplayer)
-	print(str(activePlayers))
 	return activePlayers
+	
+func randomizePlayersOrder():
+	var activePlayers = getActivePlayers()
+	randomize()
+	var shuffledPlayers = activePlayers
+	shuffledPlayers.shuffle()
+	for i in shuffledPlayers.size():
+		GameVars.playersOrder.push_back(shuffledPlayers[i])
+
+func getPlayerTurn():
+	GameVars.currentPlayer = GameVars.playersOrder.front()
+	GameVars.playersOrder.pop_front()
+
+func playerHasAvatar(player):
+	if GameVars.playerProps[player].head != null:
+		return true
+	else:
+		return false

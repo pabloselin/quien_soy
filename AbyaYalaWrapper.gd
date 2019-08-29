@@ -1,4 +1,4 @@
 extends Control
 
 func _ready():
-	pass
+	$DEBUG.text = str(GameVars.playersOrder)

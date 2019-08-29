@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://minigames/MiniGameBase.gd" type="Script" id=1]
 [ext_resource path="res://sceneBackgrounds/AnimatedTileBackground.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://gfx/sprites/unfold_05.png" type="Texture" id=7]
 [ext_resource path="res://gfx/sprites/unfold_06.png" type="Texture" id=8]
 [ext_resource path="res://sfx/bgm/afro_andino_loop.ogg" type="AudioStream" id=9]
+[ext_resource path="res://avatars/CurrentAvatar.tscn" type="PackedScene" id=10]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -40,5 +41,8 @@ margin_bottom = 40.0
 [node name="BGM" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 9 )
 autoplay = true
+
+[node name="CurrentAvatar" parent="." instance=ExtResource( 10 )]
+scale = Vector2( 0.7, 0.7 )
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="timeout" from="RebootTimer" to="." method="_on_RebootTimer_timeout"]

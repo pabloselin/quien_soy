@@ -1,9 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Intro.gd" type="Script" id=1]
 [ext_resource path="res://sceneBackgrounds/AnimatedTileBackground.tscn" type="PackedScene" id=2]
-[ext_resource path="res://sfx/bgm/Tumbe.ogg" type="AudioStream" id=3]
-[ext_resource path="res://ui/TouchIt.tscn" type="PackedScene" id=4]
+[ext_resource path="res://sfx/bgm/afro_andino_loop.ogg" type="AudioStream" id=3]
+[ext_resource path="res://ui/Title.tscn" type="PackedScene" id=4]
+[ext_resource path="res://ui/TituloCentral.tscn" type="PackedScene" id=5]
+[ext_resource path="res://avatars/Cabeza1.tscn" type="PackedScene" id=6]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Tilt"
@@ -13,8 +15,13 @@ loop = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_horizontal_guides_": [ 106.719, 962.867 ],
+"_edit_vertical_guides_": [ 211.496, 1973.29 ]
+}
 
 [node name="Background" parent="." instance=ExtResource( 2 )]
+modulate = Color( 1, 0.866667, 0, 0.564706 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Tilt = SubResource( 1 )
@@ -23,9 +30,29 @@ anims/Tilt = SubResource( 1 )
 stream = ExtResource( 3 )
 autoplay = true
 
-[node name="Node2D" parent="." instance=ExtResource( 4 )]
-position = Vector2( 362.91, 549.269 )
+[node name="Title" parent="." instance=ExtResource( 4 )]
+position = Vector2( 377.624, 784.671 )
+rotation = 0.785398
+scale = Vector2( 0.4, 0.4 )
 
-[node name="Node2D2" parent="." instance=ExtResource( 4 )]
-position = Vector2( 1883.21, 627.737 )
-rotation = 3.14159
+[node name="Title2" parent="." instance=ExtResource( 4 )]
+position = Vector2( 411.954, 279.539 )
+rotation = 2.35619
+scale = Vector2( 0.4, 0.4 )
+
+[node name="Title3" parent="." instance=ExtResource( 4 )]
+position = Vector2( 1772.57, 766.023 )
+rotation = 5.49779
+scale = Vector2( 0.4, 0.4 )
+
+[node name="Title4" parent="." instance=ExtResource( 4 )]
+position = Vector2( 1745.02, 284.474 )
+rotation = 3.92699
+scale = Vector2( 0.4, 0.4 )
+
+[node name="TituloCentral" parent="." instance=ExtResource( 5 )]
+
+[node name="Cabeza" parent="." instance=ExtResource( 6 )]
+position = Vector2( 1506.33, 795.744 )
+rotation = 0.436332
+scale = Vector2( 0.5, 0.5 )

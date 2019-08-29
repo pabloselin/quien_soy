@@ -5,6 +5,9 @@ onready var tween = $CameraTween
 var isPlaying = false
 
 func _ready():
+	#Shuffle again the players
+	Utils.randomizePlayersOrder()
+	Utils.getPlayerTurn()
 	zoomToMain()
 	yield(get_tree().create_timer(1.0), "timeout")
 	zoomToPlayer(GameVars.currentPlayer)

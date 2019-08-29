@@ -8,6 +8,13 @@ var gameSize = Vector2(ProjectSettings.get_setting("display/window/size/width"),
 var activePlayerZoom = Vector2(0.5, 0.5)
 var initialZoom = Vector2(1, 1)
 var initialCameraPosition = Vector2(0, 0)
+
+var nameList = ["suri", "wara", "kusi", "panqarita", "kurmi", "quantati", "nayra", "allin", "pawkar", "amaru"]
+
+var torsos = [preload("res://avatars/body/Body_01.tscn"),preload("res://avatars/body/Body_02.tscn"),preload("res://avatars/body/Body_03.tscn"),preload("res://avatars/body/Body_04.tscn"),preload("res://avatars/body/Body_05.tscn"),preload("res://avatars/body/Body_06.tscn")]
+var feet = [preload("res://avatars/feet/Feet_01.tscn"),preload("res://avatars/feet/Feet_02.tscn"),preload("res://avatars/feet/Feet_03.tscn"),preload("res://avatars/feet/Feet_04.tscn"),preload("res://avatars/feet/Feet_05.tscn"),preload("res://avatars/feet/Feet_06.tscn")]
+var heads = [preload("res://avatars/head/Head_01.tscn"),preload("res://avatars/head/Head_02.tscn"),preload("res://avatars/head/Head_03.tscn"),preload("res://avatars/head/Head_04.tscn"),preload("res://avatars/head/Head_05.tscn"),preload("res://avatars/head/Head_06.tscn")]
+
 # Player positions based on screen size
 
 var playerPositions = {
@@ -36,6 +43,7 @@ var playerProps = {
 		"active": false,
 		"games": null,
 		"object": null,
+		"name": null,
 		"angle": -22.5
 	},
 	"player2": {
@@ -49,6 +57,7 @@ var playerProps = {
 		"active": false,
 		"games": null,
 		"object": null,
+		"name": null,
 		"angle": 67.5
 	},
 	"player3": {
@@ -62,6 +71,7 @@ var playerProps = {
 		"active": false,
 		"games": null,
 		"object": null,
+		"name": null,
 		"angle": -111.5
 	},
 	"player4": {
@@ -75,14 +85,14 @@ var playerProps = {
 		"active": false,
 		"games": null,
 		"object": null,
+		"name": null,
 		"angle": 111.5
 	}
 }
 
 var currentPlayer = "player1"
-
 var playerItems = []
-
+var playersOrder = []
 var transitionMessage = "Put some text in the scene"
 var nextScene = "res://Main.tscn"
 
