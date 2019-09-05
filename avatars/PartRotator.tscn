@@ -24,6 +24,15 @@ margin_top = 364.104
 margin_right = 204.884
 margin_bottom = 457.104
 custom_fonts/font = SubResource( 1 )
+text = "[CurrentPartsGroup]"
+align = 1
+
+[node name="curpart" type="Label" parent="."]
+margin_left = -176.18
+margin_top = 469.812
+margin_right = 207.82
+margin_bottom = 562.812
+custom_fonts/font = SubResource( 1 )
 text = "[CurrentPart]"
 align = 1
 

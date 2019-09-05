@@ -1,12 +1,14 @@
 extends Node2D
 
 func _ready():
-	buildCurrentAvatar()
+	if GameVars.playerProps[GameVars.currentPlayer]["head"] != null:
+		buildCurrentAvatar()
 
 func buildCurrentAvatar():
 	var finalhead = GameVars.playerProps[GameVars.currentPlayer]["head"]
 	var finaltorso = GameVars.playerProps[GameVars.currentPlayer]["torso"]
 	var finalfeet = GameVars.playerProps[GameVars.currentPlayer]["feet"]
+	var colorMod =  GameVars.playerProps[GameVars.currentPlayer]["color"]
 	
 	var instanceHead =  GameVars.heads[finalhead].instance()
 	var instanceTorso = GameVars.torsos[finaltorso].instance()
@@ -15,3 +17,7 @@ func buildCurrentAvatar():
 	$CurrentHead.add_child(instanceHead)
 	$CurrentTorso.add_child(instanceTorso)
 	$CurrentFeet.add_child(instanceFeet)
+	
+	$CurrentHead.modulate = colorMod
+	$CurrentTorso.modulate = colorMod
+	$CurrentFeet.modulate = colorMod
