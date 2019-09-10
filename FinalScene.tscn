@@ -1,0 +1,54 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://sceneBackgrounds/Playa.tscn" type="PackedScene" id=1]
+[ext_resource path="res://gfx/objects/perro.png" type="Texture" id=2]
+[ext_resource path="res://gfx/objects/bote_01.png" type="Texture" id=3]
+[ext_resource path="res://gfx/objects/cangrejo_01.png" type="Texture" id=4]
+[ext_resource path="res://gfx/objects/flotador_01.png" type="Texture" id=5]
+[ext_resource path="res://gfx/objects/pescadito.png" type="Texture" id=6]
+[ext_resource path="res://gfx/objects/plantas.png" type="Texture" id=7]
+[ext_resource path="res://gfx/objects/quitasol.png" type="Texture" id=8]
+
+[node name="FinalScene" type="Node2D"]
+
+[node name="Playa" parent="." instance=ExtResource( 1 )]
+position = Vector2( 242.267, 65.2257 )
+scale = Vector2( 0.8, 0.8 )
+
+[node name="perro" type="Sprite" parent="Playa"]
+position = Vector2( 2032.76, 261.285 )
+rotation = 0.436332
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 2 )
+
+[node name="Objetos" type="Node2D" parent="."]
+
+[node name="bote_01" type="Sprite" parent="Objetos"]
+position = Vector2( 657.03, 892.889 )
+rotation = 0.610865
+scale = Vector2( 0.6, 0.6 )
+texture = ExtResource( 3 )
+
+[node name="cangrejo_01" type="Sprite" parent="Objetos"]
+position = Vector2( 614.098, 616.302 )
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 4 )
+
+[node name="flotador_01" type="Sprite" parent="Objetos"]
+position = Vector2( 1751.87, 772.458 )
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 5 )
+
+[node name="pescadito" type="Sprite" parent="Objetos"]
+position = Vector2( 1198.02, 698.258 )
+rotation = 0.436332
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 6 )
+
+[node name="plantas" type="Sprite" parent="Objetos"]
+position = Vector2( 456.011, 335.204 )
+texture = ExtResource( 7 )
+
+[node name="quitasol" type="Sprite" parent="Objetos"]
+position = Vector2( 1661.77, 186.803 )
+texture = ExtResource( 8 )

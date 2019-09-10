@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://PartRotator.gd" type="Script" id=1]
 [ext_resource path="res://fonts/Chewy-Regular.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://sfx/clcok3.wav" type="AudioStream" id=3]
+[ext_resource path="res://sfx/cui3.wav" type="AudioStream" id=4]
 
 [sub_resource type="DynamicFont" id=1]
 size = 72
@@ -40,5 +41,8 @@ align = 1
 stream = ExtResource( 3 )
 
 [node name="AnimateSections" type="AnimationPlayer" parent="."]
+
+[node name="PickPart" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
 [connection signal="timeout" from="ChangePart" to="." method="_on_ChangePart_timeout"]
 [connection signal="timeout" from="Switch" to="." method="_on_Switch_timeout"]

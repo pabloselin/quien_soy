@@ -2,7 +2,7 @@ extends Node2D
 
 onready var singTile = $SingTile
 var singtimes = 0
-var singgoal = 5
+var singgoal = 2
 signal minigamewin
 
 func _ready():
@@ -20,7 +20,7 @@ func sing():
 func updateLabel():
 	var singRest = singgoal - singtimes
 	if singRest > 0:
-		$SingPrompt.text = "CANTA " + str(singgoal - singtimes) + " VECES"
+		$SingPrompt.text = "¡HABLA OTRA VEZ!"
 
 func stopSing():
 	$Song.stop()

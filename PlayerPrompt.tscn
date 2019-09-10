@@ -1,8 +1,7 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://PlayerPrompt.gd" type="Script" id=1]
 [ext_resource path="res://ui/PointHand.tscn" type="PackedScene" id=2]
-[ext_resource path="res://sfx/bgm/aceleracion128.ogg" type="AudioStream" id=3]
 
 [node name="PlayerPrompt" type="Node2D"]
 script = ExtResource( 1 )
@@ -11,7 +10,3 @@ script = ExtResource( 1 )
 position = Vector2( 1108.35, 529.653 )
 
 [node name="RotateHand" type="Tween" parent="."]
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 3 )
-autoplay = true

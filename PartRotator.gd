@@ -46,6 +46,7 @@ func switchPart(part):
 func registerChosenPart(partIndex):
 	#$curpart.text = str(partIndex)
 	curPlayerProps[part2Index[currentPart]] = partIndex - 1
+	$PickPart.play()
 	emit_signal("registeredPart")
 	nextPartsGroup()
 

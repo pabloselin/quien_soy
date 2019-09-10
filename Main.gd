@@ -10,14 +10,16 @@ func _ready():
 	var player = Utils.getPlayerTurn()
 	var playerTurns = preload("res://PlayerTurns.tscn").instance()
 	var playerPrompt = preload("res://PlayerPrompt.tscn").instance()
+	$Acelerate.play()
 	playerPrompt.init(player)
 	playerTurns.init(player)
 	add_child(playerTurns)
 	add_child(playerPrompt)
 	$Fondo.modulate = GameVars.playerProps[player]["color"]
-	zoomToMain()
-	yield(get_tree().create_timer(1.0), "timeout")
+	#zoomToMain()
+	yield(get_tree().create_timer(2), "timeout")
 	zoomToPlayer(player)
+	
 	
 # Zooms to selected player position
 func zoomToPlayer(player):
@@ -34,6 +36,7 @@ func zoomToMain():
 func _on_CameraTween_tween_all_completed():
 	#yield(get_tree().create_timer(1.0), "timeout")
 	# Check created avatars
+	yield(get_tree().create_timer(2), "timeout")
 	if Utils.allPlayersHaveAvatars():
 		get_tree().change_scene("res://minigames/MiniGameBase.tscn")
 	else:

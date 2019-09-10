@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://minigames/MiniGameBase.gd" type="Script" id=1]
 [ext_resource path="res://sceneBackgrounds/AnimatedTileBackground.tscn" type="PackedScene" id=2]
@@ -8,10 +8,9 @@
 [ext_resource path="res://gfx/sprites/unfold_04.png" type="Texture" id=6]
 [ext_resource path="res://gfx/sprites/unfold_05.png" type="Texture" id=7]
 [ext_resource path="res://gfx/sprites/unfold_06.png" type="Texture" id=8]
-[ext_resource path="res://sfx/bgm/afro_andino_loop.ogg" type="AudioStream" id=9]
-[ext_resource path="res://ui/CurrentCamera.tscn" type="PackedScene" id=10]
-[ext_resource path="res://avatars/CurrentAvatar.tscn" type="PackedScene" id=11]
-[ext_resource path="res://ui/GameTimeOut.tscn" type="PackedScene" id=12]
+[ext_resource path="res://ui/CurrentCamera.tscn" type="PackedScene" id=9]
+[ext_resource path="res://avatars/CurrentAvatar.tscn" type="PackedScene" id=10]
+[ext_resource path="res://ui/GameTimeOut.tscn" type="PackedScene" id=11]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -36,20 +35,15 @@ scale = Vector2( 2, 2 )
 frames = SubResource( 1 )
 animation = "unfold"
 
-[node name="BGM" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 9 )
-volume_db = -5.0
-autoplay = true
-
-[node name="CurrentCamera" parent="." instance=ExtResource( 10 )]
+[node name="CurrentCamera" parent="." instance=ExtResource( 9 )]
 
 [node name="MiniGameZone" type="Node2D" parent="."]
 
-[node name="CurrentAvatar" parent="." instance=ExtResource( 11 )]
+[node name="CurrentAvatar" parent="." instance=ExtResource( 10 )]
 position = Vector2( 1953.43, 720.174 )
 scale = Vector2( 0.3, 0.3 )
 
-[node name="GameTimeOut" parent="." instance=ExtResource( 12 )]
+[node name="GameTimeOut" parent="." instance=ExtResource( 11 )]
 position = Vector2( 166.743, 902.374 )
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="timeout" from="RebootTimer" to="." method="_on_RebootTimer_timeout"]

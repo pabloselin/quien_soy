@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://minigames/SingingTile.gd" type="Script" id=1]
 [ext_resource path="res://sfx/avatar.wav" type="AudioStream" id=2]
 [ext_resource path="res://fonts/Chewy-Regular.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://gfx/tiles/facetile_02.png" type="Texture" id=4]
 [ext_resource path="res://gfx/tiles/facetile_01.png" type="Texture" id=5]
+[ext_resource path="res://sfx/bgm/technoandino160.ogg" type="AudioStream" id=6]
 
 [sub_resource type="DynamicFont" id=1]
 size = 120
@@ -41,7 +42,8 @@ margin_top = 720.0
 margin_right = 1410.0
 margin_bottom = 875.0
 custom_fonts/font = SubResource( 1 )
-text = "CANTA [x] VECES"
+text = "¡HABLA!"
+align = 1
 
 [node name="Shake" type="AnimationPlayer" parent="."]
 anims/ShakeTile = SubResource( 2 )
@@ -54,5 +56,10 @@ rotation = -0.0439248
 position = Vector2( -230, -240 )
 normal = ExtResource( 4 )
 pressed = ExtResource( 5 )
+
+[node name="BGM" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+volume_db = -10.0
+autoplay = true
 [connection signal="pressed" from="TileContainer/SingTile" to="." method="_on_SingTile_pressed"]
 [connection signal="released" from="TileContainer/SingTile" to="." method="_on_SingTile_released"]

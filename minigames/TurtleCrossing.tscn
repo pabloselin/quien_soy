@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://minigames/TurtleCrossing.gd" type="Script" id=1]
 [ext_resource path="res://items/Turtle.tscn" type="PackedScene" id=2]
 [ext_resource path="res://objects/Can.tscn" type="PackedScene" id=3]
 [ext_resource path="res://objects/Bottle.tscn" type="PackedScene" id=4]
+[ext_resource path="res://sfx/bgm/tumbetarqueada160.ogg" type="AudioStream" id=5]
 
 [node name="TurtleCrossing" type="Node2D"]
 script = ExtResource( 1 )
@@ -46,3 +47,7 @@ position = Vector2( 420, 290 )
 
 [node name="Bottle4" parent="." instance=ExtResource( 4 )]
 position = Vector2( 1720, 170 )
+
+[node name="BGM" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+autoplay = true
