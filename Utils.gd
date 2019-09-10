@@ -24,11 +24,21 @@ func randomizePlayersOrder():
 		GameVars.playersOrder.push_back(shuffledPlayers[i])
 
 func getPlayerTurn():
-	GameVars.currentPlayer = GameVars.playersOrder.front()
-	GameVars.playersOrder.pop_front()
+	if GameVars.playersOrder.size() > 0:
+		GameVars.currentPlayer = GameVars.playersOrder.front()
+		GameVars.playersOrder.pop_front()
+	return GameVars.currentPlayer
 
 func playerHasAvatar(player):
 	if GameVars.playerProps[player].head != null:
 		return true
 	else:
 		return false
+		
+func allPlayersHaveAvatars():
+	var players = GameVars.playersOrder
+	var allHaveAvatars = true
+	for i in players.size():
+		if !playerHasAvatar(players[i]):
+			allHaveAvatars = false
+	return allHaveAvatars

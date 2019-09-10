@@ -17,7 +17,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="TileA" type="TextureRect" parent="."]
-margin_right = 2160.0
-margin_bottom = 1080.0
+margin_left = -995.0
+margin_top = -756.0
+margin_right = 3427.0
+margin_bottom = 1795.0
 texture = SubResource( 1 )
 stretch_mode = 2

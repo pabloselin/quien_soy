@@ -1,43 +1,34 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://PlayerTurns.gd" type="Script" id=1]
-[ext_resource path="res://sceneBackgrounds/AnimatedTileBackground.tscn" type="PackedScene" id=2]
-[ext_resource path="res://PlayerPrompt.tscn" type="PackedScene" id=3]
-[ext_resource path="res://gfx/objects/arepa_01.png" type="Texture" id=4]
-[ext_resource path="res://fonts/Chewy-Regular.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://gfx/objects/arepa_01.png" type="Texture" id=2]
+[ext_resource path="res://fonts/Chewy-Regular.ttf" type="DynamicFontData" id=3]
 
 [sub_resource type="DynamicFont" id=1]
 size = 120
 outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
-font_data = ExtResource( 5 )
+font_data = ExtResource( 3 )
 
 [node name="PlayerTurns" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
 
-[node name="GridContainer" parent="." instance=ExtResource( 2 )]
-
-[node name="PlayerPrompt" parent="." instance=ExtResource( 3 )]
-
 [node name="HBoxContainer" type="Node2D" parent="."]
 position = Vector2( 9.27258, -6.18176 )
 
 [node name="TurnObject" type="TextureRect" parent="HBoxContainer"]
-margin_left = 841.449
-margin_top = 454.357
-margin_right = 1229.45
-margin_bottom = 635.357
-texture = ExtResource( 4 )
-
-[node name="Timer" type="Timer" parent="."]
+margin_left = 875.448
+margin_top = 642.9
+margin_right = 1263.45
+margin_bottom = 823.9
+texture = ExtResource( 2 )
 
 [node name="PlayerIndication" type="Label" parent="."]
-margin_left = 686.172
-margin_top = 271.996
-margin_right = 1429.17
-margin_bottom = 426.996
+margin_left = 723.262
+margin_top = 123.634
+margin_right = 1466.26
+margin_bottom = 278.634
 custom_fonts/font = SubResource( 1 )
 text = "[currentplayer]"
-[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

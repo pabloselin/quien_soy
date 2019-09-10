@@ -23,7 +23,6 @@ animations = [ {
 
 [node name="MiniGameUI" type="Node2D"]
 script = ExtResource( 1 )
-debugMinigame = null
 
 [node name="Timer" type="Timer" parent="."]
 
@@ -37,8 +36,9 @@ scale = Vector2( 2, 2 )
 frames = SubResource( 1 )
 animation = "unfold"
 
-[node name="BGM" type="AudioStreamPlayer2D" parent="."]
+[node name="BGM" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 9 )
+volume_db = -5.0
 autoplay = true
 
 [node name="CurrentCamera" parent="." instance=ExtResource( 10 )]

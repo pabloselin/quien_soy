@@ -32,10 +32,10 @@ tracks/0/keys = {
 [node name="Mosquita" type="Node2D"]
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-position = Vector2( 97.5684, -196.319 )
+position = Vector2( 58.0262, -108.189 )
 frames = SubResource( 1 )
 animation = "flying"
-frame = 1
+frame = 3
 playing = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

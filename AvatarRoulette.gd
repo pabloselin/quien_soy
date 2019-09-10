@@ -33,4 +33,4 @@ func _on_PartRotator_buildAvatar():
 
 
 func _on_FinalAvatarTimer_timeout():
-	get_tree().change_scene("res://PlayerTurns.tscn")
+	get_tree().change_scene("res://Main.tscn")

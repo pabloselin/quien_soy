@@ -1,7 +1,9 @@
-extends Control
+extends Node2D
 
-func _ready():
-	if GameVars.currentPlayer:
-		var hands = $GridContainer
-		var rotation = GameVars.playerProps[GameVars.currentPlayer]["angle"]
-		hands.set_rotation_degrees(rotation)
+func init(thisplayer):
+	var rotateTweenHand = $RotateHand
+	var hands = $PointHand
+	var rotation = GameVars.playerProps[thisplayer]["angle"]
+	$PointHand.rotation_degrees = 0
+	rotateTweenHand.interpolate_property($PointHand, "rotation_degrees", 0, rotation, 1, Tween.TRANS_BOUNCE, Tween.EASE_IN)
+	rotateTweenHand.start()

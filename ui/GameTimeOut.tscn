@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://gfx/timer/timer_00.png" type="Texture" id=1]
 [ext_resource path="res://gfx/timer/timer_01.png" type="Texture" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://gfx/timer/timer_04.png" type="Texture" id=5]
 [ext_resource path="res://gfx/timer/timer_05.png" type="Texture" id=6]
 [ext_resource path="res://gfx/timer/timer_06.png" type="Texture" id=7]
+[ext_resource path="res://fonts/Chewy-Regular.ttf" type="DynamicFontData" id=8]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -16,8 +17,23 @@ animations = [ {
 "speed": 1.0
 } ]
 
+[sub_resource type="DynamicFont" id=2]
+size = 128
+outline_size = 3
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = ExtResource( 8 )
+
 [node name="GameTimeOut" type="AnimatedSprite"]
 position = Vector2( 235.402, 848.428 )
 scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 1 )
 animation = "countdown"
+
+[node name="TimeLeft" type="Label" parent="."]
+margin_left = 205.977
+margin_top = 98.0842
+margin_right = 742.977
+margin_bottom = 263.084
+custom_fonts/font = SubResource( 2 )
+text = "[TIMELEFT]"

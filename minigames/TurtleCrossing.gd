@@ -11,6 +11,3 @@ func _process(delta):
 func checkwin(turtlepos):
 	if turtlepos.x < 0:
 		emit_signal("minigamewin")
-
-func _ready():
-	pass

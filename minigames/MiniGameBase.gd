@@ -24,22 +24,24 @@ var rebootTime = 0.5
 
 var turtleCrossing = preload("res://minigames/TurtleCrossing.tscn")
 var tableDog = preload("res://minigames/TableDog.tscn")
+var singingTile = preload("res://minigames/SingingTile.tscn")
+var crabWalk = preload("res://minigames/CrabWalk.tscn")
 var curMiniGame = null
-export var debugMinigame = preload("res://minigames/TableDog.tscn")
 
 func _ready():
 	startMiniGame()
 	
+func _process(delta):
+	$GameTimeOut/TimeLeft.text = str(int($Timer.time_left))
+	if success == true:
+		$RebootTimer.start(rebootTime)
+	
 func chooseMiniGame():
-	if !debugMinigame:
-		var miniGames = [turtleCrossing, tableDog]
-		randomize()
-		var randGameSize = randi() % miniGames.size()
-		var randGame = miniGames[randGameSize]
-		print(str(randGame))
-		return randGame
-	else:
-		return debugMinigame
+	var miniGames = [turtleCrossing, tableDog, singingTile, crabWalk]
+	randomize()
+	var randGameSize = randi() % miniGames.size()
+	var randGame = miniGames[randGameSize]
+	return randGame
 		
 func startMiniGame():
 	$UnfoldBG.play("unfold")
@@ -52,16 +54,18 @@ func startMiniGame():
 	$GameTimeOut.play("countdown")
 
 func endMiniGame():
-	if curMiniGame:
-		curMiniGame.queue_free()
+	$MiniGameZone.visible = false
+	$MiniGameZone.queue_free()
 	$Timer.stop()
 	$UnfoldBG.play("unfold", true)
 	yield(get_tree().create_timer(1), "timeout")
 	get_tree().change_scene("res://Main.tscn")
-
-func _process(delta):
-	if success == true:
-		$RebootTimer.start(rebootTime)
+	
+func add_win():
+	GameVars.playerProps[GameVars.currentPlayer]["wins"] += 1
+	
+func add_lose():
+	GameVars.playerProps[GameVars.currentPlayer]["loses"] += 1
 	
 func _on_RebootTimer_timeout():
 	$RebootTimer.stop()

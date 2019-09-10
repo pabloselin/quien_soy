@@ -7,10 +7,17 @@ var isPlaying = false
 func _ready():
 	#Shuffle again the players
 	Utils.randomizePlayersOrder()
-	Utils.getPlayerTurn()
+	var player = Utils.getPlayerTurn()
+	var playerTurns = preload("res://PlayerTurns.tscn").instance()
+	var playerPrompt = preload("res://PlayerPrompt.tscn").instance()
+	playerPrompt.init(player)
+	playerTurns.init(player)
+	add_child(playerTurns)
+	add_child(playerPrompt)
+	$Fondo.modulate = GameVars.playerProps[player]["color"]
 	zoomToMain()
 	yield(get_tree().create_timer(1.0), "timeout")
-	zoomToPlayer(GameVars.currentPlayer)
+	zoomToPlayer(player)
 	
 # Zooms to selected player position
 func zoomToPlayer(player):
@@ -26,7 +33,12 @@ func zoomToMain():
 
 func _on_CameraTween_tween_all_completed():
 	#yield(get_tree().create_timer(1.0), "timeout")
-	get_tree().change_scene("res://minigames/MiniGameBase.tscn")
-	
+	# Check created avatars
+	if Utils.allPlayersHaveAvatars():
+		get_tree().change_scene("res://minigames/MiniGameBase.tscn")
+	else:
+		get_tree().change_scene("res://AvatarRoulette.tscn")
+
+
 func _on_Timer_timeout():
 	pass

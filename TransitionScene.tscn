@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://TransitionScene.gd" type="Script" id=1]
 [ext_resource path="res://sceneBackgrounds/Playa.tscn" type="PackedScene" id=2]
@@ -15,6 +15,14 @@
 [ext_resource path="res://gfx/objects/funda_01.png" type="Texture" id=13]
 [ext_resource path="res://gfx/objects/lata_01.png" type="Texture" id=14]
 [ext_resource path="res://ambient/Mosquita.tscn" type="PackedScene" id=15]
+[ext_resource path="res://gfx/objects/bote.png" type="Texture" id=16]
+[ext_resource path="res://gfx/objects/cangrejo.png" type="Texture" id=17]
+[ext_resource path="res://gfx/objects/concha.png" type="Texture" id=18]
+[ext_resource path="res://gfx/objects/perro_01.png" type="Texture" id=19]
+[ext_resource path="res://gfx/objects/tortuga.png" type="Texture" id=20]
+[ext_resource path="res://gfx/objects/quitasol.png" type="Texture" id=21]
+[ext_resource path="res://gfx/objects/triciclo_arriba.png" type="Texture" id=22]
+[ext_resource path="res://gfx/objects/planta.png" type="Texture" id=23]
 
 [sub_resource type="Animation" id=1]
 resource_name = "CameraTravelling"
@@ -53,7 +61,7 @@ tracks/2/keys = {
 "times": PoolRealArray( 0, 6.1, 7.5 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( -424.678, -597.073 ), Vector2( -424, -768 ), Vector2( 344.788, 210.237 ) ]
+"values": [ Vector2( 971, 1501 ), Vector2( 743, 1430 ), Vector2( 968, 960 ) ]
 }
 tracks/3/type = "value"
 tracks/3/path = NodePath("Basuras/Basura1:rotation_degrees")
@@ -191,20 +199,18 @@ stream = ExtResource( 3 )
 autoplay = true
 
 [node name="Basuras" type="Node2D" parent="."]
-editor/display_folded = true
 
 [node name="Basura1" type="Sprite" parent="Basuras"]
-position = Vector2( -424.678, -597.073 )
-scale = Vector2( 0.5, 0.5 )
+position = Vector2( 971.425, 1501.11 )
+scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 4 )
 
 [node name="Basura2" type="Sprite" parent="Basuras"]
-position = Vector2( 2819.33, -208.537 )
+position = Vector2( 1812.45, 192.163 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 5 )
 
 [node name="Basura3" type="Sprite" parent="Basuras"]
-modulate = Color( 1, 1, 1, 0 )
 position = Vector2( 1951, 508.773 )
 texture = ExtResource( 6 )
 
@@ -215,25 +221,24 @@ scale = Vector2( 0.4, 0.4 )
 texture = ExtResource( 7 )
 
 [node name="Basura5" type="Sprite" parent="Basuras"]
-position = Vector2( 897.874, -400 )
+position = Vector2( 904.018, 151.37 )
 scale = Vector2( 0.6, 0.6 )
 texture = ExtResource( 8 )
 
 [node name="Basura6" type="Sprite" parent="Basuras"]
-position = Vector2( -452.818, 589.168 )
+position = Vector2( 112.603, 661.268 )
 rotation = 0.401426
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 9 )
 
 [node name="Basura7" type="Sprite" parent="Basuras"]
-position = Vector2( 1389.35, -300 )
+position = Vector2( 1435.81, 123.309 )
 rotation = 0.401426
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 10 )
 
 [node name="MiniBasuras" type="Node2D" parent="Basuras"]
 editor/display_folded = true
-modulate = Color( 1, 1, 1, 0 )
 
 [node name="MiniBasura" type="Sprite" parent="Basuras/MiniBasuras"]
 position = Vector2( 459.167, 808.286 )
@@ -269,9 +274,9 @@ scale = Vector2( 0.4, 0.4 )
 texture = ExtResource( 14 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( 806.819, 657.083 )
+position = Vector2( 1046.49, 564.579 )
 current = true
-zoom = Vector2( 0.6, 0.6 )
+zoom = Vector2( 1.2, 1.2 )
 
 [node name="CamaraPlaya" type="AnimationPlayer" parent="."]
 autoplay = "CameraTravelling"
@@ -279,10 +284,24 @@ anims/CameraTravelling = SubResource( 1 )
 
 [node name="Moscas" type="Node2D" parent="."]
 editor/display_folded = true
-modulate = Color( 1, 1, 1, 0 )
 
 [node name="Mosquita" parent="Moscas" instance=ExtResource( 15 )]
 position = Vector2( 738.209, 252.953 )
+scale = Vector2( 0.2, 0.2 )
+
+[node name="Mosquita13" parent="Moscas" instance=ExtResource( 15 )]
+position = Vector2( 977.943, 201.581 )
+rotation = 3.14159
+scale = Vector2( 0.2, 0.2 )
+
+[node name="Mosquita14" parent="Moscas" instance=ExtResource( 15 )]
+position = Vector2( 2070.45, 328.298 )
+rotation = 3.14159
+scale = Vector2( 0.2, 0.2 )
+
+[node name="Mosquita15" parent="Moscas" instance=ExtResource( 15 )]
+position = Vector2( -87.1616, 903.66 )
+rotation = 3.14159
 scale = Vector2( 0.2, 0.2 )
 
 [node name="Mosquita2" parent="Moscas" instance=ExtResource( 15 )]
@@ -328,4 +347,68 @@ scale = Vector2( 0.2, 0.2 )
 [node name="Mosquita12" parent="Moscas" instance=ExtResource( 15 )]
 position = Vector2( 1725.53, 162.084 )
 scale = Vector2( 0.2, 0.2 )
+
+[node name="Cosas" type="Node2D" parent="."]
+editor/display_folded = true
+
+[node name="Bote" type="Sprite" parent="Cosas"]
+position = Vector2( 1637.04, 1263.74 )
+rotation = -0.380482
+scale = Vector2( 0.6, 0.6 )
+texture = ExtResource( 16 )
+
+[node name="Cangri" type="Sprite" parent="Cosas"]
+position = Vector2( 493.168, 366.451 )
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 17 )
+
+[node name="Concha" type="Sprite" parent="Cosas"]
+position = Vector2( 254.355, 808.225 )
+rotation = 1.14319
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 18 )
+
+[node name="Concha2" type="Sprite" parent="Cosas"]
+position = Vector2( 956.496, 459.487 )
+rotation = 0.349066
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 18 )
+
+[node name="Concha3" type="Sprite" parent="Cosas"]
+position = Vector2( 1736.47, 452.807 )
+rotation = -0.174533
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 18 )
+
+[node name="Concha4" type="Sprite" parent="Cosas"]
+position = Vector2( 2022.07, 780.161 )
+rotation = -0.174533
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 18 )
+
+[node name="perro_01" type="Sprite" parent="Cosas"]
+position = Vector2( -233.775, 440.06 )
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 19 )
+
+[node name="tortuga" type="Sprite" parent="Cosas"]
+position = Vector2( 2354.11, 546.847 )
+rotation = 0.785398
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 20 )
+
+[node name="quitasol" type="Sprite" parent="Cosas"]
+position = Vector2( -316.522, 1048.87 )
+texture = ExtResource( 21 )
+
+[node name="triciclo_arriba" type="Sprite" parent="Cosas"]
+position = Vector2( 145.073, -51.4024 )
+rotation = 1.08121
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 22 )
+
+[node name="planta" type="Sprite" parent="Cosas"]
+position = Vector2( 342.122, 261.707 )
+rotation = 0.785398
+texture = ExtResource( 23 )
 [connection signal="timeout" from="SceneDuration" to="." method="_on_SceneDuration_timeout"]

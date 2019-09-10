@@ -1,0 +1,58 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://minigames/SingingTile.gd" type="Script" id=1]
+[ext_resource path="res://sfx/avatar.wav" type="AudioStream" id=2]
+[ext_resource path="res://fonts/Chewy-Regular.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://gfx/tiles/facetile_02.png" type="Texture" id=4]
+[ext_resource path="res://gfx/tiles/facetile_01.png" type="Texture" id=5]
+
+[sub_resource type="DynamicFont" id=1]
+size = 120
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = ExtResource( 3 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "ShakeTile"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("TileContainer:rotation_degrees")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.5, 0.7, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, -4.0, 0.0, 4.0, 0.0 ]
+}
+
+[node name="SingingTile" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Song" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 2 )
+
+[node name="SingPrompt" type="Label" parent="."]
+margin_left = 660.0
+margin_top = 720.0
+margin_right = 1410.0
+margin_bottom = 875.0
+custom_fonts/font = SubResource( 1 )
+text = "CANTA [x] VECES"
+
+[node name="Shake" type="AnimationPlayer" parent="."]
+anims/ShakeTile = SubResource( 2 )
+
+[node name="TileContainer" type="Node2D" parent="."]
+position = Vector2( 1020, 440 )
+rotation = -0.0439248
+
+[node name="SingTile" type="TouchScreenButton" parent="TileContainer"]
+position = Vector2( -230, -240 )
+normal = ExtResource( 4 )
+pressed = ExtResource( 5 )
+[connection signal="pressed" from="TileContainer/SingTile" to="." method="_on_SingTile_pressed"]
+[connection signal="released" from="TileContainer/SingTile" to="." method="_on_SingTile_released"]

@@ -14,7 +14,7 @@ var currentInstance = null
 export var curpart = "cabeza"
 onready var timerSwitch = $Switch
 onready var timerParts = $ChangePart
-var switchTime = 1
+var switchTime = 0.3
 var partChange = 5
 
 func _ready():
@@ -50,23 +50,28 @@ func registerChosenPart(partIndex):
 	nextPartsGroup()
 
 func nextPartsGroup():
-	if currentPart + 1 < arrparts.size():
+	var prevPart = currentPart
+	forcePutPart(prevPart)
+	if currentPart + 1 < arrparts.size():		
 		changingPart = true
 		currentPart += 1
 		updateLabelPart()
-		$SoundChange.pitch_scale += .2
-		if curPlayerProps[part2Index[currentPart]] == null:
-			curPlayerProps[part2Index[currentPart]] = currentIndex
-			emit_signal("registeredPart")
-			# print(str(curPlayerProps[part2Index[currentPart]]))
+		$SoundChange.pitch_scale += .2		
 		yield(get_tree().create_timer(0.5), "timeout")
 	else:
 		buildAvatar()
 	changingPart = false
 		
 func buildAvatar():
+	queue_free()
 	emit_signal("buildAvatar")
-	
+
+func forcePutPart(prevPart):
+	if curPlayerProps[part2Index[prevPart]] == null:
+		curPlayerProps[part2Index[prevPart]] = currentIndex - 1
+		emit_signal("registeredPart")
+		# print(str(curPlayerProps[part2Index[currentPart]]))
+
 func updateLabelPart():
 	$CurrentPart.text = partLabels[currentPart]
 			

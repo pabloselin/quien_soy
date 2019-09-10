@@ -3,8 +3,8 @@
 [ext_resource path="res://Intro.gd" type="Script" id=1]
 [ext_resource path="res://sceneBackgrounds/AnimatedTileBackground.tscn" type="PackedScene" id=2]
 [ext_resource path="res://sfx/bgm/afro_andino_loop.ogg" type="AudioStream" id=3]
-[ext_resource path="res://ui/Title.tscn" type="PackedScene" id=4]
-[ext_resource path="res://ui/TituloCentral.tscn" type="PackedScene" id=5]
+[ext_resource path="res://ui/TituloCentral.tscn" type="PackedScene" id=4]
+[ext_resource path="res://gfx/texts/tituloquiensoy.png" type="Texture" id=5]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Tilt"
@@ -29,24 +29,5 @@ anims/Tilt = SubResource( 1 )
 stream = ExtResource( 3 )
 autoplay = true
 
-[node name="Title" parent="." instance=ExtResource( 4 )]
-position = Vector2( 377.624, 784.671 )
-rotation = 0.785398
-scale = Vector2( 0.4, 0.4 )
-
-[node name="Title2" parent="." instance=ExtResource( 4 )]
-position = Vector2( 411.954, 279.539 )
-rotation = 2.35619
-scale = Vector2( 0.4, 0.4 )
-
-[node name="Title3" parent="." instance=ExtResource( 4 )]
-position = Vector2( 1772.57, 766.023 )
-rotation = 5.49779
-scale = Vector2( 0.4, 0.4 )
-
-[node name="Title4" parent="." instance=ExtResource( 4 )]
-position = Vector2( 1745.02, 284.474 )
-rotation = 3.92699
-scale = Vector2( 0.4, 0.4 )
-
-[node name="TituloCentral" parent="." instance=ExtResource( 5 )]
+[node name="TituloCentral" parent="." instance=ExtResource( 4 )]
+texture = ExtResource( 5 )

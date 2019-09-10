@@ -44,7 +44,9 @@ var playerProps = {
 		"games": null,
 		"object": null,
 		"name": null,
-		"angle": -22.5
+		"angle": -45,
+		"wins": 0,
+		"loses": 0
 	},
 	"player2": {
 		"color": colors.lightblue, 
@@ -58,7 +60,9 @@ var playerProps = {
 		"games": null,
 		"object": null,
 		"name": null,
-		"angle": 67.5
+		"angle": 45,
+		"wins": 0,
+		"loses": 0
 	},
 	"player3": {
 		"color": colors.purple, 
@@ -72,7 +76,9 @@ var playerProps = {
 		"games": null,
 		"object": null,
 		"name": null,
-		"angle": -111.5
+		"angle": 225,
+		"wins": 0,
+		"loses": 0
 	},
 	"player4": {
 		"color": colors.red, 
@@ -86,11 +92,13 @@ var playerProps = {
 		"games": null,
 		"object": null,
 		"name": null,
-		"angle": 111.5
+		"angle": 135,
+		"wins": 0,
+		"loses": 0
 	}
 }
 
-var currentPlayer = "player1"
+var currentPlayer = "player4"
 var playerItems = []
 var playersOrder = []
 var transitionMessage = "Put some text in the scene"
