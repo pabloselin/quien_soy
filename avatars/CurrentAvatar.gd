@@ -8,7 +8,7 @@ func buildCurrentAvatar():
 	var finalhead = GameVars.playerProps[GameVars.currentPlayer]["head"]
 	var finaltorso = GameVars.playerProps[GameVars.currentPlayer]["torso"]
 	var finalfeet = GameVars.playerProps[GameVars.currentPlayer]["feet"]
-	var colorMod =  GameVars.playerProps[GameVars.currentPlayer]["color"]
+	var colorMod =  GameVars.playerProps[GameVars.currentPlayer]["color"]["value"]
 	
 	var instanceHead =  GameVars.heads[finalhead].instance()
 	var instanceTorso = GameVars.torsos[finaltorso].instance()

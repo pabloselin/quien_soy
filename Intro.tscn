@@ -1,10 +1,9 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Intro.gd" type="Script" id=1]
 [ext_resource path="res://sceneBackgrounds/AnimatedTileBackground.tscn" type="PackedScene" id=2]
-[ext_resource path="res://sfx/bgm/afro_andino_loop.ogg" type="AudioStream" id=3]
-[ext_resource path="res://ui/TituloCentral.tscn" type="PackedScene" id=4]
-[ext_resource path="res://gfx/texts/tituloquiensoy.png" type="Texture" id=5]
+[ext_resource path="res://ui/TituloCentral.tscn" type="PackedScene" id=3]
+[ext_resource path="res://gfx/texts/tituloquiensoy.png" type="Texture" id=4]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Tilt"
@@ -21,13 +20,27 @@ __meta__ = {
 
 [node name="Background" parent="." instance=ExtResource( 2 )]
 modulate = Color( 1, 0.866667, 0, 0.564706 )
+margin_left = -29.3633
+margin_top = 20.5543
+margin_right = -29.3633
+margin_bottom = 20.5542
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Tilt = SubResource( 1 )
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 3 )
-autoplay = true
+[node name="TituloCentral" parent="." instance=ExtResource( 3 )]
+modulate = Color( 0.937255, 0.14902, 0.14902, 1 )
+position = Vector2( 1143.49, 524.249 )
+scale = Vector2( 0.62037, 0.598256 )
+texture = ExtResource( 4 )
 
-[node name="TituloCentral" parent="." instance=ExtResource( 4 )]
-texture = ExtResource( 5 )
+[node name="Personaje" type="Node2D" parent="."]
+position = Vector2( 425.767, 519.729 )
+scale = Vector2( 0.6, 0.6 )
+
+[node name="PersonajeBGM" type="AudioStreamPlayer" parent="Personaje"]
+
+[node name="PersonajeInv" type="Node2D" parent="."]
+position = Vector2( 1799.97, 510.92 )
+rotation = 3.14159
+scale = Vector2( 0.6, 0.6 )

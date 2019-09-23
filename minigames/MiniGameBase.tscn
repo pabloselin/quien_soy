@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://minigames/MiniGameBase.gd" type="Script" id=1]
 [ext_resource path="res://sceneBackgrounds/AnimatedTileBackground.tscn" type="PackedScene" id=2]
@@ -11,6 +11,8 @@
 [ext_resource path="res://ui/CurrentCamera.tscn" type="PackedScene" id=9]
 [ext_resource path="res://avatars/CurrentAvatar.tscn" type="PackedScene" id=10]
 [ext_resource path="res://ui/GameTimeOut.tscn" type="PackedScene" id=11]
+[ext_resource path="res://gfx/icons/sos.png" type="Texture" id=12]
+[ext_resource path="res://gfx/guias/malku.png" type="Texture" id=13]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -19,6 +21,79 @@ animations = [ {
 "name": "unfold",
 "speed": 12.0
 } ]
+
+[sub_resource type="Animation" id=2]
+resource_name = "Show"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Personajes/Malku:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.7, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 2541.03, 767.839 ), Vector2( 1808.98, 774.346 ), Vector2( 1808.98, 774.346 ), Vector2( 2541.03, 774.346 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "ShowDefeat"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Derrota:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3, 0.4, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.2, 0.2 ), Vector2( 1, 1 ), Vector2( 1.1, 1.1 ), Vector2( 1, 1 ), Vector2( 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Derrota:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3, 0.7, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 0, 0, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Shader" id=4]
+code = "shader_type canvas_item;
+render_mode blend_mix;
+
+uniform float radius = 5.0;
+uniform vec4  modulate : hint_color;
+
+void fragment() {
+	vec2 ps = TEXTURE_PIXEL_SIZE;
+
+	vec4 shadow = texture(TEXTURE, UV + vec2(-radius, -radius) * ps);
+
+	shadow += texture(TEXTURE, UV + vec2(-radius, 0.0) * ps);
+	shadow += texture(TEXTURE, UV + vec2(-radius, radius) * ps);
+	shadow += texture(TEXTURE, UV + vec2(0.0, -radius) * ps);
+	shadow += texture(TEXTURE, UV + vec2(0.0, radius) * ps);
+	shadow += texture(TEXTURE, UV + vec2(radius, -radius) * ps);
+	shadow += texture(TEXTURE, UV + vec2(radius, 0.0) * ps);
+	shadow += texture(TEXTURE, UV + vec2(radius, radius) * ps);
+	shadow /= 8.0;
+	shadow *= modulate;
+
+	vec4 col = texture(TEXTURE, UV);
+	COLOR = mix(shadow, col, col.a);
+}"
+
+[sub_resource type="ShaderMaterial" id=5]
+shader = SubResource( 4 )
+shader_param/radius = 10.0
+shader_param/modulate = null
 
 [node name="MiniGameUI" type="Node2D"]
 script = ExtResource( 1 )
@@ -44,6 +119,23 @@ position = Vector2( 1953.43, 720.174 )
 scale = Vector2( 0.3, 0.3 )
 
 [node name="GameTimeOut" parent="." instance=ExtResource( 11 )]
-position = Vector2( 166.743, 902.374 )
+position = Vector2( 234.907, 844.836 )
+
+[node name="ShowPersonaje" type="AnimationPlayer" parent="."]
+anims/Show = SubResource( 2 )
+anims/ShowDefeat = SubResource( 3 )
+
+[node name="Derrota" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 1089.94, 530.33 )
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 12 )
+
+[node name="Personajes" type="Node2D" parent="."]
+
+[node name="Malku" type="Sprite" parent="Personajes"]
+material = SubResource( 5 )
+position = Vector2( 2541.03, 767.839 )
+texture = ExtResource( 13 )
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="timeout" from="RebootTimer" to="." method="_on_RebootTimer_timeout"]

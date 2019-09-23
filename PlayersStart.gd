@@ -81,12 +81,14 @@ func playAnimationPlayer(playerkey):
 	
 func playerAssignColor(playerkey):
 	randomize()
+	print(str(playerkey))
 	var randomColor = randi() % colorkeys.size()
 	var playerColor = GameVars.colors[colorkeys[randomColor]]
-	playerAnimations[playerkey].modulate = playerColor
+	playerAnimations[playerkey].modulate = playerColor["value"]
+	print(str(playerColor["name"]))
 	colorkeys.remove(randomColor)
 	Utils.updatePlayerObject(playerkey, "color", playerColor)
-
+	
 func animateTimer():
 	$TimerUI/CircleTween.start()
 	$TimerUI/TimerPez/PezGlobo.play("countdown")

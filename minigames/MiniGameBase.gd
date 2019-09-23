@@ -22,10 +22,6 @@ var success = false
 var timeout = 5
 var rebootTime = 0.5
 
-var turtleCrossing = preload("res://minigames/TurtleCrossing.tscn")
-var tableDog = preload("res://minigames/TableDog.tscn")
-var singingTile = preload("res://minigames/SingingTile.tscn")
-var crabWalk = preload("res://minigames/CrabWalk.tscn")
 var curMiniGame = null
 
 func _ready():
@@ -37,10 +33,13 @@ func _process(delta):
 		$RebootTimer.start(rebootTime)
 	
 func chooseMiniGame():
-	var miniGames = [turtleCrossing, tableDog, singingTile, crabWalk]
+	var miniGames = GameVars.miniGames.values()
+	# var miniGames = [tableDog]
 	randomize()
 	var randGameSize = randi() % miniGames.size()
-	var randGame = miniGames[randGameSize]
+	var miniGame = miniGames[randGameSize]
+	timeout = miniGame.time
+	var randGame = load(miniGame.scene)
 	return randGame
 		
 func startMiniGame():
@@ -51,15 +50,33 @@ func startMiniGame():
 	curMiniGame.connect("minigamewin", self, "_on_minigamewin")
 	curMiniGame.connect("minigamelose", self, "_on_minigamelose")
 	$Timer.start(timeout)
-	$GameTimeOut.play("countdown")
+	$GameTimeOut/Inflate.play()
+	$GameTimeOut/FishCountDown.play("win")
 
 func endMiniGame():
 	$MiniGameZone.visible = false
 	$MiniGameZone.queue_free()
 	$Timer.stop()
+	if success == true:
+		$GameTimeOut/FishCountDown.play("win")	
+		$GameTimeOut/Pressed.play()
+		$ShowPersonaje.play("Show")
+		add_win()
+	else:
+		$GameTimeOut/FishCountDown.play("explode")
+		$GameTimeOut/Lose.play()
+		$ShowPersonaje.play("ShowDefeat")
+		$GameTimeOut/Explode.play()
+		add_lose()
+	
+	yield($ShowPersonaje, "animation_finished")	
 	$UnfoldBG.play("unfold", true)
 	yield(get_tree().create_timer(1), "timeout")
-	get_tree().change_scene("res://Main.tscn")
+	
+	if Utils.isGameFinished():
+		get_tree().change_scene("res://FinalScene.tscn")
+	else:
+		get_tree().change_scene("res://Main.tscn")
 	
 func add_win():
 	GameVars.playerProps[GameVars.currentPlayer]["wins"] += 1
@@ -76,9 +93,9 @@ func _on_minigamewin():
 	endMiniGame()
 	
 func _on_minigamelose():
-	endMiniGame()
 	success = false
-
+	endMiniGame()
+	
 func _on_Timer_timeout():
-	endMiniGame()
 	success = false
+	endMiniGame()

@@ -5,11 +5,12 @@ var topLeft = -45
 var topRight = 45
 var curAngle = 0
 var angleProgress = .2
+var almostTimeOut = 4.6
 signal minigamelose
 signal minigamewin
 
 func _ready():
-	pass
+	$AlmostCountDown.start(almostTimeOut)
 
 func _process(delta):
 	rotateDog()
@@ -58,3 +59,6 @@ func rotationToColor(rotation):
 	
 	return colorRotation
 	
+
+func _on_AlmostCountDown_timeout():
+	emit_signal("minigamewin")

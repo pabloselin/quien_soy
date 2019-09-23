@@ -4,9 +4,10 @@ var arepaPosition
 onready var arepa = $Arepa
 signal minigamewin
 var eaten = false
+onready var cangrejo = $Path2D/PathFollow2D/Cangrejo
 
 func _process(delta):
-	if $Cangrejo.position.x > arepaPosition.x - 100:
+	if $Path2D/PathFollow2D.position.x > arepaPosition.x + 200:
 		chomp() 
 
 func _ready():
@@ -19,7 +20,7 @@ func _input(event):
 		
 func moveCrab():
 	$Caminando.play()
-	$Cangrejo.position.x += 35
+	$Path2D/PathFollow2D.offset += 35
 	$CrabWalk.play("Walk")
 	
 func chomp():

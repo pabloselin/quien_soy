@@ -86,7 +86,6 @@ script = ExtResource( 1 )
 modulate = Color( 1, 0.662745, 0, 0.235294 )
 
 [node name="Players" type="Node" parent="."]
-editor/display_folded = true
 
 [node name="Player1" type="TouchScreenButton" parent="Players"]
 modulate = Color( 0.635294, 0.192157, 1, 0 )
@@ -130,7 +129,6 @@ animation = "unfold"
 flip_v = true
 
 [node name="PlayerObjects" type="Node2D" parent="Players"]
-editor/display_folded = true
 
 [node name="ObjectPlayer1" parent="Players/PlayerObjects" instance=ExtResource( 9 )]
 visible = false

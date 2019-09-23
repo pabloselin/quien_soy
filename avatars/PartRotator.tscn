@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://PartRotator.gd" type="Script" id=1]
 [ext_resource path="res://fonts/Chewy-Regular.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://sfx/clcok3.wav" type="AudioStream" id=3]
-[ext_resource path="res://sfx/cui3.wav" type="AudioStream" id=4]
+[ext_resource path="res://sfx/ugl.wav" type="AudioStream" id=4]
+[ext_resource path="res://ambient/Fog.tscn" type="PackedScene" id=5]
 
 [sub_resource type="DynamicFont" id=1]
 size = 72
@@ -20,6 +21,7 @@ script = ExtResource( 1 )
 [node name="Switch" type="Timer" parent="."]
 
 [node name="CurrentPart" type="Label" parent="."]
+visible = false
 margin_left = -179.116
 margin_top = 364.104
 margin_right = 204.884
@@ -29,6 +31,7 @@ text = "[CurrentPartsGroup]"
 align = 1
 
 [node name="curpart" type="Label" parent="."]
+visible = false
 margin_left = -176.18
 margin_top = 469.812
 margin_right = 207.82
@@ -44,5 +47,12 @@ stream = ExtResource( 3 )
 
 [node name="PickPart" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
+
+[node name="PartZone" type="Node2D" parent="."]
+
+[node name="Click" parent="." instance=ExtResource( 5 )]
+
+[node name="ParticleTimer" type="Timer" parent="."]
 [connection signal="timeout" from="ChangePart" to="." method="_on_ChangePart_timeout"]
 [connection signal="timeout" from="Switch" to="." method="_on_Switch_timeout"]
+[connection signal="timeout" from="ParticleTimer" to="." method="_on_ParticleTimer_timeout"]

@@ -6,10 +6,11 @@ var playerObjects = list_files_in_directory("res://gfx/player_objects")
 var screenSize = OS.get_screen_size()
 var gameSize = Vector2(ProjectSettings.get_setting("display/window/size/width"), ProjectSettings.get_setting("display/window/size/height"))
 var activePlayerZoom = Vector2(0.5, 0.5)
-var initialZoom = Vector2(1, 1)
+var initialZoom = Vector2(0.5, 0.5)
 var initialCameraPosition = Vector2(0, 0)
+var gamesPerPlayer = 5
 
-var nameList = ["suri", "wara", "kusi", "panqarita", "kurmi", "quantati", "nayra", "allin", "pawkar", "amaru"]
+var nameList = ["suri", "kusi", "panqarita", "kurmi", "qhantati", "nayra", "allin", "pawkar", "amaru", "suni", "wara wara", "amaya", "antawara", "katari", "qhantuta", "quri", "inkillay", "urma", "kukuli", "warakusi", "wiñay wara", "qurissia", "kusirimay", "ninasisa", "achanqara", "lliwkilla", "amank'ay", "urpikusi", "shulla", "qhispisisa", "tamya", "mamadi", "bangaly", "seydou", "diarru", "fatounata", "ounar", "moussa", "djanko", "yousuf", "sekou", "fadina", "aminata"]
 
 var torsos = [preload("res://avatars/body/Body_01.tscn"),preload("res://avatars/body/Body_02.tscn"),preload("res://avatars/body/Body_03.tscn"),preload("res://avatars/body/Body_04.tscn"),preload("res://avatars/body/Body_05.tscn"),preload("res://avatars/body/Body_06.tscn")]
 var feet = [preload("res://avatars/feet/Feet_01.tscn"),preload("res://avatars/feet/Feet_02.tscn"),preload("res://avatars/feet/Feet_03.tscn"),preload("res://avatars/feet/Feet_04.tscn"),preload("res://avatars/feet/Feet_05.tscn"),preload("res://avatars/feet/Feet_06.tscn")]
@@ -25,10 +26,22 @@ var playerPositions = {
 }
 
 var colors = {
-	"green": Color(.93, .200, .70),
-	"lightblue": Color(.77, .187, .247),
-	"purple": Color(.193, .94, .229),
-	"red": Color(.211, .74, .74)
+	"purple": {
+		"value": Color(.93, .200, .70),
+		"name": "Morado"
+		},
+	"red": {
+		"value": Color(.77, .187, .247),
+		"name": "Rojo"
+		},
+	"green": {
+		"value": Color(.193, .94, .229),
+		"name": "Verde"
+		},
+	"lightblue": {
+		"value": Color(.211, .74, .74),
+		"name": "Celeste"
+		}
 }
 
 var playerProps = {
@@ -46,7 +59,7 @@ var playerProps = {
 		"name": null,
 		"angle": -45,
 		"wins": 0,
-		"loses": 0
+		"loses": 0,
 	},
 	"player2": {
 		"color": colors.lightblue, 
@@ -98,18 +111,43 @@ var playerProps = {
 	}
 }
 
+var miniGames = {
+	"turtle": {
+		"time": 10,
+		"scene": "res://minigames/TurtleCrossing.tscn",
+		"tile": null
+	},
+	"dog": {
+		"time": 5,
+		"scene": "res://minigames/TableDog.tscn",
+		"tile": null
+	},
+	"sing": {
+		"time": 5,
+		"scene": "res://minigames/SingingTile.tscn",
+		"tile": null
+	},
+	"crab": {
+		"time": 8,
+		"scene": "res://minigames/CrabWalk.tscn",
+		"tile": null
+	},
+	"flies": {
+		"time": 5,
+		"scene": "res://minigames/EspantaMoscas.tscn",
+		"tile": null
+	}
+}
+
 var currentPlayer = "player4"
 var playerItems = []
 var playersOrder = []
 var transitionMessage = "Put some text in the scene"
 var nextScene = "res://Main.tscn"
+var transitionType = "avatar"
 
 func activePlayers():
-	var activePlayers = []
-	for player in playerProps:
-		if player["active"] == true:
-			activePlayers.push_back(player.key)
-	return activePlayers
+	return Utils.getActivePlayers()
 
 func nextScene(message, scene):
 	transitionMessage = message

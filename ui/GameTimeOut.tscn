@@ -1,39 +1,164 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=23 format=2]
 
-[ext_resource path="res://gfx/timer/timer_00.png" type="Texture" id=1]
-[ext_resource path="res://gfx/timer/timer_01.png" type="Texture" id=2]
-[ext_resource path="res://gfx/timer/timer_02.png" type="Texture" id=3]
-[ext_resource path="res://gfx/timer/timer_03.png" type="Texture" id=4]
-[ext_resource path="res://gfx/timer/timer_04.png" type="Texture" id=5]
-[ext_resource path="res://gfx/timer/timer_05.png" type="Texture" id=6]
-[ext_resource path="res://gfx/timer/timer_06.png" type="Texture" id=7]
-[ext_resource path="res://fonts/Chewy-Regular.ttf" type="DynamicFontData" id=8]
+[ext_resource path="res://gfx/bgs/paper_lines_02.jpg" type="Texture" id=1]
+[ext_resource path="res://fonts/GooeyDrippySticky.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://gfx/timer/timer_00.png" type="Texture" id=3]
+[ext_resource path="res://gfx/timer/timer_01.png" type="Texture" id=4]
+[ext_resource path="res://gfx/timer/timer_02.png" type="Texture" id=5]
+[ext_resource path="res://gfx/timer/timer_03.png" type="Texture" id=6]
+[ext_resource path="res://gfx/timer/timer_04.png" type="Texture" id=7]
+[ext_resource path="res://gfx/timer/timer_05.png" type="Texture" id=8]
+[ext_resource path="res://gfx/timer/timer_06.png" type="Texture" id=9]
+[ext_resource path="res://gfx/timer/timer_05c.png" type="Texture" id=10]
+[ext_resource path="res://gfx/timer/timer_05b.png" type="Texture" id=11]
+[ext_resource path="res://sfx/globoexplotando02.wav" type="AudioStream" id=12]
+[ext_resource path="res://sfx/inflando02.wav" type="AudioStream" id=13]
+[ext_resource path="res://sfx/exito3.wav" type="AudioStream" id=14]
+[ext_resource path="res://sfx/derrota3.wav" type="AudioStream" id=15]
 
-[sub_resource type="SpriteFrames" id=1]
-animations = [ {
-"frames": [ ExtResource( 1 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ) ],
-"loop": true,
-"name": "countdown",
-"speed": 1.0
-} ]
+[sub_resource type="Shader" id=1]
+code = "shader_type canvas_item;
+render_mode blend_mix;
 
-[sub_resource type="DynamicFont" id=2]
-size = 128
-outline_size = 3
+uniform float radius = 5.0;
+uniform vec4  modulate : hint_color;
+
+void fragment() {
+	vec2 ps = TEXTURE_PIXEL_SIZE;
+
+	vec4 shadow = texture(TEXTURE, UV + vec2(-radius, -radius) * ps);
+
+	shadow += texture(TEXTURE, UV + vec2(-radius, 0.0) * ps);
+	shadow += texture(TEXTURE, UV + vec2(-radius, radius) * ps);
+	shadow += texture(TEXTURE, UV + vec2(0.0, -radius) * ps);
+	shadow += texture(TEXTURE, UV + vec2(0.0, radius) * ps);
+	shadow += texture(TEXTURE, UV + vec2(radius, -radius) * ps);
+	shadow += texture(TEXTURE, UV + vec2(radius, 0.0) * ps);
+	shadow += texture(TEXTURE, UV + vec2(radius, radius) * ps);
+	shadow /= 8.0;
+	shadow *= modulate;
+
+	vec4 col = texture(TEXTURE, UV);
+	COLOR = mix(shadow, col, col.a);
+}"
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = SubResource( 1 )
+shader_param/radius = 5.0
+shader_param/modulate = null
+
+[sub_resource type="DynamicFont" id=3]
+size = 260
 outline_color = Color( 0, 0, 0, 1 )
 use_filter = true
-font_data = ExtResource( 8 )
+font_data = ExtResource( 2 )
 
-[node name="GameTimeOut" type="AnimatedSprite"]
+[sub_resource type="Shader" id=4]
+code = "shader_type canvas_item;
+render_mode blend_mix;
+
+uniform float radius = 5.0;
+uniform vec4  modulate : hint_color;
+
+void fragment() {
+	vec2 ps = TEXTURE_PIXEL_SIZE;
+
+	vec4 shadow = texture(TEXTURE, UV + vec2(-radius, -radius) * ps);
+
+	shadow += texture(TEXTURE, UV + vec2(-radius, 0.0) * ps);
+	shadow += texture(TEXTURE, UV + vec2(-radius, radius) * ps);
+	shadow += texture(TEXTURE, UV + vec2(0.0, -radius) * ps);
+	shadow += texture(TEXTURE, UV + vec2(0.0, radius) * ps);
+	shadow += texture(TEXTURE, UV + vec2(radius, -radius) * ps);
+	shadow += texture(TEXTURE, UV + vec2(radius, 0.0) * ps);
+	shadow += texture(TEXTURE, UV + vec2(radius, radius) * ps);
+	shadow /= 8.0;
+	shadow *= modulate;
+
+	vec4 col = texture(TEXTURE, UV);
+	COLOR = mix(shadow, col, col.a);
+}"
+
+[sub_resource type="ShaderMaterial" id=5]
+shader = SubResource( 4 )
+shader_param/radius = 5.0
+shader_param/modulate = null
+
+[sub_resource type="SpriteFrames" id=6]
+animations = [ {
+"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ) ],
+"loop": false,
+"name": "countdown",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 6 ), ExtResource( 5 ), ExtResource( 4 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "win",
+"speed": 12.0
+}, {
+"frames": [ ExtResource( 7 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 8 ), ExtResource( 8 ), ExtResource( 8 ), ExtResource( 10 ) ],
+"loop": false,
+"name": "explode",
+"speed": 16.0
+} ]
+
+[sub_resource type="Animation" id=7]
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("TimeLeft:rect_rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 10.0, 0.0 ]
+}
+
+[node name="GameTimeOut" type="Node2D"]
 position = Vector2( 235.402, 848.428 )
 scale = Vector2( 0.5, 0.5 )
-frames = SubResource( 1 )
-animation = "countdown"
+
+[node name="Fondo" type="Sprite" parent="."]
+material = SubResource( 2 )
+position = Vector2( -313.87, 510.039 )
+rotation = -0.874754
+scale = Vector2( 0.571202, -0.943088 )
+texture = ExtResource( 1 )
 
 [node name="TimeLeft" type="Label" parent="."]
-margin_left = 205.977
-margin_top = 98.0842
-margin_right = 742.977
-margin_bottom = 263.084
-custom_fonts/font = SubResource( 2 )
-text = "[TIMELEFT]"
+margin_left = -157.449
+margin_top = 49.8615
+margin_right = 379.551
+margin_bottom = 382.862
+rect_pivot_offset = Vector2( 281.112, 179.501 )
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0.219608, 0.207843, 0.160784, 1 )
+text = "0"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="FishCountDown" type="AnimatedSprite" parent="."]
+material = SubResource( 5 )
+position = Vector2( -196.169, 88.2759 )
+frames = SubResource( 6 )
+animation = "win"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "shakeNumber"
+anims/shakeNumber = SubResource( 7 )
+
+[node name="Explode" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 12 )
+
+[node name="Inflate" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 13 )
+
+[node name="Pressed" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 14 )
+
+[node name="Lose" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 15 )

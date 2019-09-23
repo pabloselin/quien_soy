@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=34 format=2]
 
 [ext_resource path="res://TransitionScene.gd" type="Script" id=1]
 [ext_resource path="res://sceneBackgrounds/Playa.tscn" type="PackedScene" id=2]
@@ -23,10 +23,17 @@
 [ext_resource path="res://gfx/objects/quitasol.png" type="Texture" id=21]
 [ext_resource path="res://gfx/objects/triciclo_arriba.png" type="Texture" id=22]
 [ext_resource path="res://gfx/objects/planta.png" type="Texture" id=23]
+[ext_resource path="res://gfx/masks/rectangle.png" type="Texture" id=24]
+[ext_resource path="res://fonts/SHARKBAIT 2.ttf" type="DynamicFontData" id=25]
+[ext_resource path="res://fonts/GooeyDrippySticky.ttf" type="DynamicFontData" id=26]
+[ext_resource path="res://guias/Skaty.tscn" type="PackedScene" id=27]
+[ext_resource path="res://guias/Malku.tscn" type="PackedScene" id=28]
+[ext_resource path="res://guias/Surf.tscn" type="PackedScene" id=29]
+[ext_resource path="res://guias/Flecha.tscn" type="PackedScene" id=30]
 
 [sub_resource type="Animation" id=1]
 resource_name = "CameraTravelling"
-length = 10.0
+length = 18.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("Camera2D:position")
 tracks/0/interp = 1
@@ -183,6 +190,74 @@ tracks/12/keys = {
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
+tracks/13/type = "value"
+tracks/13/path = NodePath("Titulo/FondoCirculo:scale")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0, 12.1, 12.8, 13.2, 13.8, 14.1, 14.6, 15, 15.5, 15.8, 16.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1.48 ), Vector2( 1, 1.48 ), Vector2( 13, 15.3999 ), Vector2( 13, 15.3999 ), Vector2( 13, 15.3999 ), Vector2( 13, 15.3999 ), Vector2( 13, 15.3999 ), Vector2( 13, 15.3999 ), Vector2( 13, 15.3999 ), Vector2( 13, 15.3999 ), Vector2( 13, 15.3999 ) ]
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath("Titulo/FondoCirculo:modulate")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0, 12.1, 12.6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
+}
+tracks/15/type = "value"
+tracks/15/path = NodePath("Titulo/Mision:modulate")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/keys = {
+"times": PoolRealArray( 0, 12.8, 13.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/16/type = "value"
+tracks/16/path = NodePath("Titulo/Personajes:modulate")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/keys = {
+"times": PoolRealArray( 0, 13.2, 13.9 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/17/type = "value"
+tracks/17/path = NodePath("Titulo:rotation_degrees")
+tracks/17/interp = 2
+tracks/17/loop_wrap = true
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/keys = {
+"times": PoolRealArray( 0, 15.2, 15.3, 17.6, 17.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.0, 180.0, 180.0, 0.0 ]
+}
+
+[sub_resource type="DynamicFont" id=2]
+size = 300
+font_data = ExtResource( 25 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 230
+font_data = ExtResource( 26 )
 
 [node name="TransitionScene" type="Control"]
 anchor_right = 1.0
@@ -201,16 +276,17 @@ autoplay = true
 [node name="Basuras" type="Node2D" parent="."]
 
 [node name="Basura1" type="Sprite" parent="Basuras"]
-position = Vector2( 971.425, 1501.11 )
+position = Vector2( 971, 1501 )
 scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 4 )
 
 [node name="Basura2" type="Sprite" parent="Basuras"]
-position = Vector2( 1812.45, 192.163 )
+position = Vector2( 2819.33, -208.537 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 5 )
 
 [node name="Basura3" type="Sprite" parent="Basuras"]
+modulate = Color( 1, 1, 1, 0 )
 position = Vector2( 1951, 508.773 )
 texture = ExtResource( 6 )
 
@@ -221,24 +297,25 @@ scale = Vector2( 0.4, 0.4 )
 texture = ExtResource( 7 )
 
 [node name="Basura5" type="Sprite" parent="Basuras"]
-position = Vector2( 904.018, 151.37 )
+position = Vector2( 897.874, -400 )
 scale = Vector2( 0.6, 0.6 )
 texture = ExtResource( 8 )
 
 [node name="Basura6" type="Sprite" parent="Basuras"]
-position = Vector2( 112.603, 661.268 )
+position = Vector2( -452.818, 589.168 )
 rotation = 0.401426
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 9 )
 
 [node name="Basura7" type="Sprite" parent="Basuras"]
-position = Vector2( 1435.81, 123.309 )
+position = Vector2( 1389.35, -300 )
 rotation = 0.401426
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 10 )
 
 [node name="MiniBasuras" type="Node2D" parent="Basuras"]
 editor/display_folded = true
+modulate = Color( 1, 1, 1, 0 )
 
 [node name="MiniBasura" type="Sprite" parent="Basuras/MiniBasuras"]
 position = Vector2( 459.167, 808.286 )
@@ -274,9 +351,9 @@ scale = Vector2( 0.4, 0.4 )
 texture = ExtResource( 14 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( 1046.49, 564.579 )
+position = Vector2( 806.819, 657.083 )
 current = true
-zoom = Vector2( 1.2, 1.2 )
+zoom = Vector2( 0.6, 0.6 )
 
 [node name="CamaraPlaya" type="AnimationPlayer" parent="."]
 autoplay = "CameraTravelling"
@@ -284,6 +361,7 @@ anims/CameraTravelling = SubResource( 1 )
 
 [node name="Moscas" type="Node2D" parent="."]
 editor/display_folded = true
+modulate = Color( 1, 1, 1, 0 )
 
 [node name="Mosquita" parent="Moscas" instance=ExtResource( 15 )]
 position = Vector2( 738.209, 252.953 )
@@ -411,4 +489,57 @@ texture = ExtResource( 22 )
 position = Vector2( 342.122, 261.707 )
 rotation = 0.785398
 texture = ExtResource( 23 )
+
+[node name="Titulo" type="Sprite" parent="."]
+position = Vector2( 1077.75, 577.673 )
+scale = Vector2( 0.08, 0.08 )
+
+[node name="FondoCirculo" type="Sprite" parent="Titulo"]
+modulate = Color( 0, 0, 0, 0 )
+position = Vector2( -83.6113, -30.6738 )
+scale = Vector2( 1, 1.48 )
+texture = ExtResource( 24 )
+
+[node name="Mision" type="Label" parent="Titulo"]
+modulate = Color( 0, 0, 0, 0 )
+light_mask = 2
+margin_left = -4358.63
+margin_top = -5159.86
+margin_right = -3479.63
+margin_bottom = -4858.86
+rect_rotation = 180.0
+rect_scale = Vector2( -8.63829, -8.63829 )
+custom_fonts/font = SubResource( 2 )
+text = "MISION"
+align = 1
+
+[node name="Limpieza" type="Label" parent="Titulo/Mision"]
+light_mask = 2
+margin_left = -928.114
+margin_top = 277.407
+margin_right = 1938.89
+margin_bottom = 729.407
+custom_fonts/font = SubResource( 3 )
+text = "LIMPIEZA DE PLAYA"
+align = 1
+
+[node name="Personajes" type="Node2D" parent="Titulo"]
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( -10746.9, -6906.19 )
+
+[node name="Skaty" parent="Titulo/Personajes" instance=ExtResource( 27 )]
+position = Vector2( 4474.93, 10782.1 )
+scale = Vector2( 4, 4 )
+
+[node name="Malku" parent="Titulo/Personajes" instance=ExtResource( 28 )]
+position = Vector2( 8844.15, 10570.7 )
+scale = Vector2( 5, 5 )
+
+[node name="Surf" parent="Titulo/Personajes" instance=ExtResource( 29 )]
+position = Vector2( 12649.6, 10993.5 )
+scale = Vector2( 4, 4 )
+
+[node name="Flecha" parent="Titulo/Personajes" instance=ExtResource( 30 )]
+position = Vector2( 16666.5, 10641.2 )
+scale = Vector2( 5, 5 )
 [connection signal="timeout" from="SceneDuration" to="." method="_on_SceneDuration_timeout"]

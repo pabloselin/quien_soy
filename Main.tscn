@@ -1,20 +1,142 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Main.gd" type="Script" id=1]
 [ext_resource path="res://sceneBackgrounds/AnimatedTileBackground.tscn" type="PackedScene" id=2]
-[ext_resource path="res://sfx/bgm/aceleracion.ogg" type="AudioStream" id=3]
+[ext_resource path="res://ui/MiniGameFrame.tscn" type="PackedScene" id=3]
+[ext_resource path="res://gfx/bgs/cuarto.png" type="Texture" id=4]
+[ext_resource path="res://fonts/JFWilwod.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://sfx/bgm/huayno150.ogg" type="AudioStream" id=6]
+[ext_resource path="res://sfx/bgm/aceleracion.ogg" type="AudioStream" id=7]
+[ext_resource path="res://fonts/funnydeath.otf" type="DynamicFontData" id=8]
+
+[sub_resource type="DynamicFont" id=1]
+size = 60
+outline_size = 4
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 60
+outline_size = 4
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = ExtResource( 8 )
 
 [node name="Main" type="Node"]
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_horizontal_guides_": [ 540.847 ],
+"_edit_vertical_guides_": [ 1080.66 ]
+}
 
 [node name="Fondo" parent="." instance=ExtResource( 2 )]
 
-[node name="Camera2D" type="Camera2D" parent="."]
-anchor_mode = 0
-current = true
-
 [node name="CameraTween" type="Tween" parent="."]
 
-[node name="Acelerate" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 3 )
+[node name="MiniGameFrame" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1563.69, 802.846 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="MiniGameFrame2" parent="." instance=ExtResource( 3 )]
+position = Vector2( 482.176, 806.641 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="MiniGameFrame3" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1552.3, 214.655 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="MiniGameFrame4" parent="." instance=ExtResource( 3 )]
+position = Vector2( 504.945, 195.681 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 531.269, 307.377 )
+anchor_mode = 0
+current = true
+zoom = Vector2( 0.5, 0.5 )
+
+[node name="RefSquares" type="Node2D" parent="."]
+editor/display_folded = true
+visible = false
+
+[node name="Cuarto" type="Sprite" parent="RefSquares"]
+modulate = Color( 0.721569, 0.227451, 0.227451, 1 )
+position = Vector2( 542.654, 269.43 )
+texture = ExtResource( 4 )
+
+[node name="Cuarto2" type="Sprite" parent="RefSquares"]
+modulate = Color( 0.34902, 0.721569, 0.227451, 1 )
+position = Vector2( 1624.17, 273.224 )
+texture = ExtResource( 4 )
+
+[node name="Cuarto3" type="Sprite" parent="RefSquares"]
+modulate = Color( 0.227451, 0.317647, 0.721569, 1 )
+position = Vector2( 1620.37, 815.878 )
+texture = ExtResource( 4 )
+
+[node name="Cuarto4" type="Sprite" parent="RefSquares"]
+modulate = Color( 0.721569, 0.576471, 0.227451, 1 )
+position = Vector2( 542.654, 815.878 )
+texture = ExtResource( 4 )
+
+[node name="PlayerName" type="Label" parent="."]
+visible = false
+margin_left = 796.904
+margin_top = 125.228
+margin_right = 1253.9
+margin_bottom = 203.228
+rect_rotation = 180.0
+custom_fonts/font = SubResource( 1 )
+text = "PLAYERNAME"
+uppercase = true
+
+[node name="PlayerName2" type="Label" parent="."]
+visible = false
+margin_left = 1825.29
+margin_top = 117.638
+margin_right = 2282.29
+margin_bottom = 195.638
+rect_rotation = 180.0
+custom_fonts/font = SubResource( 1 )
+text = "PLAYERNAME"
+uppercase = true
+
+[node name="PlayerName3" type="Label" parent="."]
+visible = false
+margin_left = 326.351
+margin_top = 922.131
+margin_right = 783.351
+margin_bottom = 1000.13
+custom_fonts/font = SubResource( 1 )
+text = "PLAYERNAME"
+uppercase = true
+
+[node name="PlayerName4" type="Label" parent="."]
+visible = false
+margin_left = 1407.86
+margin_top = 922.131
+margin_right = 1864.86
+margin_bottom = 1000.13
+custom_fonts/font = SubResource( 1 )
+text = "PLAYERNAME"
+uppercase = true
+
+[node name="Sonidos" type="Node" parent="."]
+
+[node name="AvatarPrompt" type="AudioStreamPlayer" parent="Sonidos"]
+stream = ExtResource( 6 )
+
+[node name="Acelerate" type="AudioStreamPlayer" parent="Sonidos"]
+stream = ExtResource( 7 )
+
+[node name="GamePrompt" type="Label" parent="."]
+margin_left = 167.416
+margin_top = 289.391
+margin_right = 2010.42
+margin_bottom = 457.391
+custom_fonts/font = SubResource( 2 )
+text = "[CURRENTGAMEMODE]"
+align = 1
+valign = 1
 [connection signal="tween_all_completed" from="CameraTween" to="." method="_on_CameraTween_tween_all_completed"]

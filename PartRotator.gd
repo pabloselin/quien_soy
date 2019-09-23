@@ -15,7 +15,9 @@ export var curpart = "cabeza"
 onready var timerSwitch = $Switch
 onready var timerParts = $ChangePart
 var switchTime = 0.3
-var partChange = 5
+var partChange = 10
+var particleTime = 1
+
 
 func _ready():
 	timerSwitch.start(switchTime)
@@ -35,7 +37,7 @@ func switchPart(part):
 	
 	var scene = arrparts[part][currentIndex]
 	currentInstance = scene.instance()
-	add_child(currentInstance)
+	$PartZone.add_child(currentInstance)
 	$SoundChange.play()
 	$curpart.text = str(currentIndex)
 	if currentIndex + 1 < arrparts[part].size():
@@ -46,8 +48,10 @@ func switchPart(part):
 func registerChosenPart(partIndex):
 	#$curpart.text = str(partIndex)
 	curPlayerProps[part2Index[currentPart]] = partIndex - 1
-	$PickPart.play()
+	$PickPart.play(0.89)
 	emit_signal("registeredPart")
+	$Click.emitting = true
+	$ParticleTimer.start(particleTime)
 	nextPartsGroup()
 
 func nextPartsGroup():
@@ -81,3 +85,6 @@ func _on_Switch_timeout():
 
 func _on_ChangePart_timeout():
 	nextPartsGroup()
+
+func _on_ParticleTimer_timeout():
+	$Click.emitting = false

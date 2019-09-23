@@ -3,19 +3,30 @@ extends Node
 onready var camara = $Camera2D
 onready var tween = $CameraTween
 var isPlaying = false
+var playerNames = []
 
 func _ready():
 	#Shuffle again the players
 	Utils.randomizePlayersOrder()
+	Utils.allPlayersHaveAvatars()
 	var player = Utils.getPlayerTurn()
 	var playerTurns = preload("res://PlayerTurns.tscn").instance()
 	var playerPrompt = preload("res://PlayerPrompt.tscn").instance()
-	$Acelerate.play()
+	playerNames = [GameVars.playerProps["player1"]["name"], GameVars.playerProps["player2"]["name"] ,GameVars.playerProps["player3"]["name"], GameVars.playerProps["player4"]["name"]]
+	putPlayerNames()
+	
+	if GameVars.transitionType == "avatar":
+		$Sonidos/AvatarPrompt.play()
+		$GamePrompt.text = "Crea a tu jugador"
+	elif GameVars.transitionType == "minigame":
+		$Sonidos/Acelerate.play()
+		$GamePrompt.text = "A jugar!"
+	
 	playerPrompt.init(player)
 	playerTurns.init(player)
 	add_child(playerTurns)
 	add_child(playerPrompt)
-	$Fondo.modulate = GameVars.playerProps[player]["color"]
+	$Fondo.modulate = GameVars.playerProps[player]["color"]["value"]
 	#zoomToMain()
 	yield(get_tree().create_timer(2), "timeout")
 	zoomToPlayer(player)
@@ -23,8 +34,8 @@ func _ready():
 	
 # Zooms to selected player position
 func zoomToPlayer(player):
-	tween.interpolate_property(camara, "zoom", Vector2(1, 1), GameVars.activePlayerZoom, 0.7, Tween.TRANS_LINEAR, Tween.EASE_IN)
-	tween.interpolate_property(camara, "position", camara.position, GameVars.playerPositions[player], 0.3, Tween.TRANS_LINEAR, Tween.EASE_IN)
+	#tween.interpolate_property(camara, "zoom", Vector2(1, 1), GameVars.activePlayerZoom, 0.7, Tween.TRANS_LINEAR, Tween.EASE_IN)
+	tween.interpolate_property(camara, "position", camara.position, GameVars.playerPositions[player], 0.6, Tween.TRANS_LINEAR, Tween.EASE_IN)
 	tween.start()
 	
 # Zooms back to main view	
@@ -42,6 +53,13 @@ func _on_CameraTween_tween_all_completed():
 	else:
 		get_tree().change_scene("res://AvatarRoulette.tscn")
 
+func putPlayerNames():
+	var playerLabels = [$PlayerName, $PlayerName2, $PlayerName3, $PlayerName4]
+	
+	for i in playerNames.size():
+		if playerNames[i] != null:
+			playerLabels[i].text = playerNames[i]
+			playerLabels[i].visible = true
 
 func _on_Timer_timeout():
 	pass
