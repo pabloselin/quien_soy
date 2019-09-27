@@ -1,59 +1,27 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=20 format=2]
 
-[ext_resource path="res://gfx/bgs/paper_lines_02.jpg" type="Texture" id=1]
-[ext_resource path="res://fonts/GooeyDrippySticky.ttf" type="DynamicFontData" id=2]
-[ext_resource path="res://gfx/timer/timer_00.png" type="Texture" id=3]
-[ext_resource path="res://gfx/timer/timer_01.png" type="Texture" id=4]
-[ext_resource path="res://gfx/timer/timer_02.png" type="Texture" id=5]
-[ext_resource path="res://gfx/timer/timer_03.png" type="Texture" id=6]
-[ext_resource path="res://gfx/timer/timer_04.png" type="Texture" id=7]
-[ext_resource path="res://gfx/timer/timer_05.png" type="Texture" id=8]
-[ext_resource path="res://gfx/timer/timer_06.png" type="Texture" id=9]
-[ext_resource path="res://gfx/timer/timer_05c.png" type="Texture" id=10]
-[ext_resource path="res://gfx/timer/timer_05b.png" type="Texture" id=11]
-[ext_resource path="res://sfx/globoexplotando02.wav" type="AudioStream" id=12]
-[ext_resource path="res://sfx/inflando02.wav" type="AudioStream" id=13]
-[ext_resource path="res://sfx/exito3.wav" type="AudioStream" id=14]
-[ext_resource path="res://sfx/derrota3.wav" type="AudioStream" id=15]
+[ext_resource path="res://fonts/GooeyDrippySticky.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://gfx/timer/timer_00.png" type="Texture" id=2]
+[ext_resource path="res://gfx/timer/timer_01.png" type="Texture" id=3]
+[ext_resource path="res://gfx/timer/timer_02.png" type="Texture" id=4]
+[ext_resource path="res://gfx/timer/timer_03.png" type="Texture" id=5]
+[ext_resource path="res://gfx/timer/timer_04.png" type="Texture" id=6]
+[ext_resource path="res://gfx/timer/timer_05c.png" type="Texture" id=7]
+[ext_resource path="res://gfx/timer/timer_05b.png" type="Texture" id=8]
+[ext_resource path="res://gfx/timer/timer_05.png" type="Texture" id=9]
+[ext_resource path="res://gfx/timer/timer_06.png" type="Texture" id=10]
+[ext_resource path="res://sfx/globoexplotando02.wav" type="AudioStream" id=11]
+[ext_resource path="res://sfx/inflando02.wav" type="AudioStream" id=12]
+[ext_resource path="res://sfx/exito4.wav" type="AudioStream" id=13]
+[ext_resource path="res://sfx/derrota3.wav" type="AudioStream" id=14]
 
-[sub_resource type="Shader" id=1]
-code = "shader_type canvas_item;
-render_mode blend_mix;
-
-uniform float radius = 5.0;
-uniform vec4  modulate : hint_color;
-
-void fragment() {
-	vec2 ps = TEXTURE_PIXEL_SIZE;
-
-	vec4 shadow = texture(TEXTURE, UV + vec2(-radius, -radius) * ps);
-
-	shadow += texture(TEXTURE, UV + vec2(-radius, 0.0) * ps);
-	shadow += texture(TEXTURE, UV + vec2(-radius, radius) * ps);
-	shadow += texture(TEXTURE, UV + vec2(0.0, -radius) * ps);
-	shadow += texture(TEXTURE, UV + vec2(0.0, radius) * ps);
-	shadow += texture(TEXTURE, UV + vec2(radius, -radius) * ps);
-	shadow += texture(TEXTURE, UV + vec2(radius, 0.0) * ps);
-	shadow += texture(TEXTURE, UV + vec2(radius, radius) * ps);
-	shadow /= 8.0;
-	shadow *= modulate;
-
-	vec4 col = texture(TEXTURE, UV);
-	COLOR = mix(shadow, col, col.a);
-}"
-
-[sub_resource type="ShaderMaterial" id=2]
-shader = SubResource( 1 )
-shader_param/radius = 5.0
-shader_param/modulate = null
-
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=1]
 size = 260
 outline_color = Color( 0, 0, 0, 1 )
 use_filter = true
-font_data = ExtResource( 2 )
+font_data = ExtResource( 1 )
 
-[sub_resource type="Shader" id=4]
+[sub_resource type="Shader" id=2]
 code = "shader_type canvas_item;
 render_mode blend_mix;
 
@@ -79,30 +47,30 @@ void fragment() {
 	COLOR = mix(shadow, col, col.a);
 }"
 
-[sub_resource type="ShaderMaterial" id=5]
-shader = SubResource( 4 )
+[sub_resource type="ShaderMaterial" id=3]
+shader = SubResource( 2 )
 shader_param/radius = 5.0
 shader_param/modulate = null
 
-[sub_resource type="SpriteFrames" id=6]
+[sub_resource type="SpriteFrames" id=4]
 animations = [ {
-"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ) ],
-"loop": false,
-"name": "countdown",
-"speed": 8.0
-}, {
-"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 6 ), ExtResource( 5 ), ExtResource( 4 ), ExtResource( 3 ) ],
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 5 ), ExtResource( 4 ), ExtResource( 3 ), ExtResource( 2 ) ],
 "loop": true,
 "name": "win",
 "speed": 12.0
 }, {
-"frames": [ ExtResource( 7 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 8 ), ExtResource( 8 ), ExtResource( 8 ), ExtResource( 10 ) ],
+"frames": [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 9 ), ExtResource( 9 ), ExtResource( 7 ) ],
 "loop": false,
 "name": "explode",
 "speed": 16.0
+}, {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 9 ), ExtResource( 10 ) ],
+"loop": false,
+"name": "countdown",
+"speed": 8.0
 } ]
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=5]
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("TimeLeft:rect_rotation")
@@ -121,44 +89,37 @@ tracks/0/keys = {
 position = Vector2( 235.402, 848.428 )
 scale = Vector2( 0.5, 0.5 )
 
-[node name="Fondo" type="Sprite" parent="."]
-material = SubResource( 2 )
-position = Vector2( -313.87, 510.039 )
-rotation = -0.874754
-scale = Vector2( 0.571202, -0.943088 )
-texture = ExtResource( 1 )
-
 [node name="TimeLeft" type="Label" parent="."]
 margin_left = -157.449
 margin_top = 49.8615
 margin_right = 379.551
 margin_bottom = 382.862
 rect_pivot_offset = Vector2( 281.112, 179.501 )
-custom_fonts/font = SubResource( 3 )
-custom_colors/font_color = Color( 0.219608, 0.207843, 0.160784, 1 )
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "0"
 align = 1
 valign = 1
 autowrap = true
 
 [node name="FishCountDown" type="AnimatedSprite" parent="."]
-material = SubResource( 5 )
+material = SubResource( 3 )
 position = Vector2( -196.169, 88.2759 )
-frames = SubResource( 6 )
+frames = SubResource( 4 )
 animation = "win"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "shakeNumber"
-anims/shakeNumber = SubResource( 7 )
+anims/shakeNumber = SubResource( 5 )
 
 [node name="Explode" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 12 )
+stream = ExtResource( 11 )
 
 [node name="Inflate" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 12 )
+
+[node name="Success" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 13 )
 
-[node name="Pressed" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 14 )
-
 [node name="Lose" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 15 )
+stream = ExtResource( 14 )

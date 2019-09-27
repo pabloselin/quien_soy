@@ -53,14 +53,19 @@ func startMiniGame():
 	$GameTimeOut/Inflate.play()
 	$GameTimeOut/FishCountDown.play("win")
 
+func  chooseWinAnimation():
+	var personajes = ["ShowMalku", "ShowSkaty", "ShowSurf", "ShowFlecha"]
+	randomize()
+	return personajes[randi() % personajes.size()]
+
 func endMiniGame():
 	$MiniGameZone.visible = false
 	$MiniGameZone.queue_free()
 	$Timer.stop()
 	if success == true:
 		$GameTimeOut/FishCountDown.play("win")	
-		$GameTimeOut/Pressed.play()
-		$ShowPersonaje.play("Show")
+		$GameTimeOut/Success.play()
+		$ShowPersonaje.play(chooseWinAnimation())
 		add_win()
 	else:
 		$GameTimeOut/FishCountDown.play("explode")
@@ -69,7 +74,9 @@ func endMiniGame():
 		$GameTimeOut/Explode.play()
 		add_lose()
 	
-	yield($ShowPersonaje, "animation_finished")	
+	yield($ShowPersonaje, "animation_finished")
+	$GameTimeOut.visible = false
+	$CurrentAvatar.visible = false
 	$UnfoldBG.play("unfold", true)
 	yield(get_tree().create_timer(1), "timeout")
 	

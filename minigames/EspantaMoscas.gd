@@ -40,11 +40,17 @@ func _on_DePie_pressed():
 	pressed = true
 	$AnimationPlayer.play("ShakeThing")
 	$GiraMatraca.play()
+	$Sonido.emitting = true
+	$Sonido2.emitting = true
+	$Matraca.modulate = Color(0, 0, 1)
 
 func _on_DePie_released():
 	pressed = false
 	$AnimationPlayer.stop()
 	$GiraMatraca.stop()
+	$Sonido.emitting = false
+	$Sonido2.emitting = false
+	$Matraca.modulate = Color(1, 1, 1)
 
 func _on_AltTimer_timeout():
 	emit_signal("minigamewin")

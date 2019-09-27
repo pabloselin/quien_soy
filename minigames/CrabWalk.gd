@@ -28,5 +28,6 @@ func chomp():
 		$Comiendo.play()
 		eaten = true
 		arepa.queue_free()
+		yield($Comiendo,"finished")
 		emit_signal("minigamewin")
 		

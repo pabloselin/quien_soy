@@ -70,7 +70,7 @@ func isGameFinished():
 	print("checkfinish")
 	for i in activePlayers.size():
 		print(str(getPlayerGamesPlayed(activePlayers[i])))
-		if getPlayerGamesPlayed(activePlayers[i]) == GameVars.gamesPerPlayer:
+		if getPlayerGamesPlayed(activePlayers[i]) >= GameVars.gamesPerPlayer:
 			playersFinished += 1
 	if playersFinished == activePlayers.size():
 		return true

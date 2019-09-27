@@ -1,10 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://minigames/TableDog.gd" type="Script" id=1]
 [ext_resource path="res://sceneBackgrounds/Ola.tscn" type="PackedScene" id=2]
 [ext_resource path="res://objects/DogSurf.tscn" type="PackedScene" id=3]
-[ext_resource path="res://gfx/masks/minigamemask.png" type="Texture" id=4]
-[ext_resource path="res://sfx/bgm/huayno.ogg" type="AudioStream" id=5]
+[ext_resource path="res://sfx/bgm/huayno.ogg" type="AudioStream" id=4]
 
 [node name="TableDog" type="Node2D"]
 script = ExtResource( 1 )
@@ -36,15 +35,8 @@ position = Vector2( 650, 380 )
 [node name="DogSurf" parent="." instance=ExtResource( 3 )]
 position = Vector2( 1130, 570 )
 
-[node name="Light2D" type="Light2D" parent="."]
-light_mask = 2
-position = Vector2( 1080, 530 )
-texture = ExtResource( 4 )
-mode = 3
-range_item_cull_mask = 2
-
 [node name="BGM" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 5 )
+stream = ExtResource( 4 )
 autoplay = true
 
 [node name="AlmostCountDown" type="Timer" parent="."]

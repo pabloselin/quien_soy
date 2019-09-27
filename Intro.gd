@@ -5,6 +5,7 @@ var chars = [preload("res://guias/Surf.tscn"), preload("res://guias/Skaty.tscn")
 
 func _ready():
 	$AnimationPlayer.play("Tilt")
+	$VersionNumber.text = "Version " + GameVars.gameVersion
 	pickChar()
 
 func _input(event):

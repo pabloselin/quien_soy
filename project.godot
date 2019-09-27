@@ -15,7 +15,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Abya Yala"
+config/name="Quien Soy - Germina"
 run/main_scene="res://AbyaYalaWrapper.tscn"
 config/icon="res://icon.png"
 

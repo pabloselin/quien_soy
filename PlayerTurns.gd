@@ -1,4 +1,4 @@
-extends Control
+extends Node2D
 var playerObjects = {}
 
 func init(thisplayer):
@@ -7,6 +7,6 @@ func init(thisplayer):
 	var order = curplayer["order"]
 	if curobject:
 		var item = load(curobject)
-		$HBoxContainer/TurnObject.texture = item
-		$HBoxContainer/TurnObject.modulate = curplayer["color"]["value"]
-		$HBoxContainer/TurnObject.visible = true
+		$TurnObject.texture = item
+		$TurnObject.modulate = curplayer["color"]["value"]
+		$TurnObject.visible = true

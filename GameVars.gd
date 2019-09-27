@@ -1,14 +1,18 @@
 extends Node
 # Global game variables
-
+# Comentarios
+# Tortuga añadir mas obstaculos
+# Revisar la boca que habla
+var gameVersion = "0.2.6"
 var playerObjects = list_files_in_directory("res://gfx/player_objects")
 # Phone Screen Size
 var screenSize = OS.get_screen_size()
 var gameSize = Vector2(ProjectSettings.get_setting("display/window/size/width"), ProjectSettings.get_setting("display/window/size/height"))
 var activePlayerZoom = Vector2(0.5, 0.5)
 var initialZoom = Vector2(0.5, 0.5)
-var initialCameraPosition = Vector2(0, 0)
-var gamesPerPlayer = 5
+var initialCameraPosition = Vector2(gameSize.x / 2, gameSize.y / 2)
+var gamesPerPlayer = 3
+var currentPlayer = "player1"
 
 var nameList = ["suri", "kusi", "panqarita", "kurmi", "qhantati", "nayra", "allin", "pawkar", "amaru", "suni", "wara wara", "amaya", "antawara", "katari", "qhantuta", "quri", "inkillay", "urma", "kukuli", "warakusi", "wiñay wara", "qurissia", "kusirimay", "ninasisa", "achanqara", "lliwkilla", "amank'ay", "urpikusi", "shulla", "qhispisisa", "tamya", "mamadi", "bangaly", "seydou", "diarru", "fatounata", "ounar", "moussa", "djanko", "yousuf", "sekou", "fadina", "aminata"]
 
@@ -18,11 +22,16 @@ var heads = [preload("res://avatars/head/Head_01.tscn"),preload("res://avatars/h
 
 # Player positions based on screen size
 
+var qzuX = gameSize[0] / 4
+var qzuY = gameSize[1] / 4
+var xM = gameSize[0] / 16
+var yM = gameSize[1] / 16
+
 var playerPositions = {
-	"player1": Vector2(0, 0),
-	"player2": Vector2(gameSize[0] / 2, 0),
-	"player3": Vector2(0, gameSize[1] / 2),
-	"player4": Vector2(gameSize[0] / 2, gameSize[1] / 2)
+	"player1": Vector2(qzuX - xM , qzuY - yM),
+	"player2": Vector2(qzuX * 3 + xM , qzuY - yM),
+	"player3": Vector2(qzuX - xM, qzuY * 3 + yM),
+	"player4": Vector2(qzuX * 3 + xM, qzuY * 3 + yM)
 }
 
 var colors = {
@@ -136,10 +145,19 @@ var miniGames = {
 		"time": 5,
 		"scene": "res://minigames/EspantaMoscas.tscn",
 		"tile": null
+	},
+	"silbon": {
+		"time": 6,
+		"scene": "res://minigames/EspantaSilbon.tscn",
+		"tile": null
+	},
+	"foca": {
+		"time": 5,
+		"scene": "res://minigames/FocaPelota.tscn",
+		"tile": null
 	}
 }
 
-var currentPlayer = "player4"
 var playerItems = []
 var playersOrder = []
 var transitionMessage = "Put some text in the scene"

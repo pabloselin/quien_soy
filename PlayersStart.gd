@@ -1,7 +1,8 @@
-extends Node
+extends Node2D
 
 var timeToStart = 5
 var helpTime = 12
+var instructionsTime = 10
 var timerScale = 1
 var isCountDownFinished = false
 var playerOrder = 0
@@ -9,6 +10,7 @@ var playerAnimations = []
 var playerObjects = []
 var playerButtons = []
 var colorkeys = ["purple", "green", "lightblue", "red"]
+var readyToPlay = false
 var globoapretando = [preload("res://sfx/globoapretando01.wav"),preload("res://sfx/globoapretando02.wav"),preload("res://sfx/globoapretando03.wav"),preload("res://sfx/globoapretando04.wav"),preload("res://sfx/globoapretando05.wav"),preload("res://sfx/globoapretando06.wav"),preload("res://sfx/globoapretando07.wav")]
 var globoapretandores = []
 
@@ -24,19 +26,11 @@ signal player_unfolded
 signal player_folded
 
 func _ready():
-	positionPlayers()
+	#positionPlayers()
+	pass
 
 func positionPlayers():
 	# Position and rotate the players
-	player1.rotation_degrees = 180
-	player2.rotation_degrees = 180
-	
-	player1.position = GameVars.playerPositions["player1"] + Vector2(GameVars.gameSize[0] / 2, GameVars.gameSize[1] / 2)
-	player2.position = GameVars.playerPositions["player2"]	+ Vector2(GameVars.gameSize[0] / 2, GameVars.gameSize[1] / 2)
-	
-	player3.position = GameVars.playerPositions["player3"]
-	player4.position = GameVars.playerPositions["player4"]
-	
 	playerAnimations = [$Players/PlayerAnimations/Player1Animation, $Players/PlayerAnimations/Player1Animation2, $Players/PlayerAnimations/Player1Animation3, $Players/PlayerAnimations/Player1Animation4]
 	
 	playerObjects = [$Players/PlayerObjects/ObjectPlayer1, $Players/PlayerObjects/ObjectPlayer2, $Players/PlayerObjects/ObjectPlayer3, $Players/PlayerObjects/ObjectPlayer4]
@@ -52,7 +46,7 @@ func positionPlayers():
 	
 	connect("player_folded", self, "playerFolded")
 	connect("player_unfolded", self, "playerUnfolded")
-	
+	readyToPlay = true
 	for i in playerButtons.size():
 		playerButtons[i].connect("pressed", self, "playAnimationPlayer", [i])
 		playerAnimations[i].connect("animation_finished", self, "playerAssignTurn", [i])
@@ -70,8 +64,8 @@ func disableHelp():
 	
 func _input(event):
 	if event is InputEventScreenTouch:
-		disableHelp()
-		if(seconds.is_stopped()):
+		if seconds.is_stopped() and readyToPlay == true:
+			disableHelp()
 			updateLabel(str(timeToStart))
 			seconds.start(1)
 		
@@ -118,3 +112,7 @@ func _on_Seconds_timeout():
 		$Sounds/CountDown.play()
 		updateLabel(str(timeToStart))
 		timeToStart -= 1
+
+func _on_Instructivo_instructionsFinished():
+	$FadeBg.play("Fade")
+	positionPlayers()
