@@ -76,7 +76,9 @@ func isGameFinished():
 		return true
 	else:
 		return false
-		
+
+func resetPlayerProps():
+	GameVars.playerProps = GameVars.initialPlayerProps		
 				
 func buildName(player):
 	randomize()

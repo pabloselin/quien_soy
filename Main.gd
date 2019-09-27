@@ -6,22 +6,29 @@ var isPlaying = false
 var playerNames = []
 onready var gameprompt = $Container/GamePrompt
 
+var scoreStone = preload("res://ui/MiniGameStone.tscn")
+var scoreStoneWin = preload("res://ui/MiniGameStoneWin.tscn")
+var playerTurns = preload("res://PlayerTurns.tscn").instance()
+var playerPrompt = preload("res://PlayerPrompt.tscn").instance()
+
 func _ready():
 	#Shuffle again the players
 	Utils.randomizePlayersOrder()
 	Utils.allPlayersHaveAvatars()
 	var player = Utils.getPlayerTurn()
-	var playerTurns = preload("res://PlayerTurns.tscn").instance()
-	var playerPrompt = preload("res://PlayerPrompt.tscn").instance()
+	
 	playerNames = [GameVars.playerProps["player1"]["name"], GameVars.playerProps["player2"]["name"] ,GameVars.playerProps["player3"]["name"], GameVars.playerProps["player4"]["name"]]
-	putPlayerNames()
 	
 	if GameVars.transitionType == "avatar":
 		$Sonidos/AvatarPrompt.play()
 		gameprompt.text = "Crea tu avatar"
+		$PlayerNames.visible = false
 	elif GameVars.transitionType == "minigame":
 		$Sonidos/Acelerate.play()
 		gameprompt.text = "A jugar!"
+		$PlayerNames.visible = true
+		putPlayerNames()
+		putPlayerScores()
 
 	playerPrompt.init(player)
 	#playerTurns.init(player)
@@ -69,6 +76,28 @@ func putPlayerNames():
 		if playerNames[i] != null:
 			playerLabels[i].text = playerNames[i]
 			playerLabels[i].visible = true
+
+func putPlayerScores():
+	var playerScores = [$PlayerNames/Player1Container/Score, $PlayerNames/Player2Container/Score, $PlayerNames/Player3Container/Score, $PlayerNames/Player4Container/Score]
+	
+	
+	var curPlayerKey = 0
+	for player in GameVars.playerProps:
+		var wins = GameVars.playerProps[player].wins
+		var loses = GameVars.playerProps[player].loses
+			
+		if wins > 0:
+			for i in range(wins):
+				print("addwin")
+				var scoreStoneInstance = scoreStoneWin.instance()
+				playerScores[curPlayerKey].add_child(scoreStoneInstance)
+		if loses > 0:
+			for i in range(loses):
+				print("addlose")
+				var scoreStoneInstance = scoreStone.instance()
+				playerScores[curPlayerKey].add_child(scoreStoneInstance)
+		
+		curPlayerKey += 1						
 
 func _on_Timer_timeout():
 	pass

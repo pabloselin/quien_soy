@@ -4,15 +4,14 @@ var charBgms = [preload("res://sfx/surf.ogg"), preload("res://sfx/skaty.ogg"), p
 var chars = [preload("res://guias/Surf.tscn"), preload("res://guias/Skaty.tscn"), preload("res://guias/Malku.tscn"), preload("res://guias/Flecha.tscn")]
 
 func _ready():
+	Utils.resetPlayerProps()
 	$AnimationPlayer.play("Tilt")
 	$VersionNumber.text = "Version " + GameVars.gameVersion
 	pickChar()
 
 func _input(event):
-	if event is InputEventScreenTouch:
-		GameVars.transitionMessage = "Jugadores"
-		GameVars.nextScene = "res://PlayersStart.tscn"
-		get_tree().change_scene("res://TransitionScene.tscn")
+	pass
+		
 		
 func pickChar():
 	randomize()
@@ -23,3 +22,12 @@ func pickChar():
 	$PersonajeInv.add_child(charInstance2)
 	$Personaje/PersonajeBGM.stream = charBgms[randChar]
 	$Personaje/PersonajeBGM.play()
+
+func _on_StartButton_pressed():
+	GameVars.nextScene = "res://PlayersStart.tscn"
+	get_tree().change_scene("res://TransitionScene.tscn")
+	
+	
+
+func _on_CreditsButton_pressed():
+	get_tree().change_scenes("res://Creditos.tscn")

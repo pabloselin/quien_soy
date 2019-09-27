@@ -26,7 +26,7 @@ signal player_unfolded
 signal player_folded
 
 func _ready():
-	#positionPlayers()
+	positionPlayers()
 	pass
 
 func positionPlayers():
@@ -41,7 +41,9 @@ func positionPlayers():
 	
 	playerButtons = [player1, player2, player3, player4]
 	
-	$Ayudas/MoveHand.play("moveAround")
+	if ayudas.get_ref():
+		$Ayudas/MoveHand.play("moveAround")
+	
 	$TimerUI/TimerPez/AnimationPlayer.play("Shake")
 	
 	connect("player_folded", self, "playerFolded")
@@ -52,6 +54,9 @@ func positionPlayers():
 		playerAnimations[i].connect("animation_finished", self, "playerAssignTurn", [i])
 
 func playerAssignTurn(playerkey):
+	if seconds.is_stopped():
+		seconds.start(1)
+		disableHelp()
 	playerOrder += 1
 	Utils.updatePlayerObject(playerkey, "active", true)
 	Utils.updatePlayerObject(playerkey, "order", playerOrder)
@@ -65,9 +70,7 @@ func disableHelp():
 func _input(event):
 	if event is InputEventScreenTouch:
 		if seconds.is_stopped() and readyToPlay == true:
-			disableHelp()
 			updateLabel(str(timeToStart))
-			seconds.start(1)
 		
 func playAnimationPlayer(playerkey):
 	playerAnimations[playerkey].play("unfold")
@@ -104,8 +107,8 @@ func _on_Seconds_timeout():
 			Utils.randomizePlayersOrder()
 			$Sounds/Explode.play()
 			$TimerUI/TimerPez/PezGlobo.animation = "explode"
-			yield(get_tree().create_timer(3), "timeout")
-			#get_tree().change_scene("res://PlayerTurns.tscn")
+			$Camera2D/AnimationPlayer.play("ZoomStart")
+			yield($Camera2D/AnimationPlayer, "animation_finished")
 			get_tree().change_scene("res://Main.tscn")
 	else:
 		$Sounds/CountDown.stream = globoapretando[timeToStart]
@@ -113,6 +116,16 @@ func _on_Seconds_timeout():
 		updateLabel(str(timeToStart))
 		timeToStart -= 1
 
-func _on_Instructivo_instructionsFinished():
+func startStart():
+	$Instructivo.visible = false
+	$Skip.visible = false
+	$ColorRect.visible = false
 	$FadeBg.play("Fade")
 	positionPlayers()
+
+
+func _on_Instructivo_instructionsFinished():
+	startStart()
+
+func _on_Skip_pressed():
+	startStart()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://PlayersStart.gd" type="Script" id=1]
 [ext_resource path="res://sceneBackgrounds/AnimatedTileBackground.tscn" type="PackedScene" id=2]
@@ -16,6 +16,7 @@
 [ext_resource path="res://sfx/globoexplotando02.wav" type="AudioStream" id=14]
 [ext_resource path="res://ui/TouchIt.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Instructivo.tscn" type="PackedScene" id=16]
+[ext_resource path="res://gfx/icons/next.png" type="Texture" id=17]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -104,6 +105,21 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
+[sub_resource type="Animation" id=9]
+resource_name = "ZoomStart"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:zoom")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.4, 0.6, 0.8, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 0.7, 0.7 ), Vector2( 1, 1 ), Vector2( 0.8, 0.8 ), Vector2( 1, 1 ), Vector2( 0.6, 0.6 ), Vector2( 1, 1 ) ]
+}
+
 [node name="PlayersStart" type="Node2D"]
 script = ExtResource( 1 )
 
@@ -114,21 +130,26 @@ modulate = Color( 1, 0.662745, 0, 0.235294 )
 
 [node name="Player1" type="TouchScreenButton" parent="Players"]
 modulate = Color( 0.635294, 0.192157, 1, 0 )
+position = Vector2( 462.963, 201.123 )
+scale = Vector2( 0.165477, 0.276466 )
 normal = ExtResource( 3 )
 
 [node name="Player2" type="TouchScreenButton" parent="Players"]
 modulate = Color( 0.635294, 0.192157, 1, 0 )
-position = Vector2( 1080, 0 )
+position = Vector2( 1531.58, 208.713 )
+scale = Vector2( 0.162148, 0.265599 )
 normal = ExtResource( 3 )
 
 [node name="Player3" type="TouchScreenButton" parent="Players"]
 modulate = Color( 0.635294, 0.192157, 1, 0 )
-position = Vector2( 0, 540 )
+position = Vector2( 470.552, 725.944 )
+scale = Vector2( 0.141041, 0.294282 )
 normal = ExtResource( 3 )
 
 [node name="Player4" type="TouchScreenButton" parent="Players"]
 modulate = Color( 0.635294, 0.192157, 1, 0 )
-position = Vector2( 1080, 540 )
+position = Vector2( 1533.71, 728.418 )
+scale = Vector2( 0.180692, 0.308856 )
 normal = ExtResource( 3 )
 
 [node name="PlayerAnimations" type="Node2D" parent="Players"]
@@ -229,5 +250,18 @@ position = Vector2( 1089.08, 558.24 )
 
 [node name="FadeBg" type="AnimationPlayer" parent="."]
 anims/Fade = SubResource( 8 )
+
+[node name="Skip" type="TouchScreenButton" parent="."]
+position = Vector2( 1980.87, 952.489 )
+scale = Vector2( 0.6, 0.6 )
+normal = ExtResource( 17 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 1080, 540 )
+current = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Camera2D"]
+anims/ZoomStart = SubResource( 9 )
 [connection signal="timeout" from="TimerUI/Seconds" to="." method="_on_Seconds_timeout"]
 [connection signal="instructionsFinished" from="Instructivo" to="." method="_on_Instructivo_instructionsFinished"]
+[connection signal="pressed" from="Skip" to="." method="_on_Skip_pressed"]

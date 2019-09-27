@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://minigames/FocaPelota.gd" type="Script" id=1]
 [ext_resource path="res://gfx/sprites/foca.png" type="Texture" id=2]
 [ext_resource path="res://gfx/objects/pelota.png" type="Texture" id=3]
 [ext_resource path="res://sfx/ugl.wav" type="AudioStream" id=4]
 [ext_resource path="res://gfx/bgs/vertline.png" type="Texture" id=5]
+[ext_resource path="res://ui/UIArrows.tscn" type="PackedScene" id=6]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 94.4797
@@ -81,4 +82,7 @@ shape = SubResource( 3 )
 light_mask = 2
 position = Vector2( -28.0906, 533.723 )
 texture = ExtResource( 5 )
+
+[node name="UIArrows" parent="." instance=ExtResource( 6 )]
+position = Vector2( 952.524, 893.27 )
 [connection signal="body_entered" from="Pelota" to="." method="_on_Pelota_body_entered"]

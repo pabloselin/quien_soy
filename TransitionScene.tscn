@@ -506,7 +506,6 @@ texture = ExtResource( 24 )
 [node name="Texto" type="Node2D" parent="Titulo"]
 modulate = Color( 1, 1, 1, 0 )
 position = Vector2( 20483.4, 8465.58 )
-scale = Vector2( 1, 1 )
 
 [node name="Mision" type="Label" parent="Titulo/Texto"]
 light_mask = 2

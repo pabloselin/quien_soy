@@ -11,7 +11,7 @@ var gameSize = Vector2(ProjectSettings.get_setting("display/window/size/width"),
 var activePlayerZoom = Vector2(0.5, 0.5)
 var initialZoom = Vector2(0.5, 0.5)
 var initialCameraPosition = Vector2(gameSize.x / 2, gameSize.y / 2)
-var gamesPerPlayer = 3
+var gamesPerPlayer = 5
 var currentPlayer = "player1"
 
 var nameList = ["suri", "kusi", "panqarita", "kurmi", "qhantati", "nayra", "allin", "pawkar", "amaru", "suni", "wara wara", "amaya", "antawara", "katari", "qhantuta", "quri", "inkillay", "urma", "kukuli", "warakusi", "wiñay wara", "qurissia", "kusirimay", "ninasisa", "achanqara", "lliwkilla", "amank'ay", "urpikusi", "shulla", "qhispisisa", "tamya", "mamadi", "bangaly", "seydou", "diarru", "fatounata", "ounar", "moussa", "djanko", "yousuf", "sekou", "fadina", "aminata"]
@@ -119,6 +119,8 @@ var playerProps = {
 		"loses": 0
 	}
 }
+
+var initialPlayerProps = playerProps.duplicate(true)
 
 var miniGames = {
 	"turtle": {
